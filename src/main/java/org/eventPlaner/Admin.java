@@ -21,7 +21,7 @@ private Map<String,String>admins=new HashMap<String,String>(){{
 
 
         if (!admins.containsKey(userName)) {
-            return false; // Username does not exist
+            return false;
         }
         String storedPassword = admins.get(userName);
         return storedPassword.equals(password);
