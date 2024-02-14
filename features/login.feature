@@ -9,5 +9,5 @@ Feature: Login
 
         Examples:
           |userName| password|
-          |admin1 | 123 |
-          |admin2 | 5 |
+          |abboushi| 123 |
+          |osama| 5 |

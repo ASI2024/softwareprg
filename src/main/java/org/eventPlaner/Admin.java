@@ -5,8 +5,8 @@ import java.util.Map;
 
 public class Admin {
 private Map<String,String>admins=new HashMap<String,String>(){{
-    put("admin1","123");
-    put("admin2","456");
+    put("abboushi","123");
+    put("osama","456");
 
 }};
 
