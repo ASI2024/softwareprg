@@ -13,7 +13,7 @@ public class Login {
 //    @Given("user trying to login")
 //    public void user_trying_to_login() {
 
-
+//israa
 //    }
     @When("user name and password are right {string} {string}")
     public void user_name_and_password_are_right(String string, String string2) {
