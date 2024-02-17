@@ -12,7 +12,7 @@ public class Login {
     User user=new User();
 //    @Given("user trying to login")
 //    public void user_trying_to_login() {
-
+//osama ofkljklgjfklsa
 
 //    }
     @When("user name and password are right {string} {string}")
