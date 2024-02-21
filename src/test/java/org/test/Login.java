@@ -1,18 +1,16 @@
 package org.test;
 
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.eventPlaner.User;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class Login {
     User user=new User();
 //    @Given("user trying to login")
 //    public void user_trying_to_login() {
-//osama ofkljklgjfklsa
+//osama
 
 //    }
     @When("user name and password are right {string} {string}")
