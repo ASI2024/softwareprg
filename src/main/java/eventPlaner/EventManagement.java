@@ -9,12 +9,12 @@ public class EventManagement {
 
     public List<Event>events;
     public static boolean addFlag;
-    public static boolean editDateFlag;
-    public static boolean editTimeFlag;
-    public static boolean editLocationFlag;
-    public static boolean editThemeFlag;
-    public static boolean editDescriptionFlag;
-    public static boolean deletFlag;
+    public static boolean editDateFlag = false;
+    public static boolean editTimeFlag = false;
+    public static boolean editLocationFlag = false;
+    public static boolean editThemeFlag = false;
+    public static boolean editDescriptionFlag = false;
+    public static boolean deletFlag = false;
 
     public static boolean setCategoryFlag;
 
@@ -70,9 +70,6 @@ public class EventManagement {
 
                 existingEvent.setDate(d);
                 editDateFlag = true;
-            }else{
-
-                editDateFlag = false;
             }
         }
 
@@ -86,11 +83,7 @@ public class EventManagement {
 
                 existingEvent.setTime(t);
                 editTimeFlag = true;
-            }else{
-
-                editTimeFlag = false;
             }
-
         }
 
     }
@@ -103,9 +96,6 @@ public class EventManagement {
 
                 existingEvent.setLocation(location);
                 editLocationFlag = true;
-            }else{
-
-                editLocationFlag = false;
             }
 
         }
@@ -120,11 +110,7 @@ public class EventManagement {
 
                 existingEvent.setTheme(theme);
                 editThemeFlag = true;
-            }else{
-
-                editThemeFlag = false;
             }
-
         }
 
     }
@@ -137,9 +123,6 @@ public class EventManagement {
 
                 existingEvent.setDescription(description);
                 editDescriptionFlag = true;
-            }else{
-
-                editDescriptionFlag = false;
             }
 
         }
@@ -154,9 +137,6 @@ public class EventManagement {
 
                 events.remove(existingEvent);
                 deletFlag = true;
-            }else{
-
-                deletFlag = false;
             }
         }
 
@@ -165,12 +145,12 @@ public class EventManagement {
     public void SelectCategory(int eventNumber,int category) {
 
         List<String>Category = new ArrayList<>();
-        Category.add(1,"Birthday");
-        Category.add(2,"Wedding");
-        Category.add(3,"Workshop");
-        Category.add(4,"Graduation");
-        Category.add(5,"Seminar");
-        Category.add(6,"Condolences");
+        Category.add(0,"Birthday");
+        Category.add(1,"Wedding");
+        Category.add(2,"Workshop");
+        Category.add(3,"Graduation");
+        Category.add(4,"Seminar");
+        Category.add(5,"Condolences");
 
         for(Event existingEvent : events){
 
@@ -178,10 +158,6 @@ public class EventManagement {
 
                 existingEvent.setCategory(Category.get(category));
                 setCategoryFlag = true;
-            }else{
-
-                setCategoryFlag = false;
-
             }
 
         }

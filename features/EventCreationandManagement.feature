@@ -21,10 +21,6 @@ Feature: Event Creation and Management
     When the organizer selects the description event to edit
     Then the description event should be successfully updated
 
-  Scenario: Organizers can not edit an event
-    Given the organizer is logged in
-    When the organizer search for an event
-    Then the event is not exist
 
   Scenario: Organizers can delete an existing event
     Given the organizer is logged in

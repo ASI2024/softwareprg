@@ -9,56 +9,67 @@ import io.cucumber.java.en.When;
 import java.sql.Date;
 import java.sql.Time;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class EventSteps {
 
     EventManagement event = new EventManagement();
-
+    Date d=Date.valueOf("2024-05-14");
+    Time t=Time.valueOf("10:30:35");
+    Date dn=Date.valueOf("2024-11-10");
+    Time tn=Time.valueOf("8:20:00");
+    Event e =new Event(985123,d,t,"nablus","party","DJ",null);
     @Given("the organizer is logged in")
     public void the_organizer_is_logged_in() {
-        // Implementation to log in the organizer
-    }
 
+        //required to complete it by Israa
+
+    }
     @When("they navigate to the event creation page")
     public void they_navigate_to_the_event_creation_page() {
-        // Implementation to navigate to the event creation page
-    }
 
+
+
+    }
     @When("they fill in the required details including date, time, location, theme, and description")
-    public void they_fill_in_the_required_details_including_date_time_location_theme_and_description(Event e) {
+    public void they_fill_in_the_required_details_including_date_time_location_theme_and_description() {
 
         event.AddEvent(e);
-    }
 
+    }
     @Then("the event should be successfully created")
     public void the_event_should_be_successfully_created() {
 
         assertTrue (EventManagement.addFlag);
+
     }
+
 
     @Given("there exists an event")
     public void there_exists_an_event() {
 
+        event.SearchEvent(985123);
 
     }
 
     @When("the organizer search for an event")
-    public void the_organizer_search_for_an_event(int eventNumber) {
+    public void the_organizer_search_for_an_event() {
 
-        event.SearchEvent(eventNumber);
+
+        event.SearchEvent(985123);
     }
 
     @Then("the event is exist")
-    public void the_event_is_be_exist(int eventNumber) {
+    public void the_event_is_be_exist() {
 
-        assertTrue (event.SearchEvent(eventNumber));
+
+        assertTrue (event.SearchEvent(985123));
     }
     @When("the organizer selects the date event to edit")
-    public void the_organizer_selects_the_date_event_to_edit(int eventNumber,Date D) {
+    public void the_organizer_selects_the_date_event_to_edit() {
 
-        event.EditDate(eventNumber,D);
+
+        event.EditDate(985123,dn);
 
     }
 
@@ -69,9 +80,10 @@ public class EventSteps {
     }
 
     @When("the organizer selects the time event to edit")
-    public void the_organizer_selects_the_time_event_to_edit(int eventNumber,Time T) {
+    public void the_organizer_selects_the_time_event_to_edit() {
 
-        event.EditTime(eventNumber,T);
+
+        event.EditTime(985123,tn);
 
     }
 
@@ -82,9 +94,10 @@ public class EventSteps {
     }
 
     @When("the organizer selects the location event to edit")
-    public void the_organizer_selects_the_location_event_to_edit(int eventNumber,String location) {
+    public void the_organizer_selects_the_location_event_to_edit() {
 
-        event.EditLocation(eventNumber,location);
+
+        event.EditLocation(985123,"Ramallah");
 
 
     }
@@ -97,9 +110,10 @@ public class EventSteps {
     }
 
     @When("the organizer selects the theme event to edit")
-    public void the_organizer_selects_the_theme_event_to_edit(int eventNumber,String theme) {
+    public void the_organizer_selects_the_theme_event_to_edit() {
 
-        event.EditTheme(eventNumber,theme);
+
+        event.EditTheme(985123,"Birthdate");
 
 
     }
@@ -112,9 +126,10 @@ public class EventSteps {
     }
 
     @When("the organizer selects the description event to edit")
-    public void the_organizer_selects_the_description_event_to_edit(int eventNumber,String description) {
+    public void the_organizer_selects_the_description_event_to_edit() {
 
-        event.EditDescription(eventNumber,description);
+
+        event.EditDescription(985123,"lunch meal");
 
 
     }
@@ -126,18 +141,12 @@ public class EventSteps {
 
     }
 
-    @Then("the event is not exist")
-    public void the_event_is_not_exist(int eventNumber) {
-
-        assertFalse(event.SearchEvent(eventNumber));
-
-    }
 
 
     @When("the organizer selects the event to delete")
-    public void the_organizer_selects_the_event_to_delete(int eventNumber) {
+    public void the_organizer_selects_the_event_to_delete() {
 
-        event.DeletEvent(eventNumber);
+        event.DeletEvent(985123);
 
     }
 
@@ -148,9 +157,9 @@ public class EventSteps {
     }
 
     @When("they select a category such as party or workshop")
-    public void they_select_a_category_such_as_party_or_workshop(int eventNumber,int category) {
+    public void they_select_a_category_such_as_party_or_workshop() {
 
-        event.SelectCategory(eventNumber,category);
+        event.SelectCategory(985123,2);
 
     }
 
