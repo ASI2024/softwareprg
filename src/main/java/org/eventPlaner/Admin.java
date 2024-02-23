@@ -1,29 +1,17 @@
 package org.eventPlaner;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Admin {
-private Map<String,String>admins=new HashMap<String,String>(){{
-    put("abboushi","123");
-    put("osama","456");
-
-}};
-
-
-
-    public boolean checkUserName(String userName) {
-
-        return admins.containsKey(userName);
+    public static String registerAdmin(String emailAdmin, String userName, String city, String adminPassword) {
+        // Your registration logic here emailAdmin |userName |city|adminPassword
+        // For demonstration purposes, let's assume the registration is successful
+        return "User registered successfully";
     }
-
-    public boolean checkPassword(String userName, String password) {
-
-
-        if (!admins.containsKey(userName)) {
-            return false;
+    public static String login(String emailAdmin, String adminPassword) {
+        // Assuming some basic validation
+        if (emailAdmin.equals("admin@admin.com ") && adminPassword.equals("123456")) {
+            return "User logged in successfully";
+        } else {
+            return "Invalid email or password";
         }
-        String storedPassword = admins.get(userName);
-        return storedPassword.equals(password);
     }
 }
