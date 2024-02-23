@@ -1,8 +1,9 @@
 package org.eventPlaner;
-
+import java.util.ArrayList;
+import java.util.List;
 public class User {
     public static boolean loginFlag;
-
+    List orders = new ArrayList();
     public void login(String userName, String password) {
 //        loginFlag = true;
         Admin admin = new Admin();
@@ -30,7 +31,13 @@ public class User {
 //        }
        else loginFlag = false;
     }
+    public void addOrder(List  order) {
+        orders.add(order);
+    }
 
+    public List getOrders() {
+        return orders;
+    }
 
 
 
