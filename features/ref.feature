@@ -23,13 +23,13 @@ Scenario Outline: user Login Valid
 When the user enters their email and password Valid '<email>','<password>'
 Then the user should be logged in successfully
 Examples:
-|email|passwrod|
+|email|password|
 | Abdelrahman@gmail.com    | 123456       |
 Scenario Outline: user Login NotValid
 When the user enters their email or password notValid
 Then check the email or password is notValid
 Examples:
-|email|passwrod|
+|email|password|
 | Abdelrahman@gmail.com    | 1234      |
 |    Abdelrahman@gmailm                       | 123456          |
 Scenario Outline: Admin Registration Valid

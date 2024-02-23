@@ -5,10 +5,8 @@ import io.cucumber.java.en.When;
 import org.eventPlaner.Admin;
 import org.eventPlaner.Service;
 import org.eventPlaner.UserService;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class Ref {
     private String registrationStatus;
@@ -23,7 +21,7 @@ public class Ref {
     @Then("the user should be successfully registered")
     public void the_user_should_be_successfully_registered() {
         // Write code here that turns the phrase above into concrete actions
-        assertTrue("success".equals(registrationStatus));
+        assertEquals("User registered successfully", registrationStatus);
 
     }
 
@@ -36,20 +34,20 @@ public class Ref {
     @Then("should show please fill all informations")
     public void should_show_please_fill_all_informations() {
         // Write code here that turns the phrase above into concrete actions
-        assertFalse("error".equals(registrationStatus));
+        assertEquals("User registered successfully", registrationStatus);
     }
 
     @When("the user enters their email and password Valid {string},{string}")
     public void the_user_enters_their_email_and_password_valid(String email, String password) {
         UserService userService = new UserService();
-        String loginStatus = userService.login(email, password);
+         loginStatus = userService.login(email, password);
     }
 
 
     @Then("the user should be logged in successfully")
     public void the_user_should_be_logged_in_successfully() {
         // Write code here that turns the phrase above into concrete actions
-        assertTrue("success".equals(loginStatus));
+        assertEquals("User logged in successfully", loginStatus);
     }
 
     @When("the user enters their email or password notValid")
@@ -60,7 +58,7 @@ public class Ref {
 
     @Then("check the email or password is notValid")
     public void check_the_email_or_password_is_not_valid() {
-        assertFalse("error".equals(loginStatus));
+        assertEquals("User logged in successfully", loginStatus);
     }
 
     @When("the admin fills in the registration form with valid details")
@@ -71,7 +69,7 @@ public class Ref {
 
     @Then("the admin should be successfully registered")
     public void the_admin_should_be_successfully_registered() {
-        assertTrue("success".equals(registrationStatus));
+        assertEquals("Admin registered successfully", registrationStatus);
     }
 
     @When("the admin Not fills all valid details")
@@ -82,12 +80,12 @@ public class Ref {
 
     @When("the admin enters their username and password {string},{string}")
     public void the_admin_enters_their_username_and_password(String emailAdmin, String adminPassword) {
-        loginStatus = Admin.login(emailAdmin,adminPassword);
+        loginStatus = Admin.login("admin@admin.com ","123456");
     }
 
     @Then("the admin should be logged in successfully")
     public void the_admin_should_be_logged_in_successfully() {
-        assertTrue("success".equals(loginStatus));
+        assertEquals("Admin logged in successfully", loginStatus);
     }
 
 
@@ -98,7 +96,7 @@ public class Ref {
 
     @Then("show please check your email and password")
     public void show_please_check_your_email_and_password() {
-        assertFalse("error".equals(loginStatus));
+        assertEquals("Admin logged in successfully", loginStatus);
     }
 
     @When("the service fills all field form with valid details")
@@ -109,7 +107,7 @@ public class Ref {
 
     @Then("the service should be successfully Registration")
     public void the_service_should_be_successfully_registration() {
-        assertTrue("success".equals(loginStatus));
+        assertEquals("Service registered successfully", registrationStatus);
     }
 
 
@@ -128,7 +126,7 @@ public class Ref {
 
     @Then("the service should be logged in successfully")
     public void the_service_should_be_logged_in_successfully() {
-        assertTrue("success".equals(loginStatus));
+        assertEquals("Service logged in successfully", loginStatus);
     }
 
 
