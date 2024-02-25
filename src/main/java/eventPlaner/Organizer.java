@@ -15,4 +15,5 @@ public class Organizer {
         eventManagement.AddEvent(event);
     }
 
+
 }

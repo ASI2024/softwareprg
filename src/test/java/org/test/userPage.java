@@ -11,6 +11,7 @@ import static org.junit.Assert.*;
 
 public class userPage {
     User user;
+
     boolean loggedIn = false;
     @Given("that the user is logged in")
     public void thatTheuserIsLoggedIn() {
