@@ -1,4 +1,6 @@
 package org.eventPlaner;
+import java.util.ArrayList;
+import java.util.ArrayList;
 
 public class Service {
     public static String registerService(String email, String userName, String city,String address,String serviceProvide, String phoneNum, String password) {
@@ -19,4 +21,102 @@ public class Service {
             return "Invalid email or password";
         }
     }
+
+
+
+
+
+    public class ServicePerson {
+        private String email;
+        private String userName;
+        private String city;
+        private String address;
+        private String serviceProvide;
+        private String phoneNum;
+        private String password;
+
+        public ServicePerson(String email, String userName, String city, String address, String serviceProvide, String phoneNum, String password) {
+            this.email = email;
+            this.userName = userName;
+            this.city = city;
+            this.address = address;
+            this.serviceProvide = serviceProvide;
+            this.phoneNum = phoneNum;
+            this.password = password;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
+        }
+
+        public String getUserName() {
+            return userName;
+        }
+
+        public void setUserName(String userName) {
+            this.userName = userName;
+        }
+
+        public String getCity() {
+            return city;
+        }
+
+        public void setCity(String city) {
+            this.city = city;
+        }
+
+        public String getAddress() {
+            return address;
+        }
+
+        public void setAddress(String address) {
+            this.address = address;
+        }
+
+        public String getServiceProvide() {
+            return serviceProvide;
+        }
+
+        public void setServiceProvide(String serviceProvide) {
+            this.serviceProvide = serviceProvide;
+        }
+
+        public String getPhoneNum() {
+            return phoneNum;
+        }
+
+        public void setPhoneNum(String phoneNum) {
+            this.phoneNum = phoneNum;
+        }
+
+        public String getPassword() {
+            return password;
+        }
+
+        public void setPassword(String password) {
+            this.password = password;
+        }
+    }
+
+
+    public class ServicePersonList {
+        private ArrayList<ServicePerson> servicePersons;
+
+        public ServicePersonList() {
+            servicePersons = new ArrayList<>();
+        }
+
+        public void addServicePerson(ServicePerson servicePerson) {
+            servicePersons.add(servicePerson);
+        }
+
+        public ArrayList<ServicePerson> getServicePersons() {
+            return servicePersons;
+        }
+    }
+
 }
