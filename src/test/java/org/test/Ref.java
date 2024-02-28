@@ -63,7 +63,7 @@ public class Ref {
 
     @When("the admin fills in the registration form with valid details")
     public void the_admin_fills_in_the_registration_form_with_valid_details() {
-        registrationStatus = Admin.registerAdmin("admin@admin.com","admin","nablus","123456");
+        registrationStatus = Admin.registerAdmin("admin@admin.com","admin","nablus","123456","Acceptable");
 
     }
 
@@ -74,7 +74,7 @@ public class Ref {
 
     @When("the admin Not fills all valid details")
     public void the_admin_not_fills_all_valid_details() {
-        registrationStatus = Admin.registerAdmin("","admin","nablus","123456");
+        registrationStatus = Admin.registerAdmin("","admin","nablus","123456","Acceptable");
     }
 
 
