@@ -7,7 +7,8 @@ import java.util.List;
 
 public class EventManagement {
 
-    public List<Event>events;
+    public static List<Event> eventsRequest;
+    public static List<Event> eventsEdition;
     public static boolean addFlag;
     public static boolean editDateFlag = false;
     public static boolean editTimeFlag = false;
@@ -20,26 +21,20 @@ public class EventManagement {
 
     public EventManagement(){
 
-        this.events = new ArrayList<>();
+        eventsRequest = new ArrayList<>();
+        eventsEdition = new ArrayList<>();
     }
 
     public void AddEvent(Event event){
 
-        if(!hasConflict(event)){
-
-            events.add(event);
+            eventsRequest.add(event);
             addFlag=true;
-
-        }else{
-
-            addFlag=false;
-        }
 
     }
 
-    private boolean hasConflict(Event event) {
+    public static boolean hasConflict(Event event) {
 
-        for(Event existingEvent : events){
+        for(Event existingEvent : eventsRequest){
 
             return existingEvent.getDate().equals(event.getDate()) &&
                     existingEvent.getTime().equals(event.getTime());
@@ -51,7 +46,7 @@ public class EventManagement {
 
     public boolean SearchEvent(int eventNumber){
 
-        for (Event existingEvent : events){
+        for (Event existingEvent : eventsRequest){
 
             if( existingEvent.getEventNumber() == eventNumber)
                 return true;
@@ -64,24 +59,26 @@ public class EventManagement {
 
     public void EditDate(int eventNumber,Date d) {
 
-        for(Event existingEvent : events){
+        for(Event existingEvent : eventsRequest){
 
-            if(existingEvent.getEventNumber() == eventNumber) {
+                if (existingEvent.getEventNumber() == eventNumber) {
 
-                existingEvent.setDate(d);
-                editDateFlag = true;
-            }
+                    Event E = new Event(eventNumber, d, null, null, null, null, null);
+                    eventsEdition.add(E);
+                    editDateFlag = true;
+                }
         }
 
     }
 
     public void EditTime(int eventNumber, Time t) {
 
-        for(Event existingEvent : events){
+        for(Event existingEvent : eventsRequest){
 
             if(existingEvent.getEventNumber() == eventNumber) {
 
-                existingEvent.setTime(t);
+                Event E = new Event(eventNumber,null,t,null,null,null,null);
+                eventsEdition.add(E);
                 editTimeFlag = true;
             }
         }
@@ -90,11 +87,12 @@ public class EventManagement {
 
     public void EditLocation(int eventNumber, String location) {
 
-        for(Event existingEvent : events){
+        for(Event existingEvent : eventsRequest){
 
             if(existingEvent.getEventNumber() == eventNumber) {
 
-                existingEvent.setLocation(location);
+                Event E = new Event(eventNumber,null,null,location,null,null,null);
+                eventsEdition.add(E);
                 editLocationFlag = true;
             }
 
@@ -104,11 +102,12 @@ public class EventManagement {
 
     public void EditTheme(int eventNumber, String theme) {
 
-        for(Event existingEvent : events){
+        for(Event existingEvent : eventsRequest){
 
             if(existingEvent.getEventNumber() == eventNumber) {
 
-                existingEvent.setTheme(theme);
+                Event E = new Event(eventNumber,null,null,null,theme,null,null);
+                eventsEdition.add(E);
                 editThemeFlag = true;
             }
         }
@@ -117,11 +116,12 @@ public class EventManagement {
 
     public void EditDescription(int eventNumber, String description) {
 
-        for(Event existingEvent : events){
+        for(Event existingEvent : eventsRequest){
 
             if(existingEvent.getEventNumber() == eventNumber) {
 
-                existingEvent.setDescription(description);
+                Event E = new Event(eventNumber,null,null,null,null,description,null);
+                eventsEdition.add(E);
                 editDescriptionFlag = true;
             }
 
@@ -131,11 +131,12 @@ public class EventManagement {
 
     public void DeletEvent(int eventNumber) {
 
-        for(Event existingEvent : events){
+        for(Event existingEvent : eventsRequest){
 
             if(existingEvent.getEventNumber() == eventNumber) {
 
-                events.remove(existingEvent);
+                Event E = new Event(eventNumber,null,null,null,null,null,null);
+                eventsEdition.add(E);
                 deletFlag = true;
             }
         }
@@ -150,9 +151,8 @@ public class EventManagement {
         Category.add(2,"Workshop");
         Category.add(3,"Graduation");
         Category.add(4,"Seminar");
-        Category.add(5,"Condolences");
 
-        for(Event existingEvent : events){
+        for(Event existingEvent : eventsRequest){
 
             if(existingEvent.getEventNumber() == eventNumber) {
 

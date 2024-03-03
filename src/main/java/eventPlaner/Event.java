@@ -14,7 +14,8 @@ public class Event {
     private String description;
     private String category;
 
-    public Event(int eventNumber,Date date,Time time,String location,String theme,String description,String category){
+
+    public Event(int eventNumber, Date date, Time time, String location, String theme, String description, String category) {
 
         this.eventNumber = eventNumber;
         this.date = date;
@@ -23,6 +24,7 @@ public class Event {
         this.theme = theme;
         this.description = description;
         this.category = category;
+
 
     }
 
@@ -35,22 +37,22 @@ public class Event {
         this.eventNumber = eventNumber;
     }
 
-    public int getEventNumber(){
+    public int getEventNumber() {
 
         return eventNumber;
     }
 
-    public void setDate(Date date){
+    public void setDate(Date date) {
 
         this.date = date;
     }
 
-    public Date getDate(){
+    public Date getDate() {
 
         return date;
     }
 
-    public void setTime(Time time){
+    public void setTime(Time time) {
 
         this.time = time;
     }
@@ -60,7 +62,7 @@ public class Event {
         return time;
     }
 
-    public void setLocation(String location){
+    public void setLocation(String location) {
 
         this.location = location;
     }
@@ -70,7 +72,7 @@ public class Event {
         return location;
     }
 
-    public void setTheme(String theme){
+    public void setTheme(String theme) {
 
         this.theme = theme;
     }
@@ -99,5 +101,6 @@ public class Event {
 
         return category;
     }
+
 }
 
