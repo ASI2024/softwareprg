@@ -1,5 +1,6 @@
 package org.test;
 
+import eventPlaner.OrganizerLogin;
 import eventPlaner.OrganizerManagement;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -10,16 +11,16 @@ import static org.junit.Assert.assertEquals;
 public class OrganizerApproval {
 
     OrganizerManagement organizerManagement;
+    OrganizerLogin organizerLogin;
     @Given("the organizer is logged in")
     public void the_organizer_is_logged_in() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+        organizerLogin.Login("example@gmail.com","123456");
     }
 
     @When("the organizer navigates to the dashboard")
     public void the_organizer_navigates_to_the_dashboard() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
     }
 
     @When("the organizer reviews the pending event addition")
