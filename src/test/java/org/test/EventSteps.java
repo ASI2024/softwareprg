@@ -14,15 +14,16 @@ import static org.junit.Assert.assertTrue;
 
 public class EventSteps {
 
+
     EventManagement event = new EventManagement();
-    OrganizerLogin organizerLogin;
+    OrganizerLogin organizerLogin = new OrganizerLogin();
     Date d=Date.valueOf("2024-05-14");
     Time t=Time.valueOf("10:30:35");
     Date dn=Date.valueOf("2024-11-10");
     Time tn=Time.valueOf("8:20:00");
     Event e =new Event(985123,d,t,"nablus","party","DJ",null);
-    @Given("the organizer is logged in")
-    public void the_organizer_is_logged_in() {
+    @Given("organizer is logged in")
+    public void organizer_is_logged_in() {
 
        organizerLogin.Login("example@gmail.com","123456");
 

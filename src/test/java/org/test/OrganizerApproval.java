@@ -9,9 +9,9 @@ import io.cucumber.java.en.When;
 import static org.junit.Assert.assertEquals;
 
 public class OrganizerApproval {
+    OrganizerManagement organizerManagement = new OrganizerManagement();
+    OrganizerLogin organizerLogin = new OrganizerLogin();
 
-    OrganizerManagement organizerManagement;
-    OrganizerLogin organizerLogin;
     @Given("the organizer is logged in")
     public void the_organizer_is_logged_in() {
 

@@ -1,7 +1,7 @@
 Feature: Event Creation and Management
 
   Scenario: Organizers can create a new event
-    Given the organizer is logged in
+    Given  organizer is logged in
     When they navigate to the event creation page
     And they fill in the required details including date, time, location, theme, and description
     Then the event should be successfully created

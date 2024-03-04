@@ -12,11 +12,12 @@ import static org.junit.Assert.assertTrue;
 public class OrganizerLoginAndRegistration {
 
     Organizer organizer;
-    OrganizerLogin organizerLogin;
+    OrganizerLogin organizerLogin = new OrganizerLogin();
 
     @Given("the user is on the registration page")
     public void the_user_is_on_the_registration_page() {
 
+        organizer = new Organizer("example987@gmail.com", "os12112", "osama", "nablus", "123456789", "Waiting");
 
     }
 
@@ -58,7 +59,7 @@ public class OrganizerLoginAndRegistration {
     @When("the organizer enters valid information and submits the login form")
     public void the_organizer_enters_valid_information_and_submits_the_login_form() {
 
-        organizerLogin.Login("example987@gmail.com","os12112");
+        organizerLogin.Login("example987@gmail.com", "os12112");
 
     }
 
