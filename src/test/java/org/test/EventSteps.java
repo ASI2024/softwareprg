@@ -2,6 +2,7 @@ package org.test;
 
 import eventPlaner.Event;
 import eventPlaner.EventManagement;
+import eventPlaner.OrganizerLogin;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -14,6 +15,7 @@ import static org.junit.Assert.assertTrue;
 public class EventSteps {
 
     EventManagement event = new EventManagement();
+    OrganizerLogin organizerLogin;
     Date d=Date.valueOf("2024-05-14");
     Time t=Time.valueOf("10:30:35");
     Date dn=Date.valueOf("2024-11-10");
@@ -22,7 +24,7 @@ public class EventSteps {
     @Given("the organizer is logged in")
     public void the_organizer_is_logged_in() {
 
-        //required to complete it by Israa
+       organizerLogin.Login("example@gmail.com","123456");
 
     }
     @When("they navigate to the event creation page")
