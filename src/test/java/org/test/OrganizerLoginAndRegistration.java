@@ -80,14 +80,14 @@ public class OrganizerLoginAndRegistration {
     @When("the organizer enters invalid email or password")
     public void the_organizer_enters_invalid_email_or_password() {
 
-        organizerLogin.Login("example@gmail.com","os12112");
+        organizerLogin.Login("ex@gmail.com","os12112");
 
     }
 
     @Then("the user should see an error message indicating invalid email or password")
     public void the_user_should_see_an_error_message_indicating_invalid_email_or_password() {
 
-        assertFalse(organizerLogin.Login("example987@gmail.com","os12112"));
+        assertFalse(organizerLogin.Login("ex@gmail.com","os12112"));
 
     }
 
