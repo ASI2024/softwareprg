@@ -7,7 +7,7 @@ import static eventPlaner.EventManagement.*;
 
 public class OrganizerManagement {
 
-    public List<Event> eventsList;
+    public static List<Event> eventsList;
 
     public HashMap<Integer,String>reasonRejection;
 
