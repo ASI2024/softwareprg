@@ -10,7 +10,7 @@ import static eventPlaner.EventManagement.hasConflict;
 
 public class OrganizerManagement {
 
-    public List<Event> eventsList;
+    public static List<Event> eventsList;
     public HashMap<Integer, String> reasonRejection;
 
     public OrganizerManagement() {
