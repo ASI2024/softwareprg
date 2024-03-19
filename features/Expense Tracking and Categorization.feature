@@ -1,7 +1,7 @@
 Feature: Expense Tracking and Categorization
 
 
-  Scenario: Categorizing and tracking a new expense
+  Scenario Outline: Categorizing and tracking a new expense
     Given I am logged in as an organizer1
     And I am on the "Expense Tracking" page
     When I select to add a new expense
@@ -10,10 +10,10 @@ Feature: Expense Tracking and Categorization
     Then the new expense should be saved in the system
     And it should be categorized under the selected category
     Examples:
-      | amount | category     | description         |
-      | 100.50 | Entertainment| DJ for annual party |
-      | 250.00 | Catering     | Food for the meeting|
-      | 300.00 | Venue Rental | Conference hall fee |
+      | amount | category      | description          |
+      | 100.50 | Entertainment | DJ for annual party  |
+      | 250.00 | Catering      | Food for the meeting |
+      | 300.00 | Venue Rental  | Conference hall fee  |
 
   Scenario: Viewing expenses by category
     Given I am logged in as an organizer
