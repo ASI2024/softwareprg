@@ -1,19 +1,19 @@
 package org.eventPlaner;
 
-public class User {
+public class AdminInf {
 
     private String email;
     private String userName;
     private String city;
-    private String phoneNumber;
     private String password;
+    private String status;
 
-    public User (String userName,String password , String email ,String city,String phoneNumber){
+    public AdminInf(String userName,String password , String email ,String city,String status){
 
         this.email = email;
         this.userName = userName;
         this.city = city;
-        this.phoneNumber = phoneNumber;
+        this.status = status;
         this.password = password;
 
     }
@@ -42,12 +42,12 @@ public class User {
         this.city = city;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getStatus() {
+        return status;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setServiceProvide(String status) {
+        this.status = status;
     }
 
     public String getPassword() {
