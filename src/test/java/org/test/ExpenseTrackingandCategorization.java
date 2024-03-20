@@ -1,23 +1,21 @@
 package org.test;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import static org.junit.Assert.*;
-import newvenues.*;
-import java.util.ArrayList;
+import newvenues.Expense;
+import newvenues.ExpenseTracker;
+
 import java.util.List;
+
+import static org.junit.Assert.*;
 public class ExpenseTrackingandCategorization {
     private ExpenseTracker tracker = new ExpenseTracker();
     private Expense tempExpense;
     private List<String> categories;
     private List<Expense> displayedExpenses;
     private int expenseIdToDelete;
-    @Given("I am logged in as an organizer1")
-    public void iamLoggedInAsAnOrganizer1() {
 
-    }
     @And("I am on the {string} page")
     public void iAmOnThePage(String arg0) {
     }

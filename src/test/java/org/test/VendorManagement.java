@@ -1,12 +1,19 @@
 package org.test;
+
+import VendorManagement.ContractNegotiation;
+import VendorManagement.PackageRequest;
+import VendorManagement.Vendor;
+import VendorManagement.VendorDatabase;
+import eventPlaner.OrganizerLogin;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import static org.junit.Assert.*;
-import VendorManagement.*;
 public class VendorManagement {
     private VendorDatabase vendorDatabase = new VendorDatabase();
     private Vendor selectedVendor;
@@ -17,10 +24,8 @@ public class VendorManagement {
     private double expectedReviewScore;
     private PackageRequest packageRequest;
     private ContractNegotiation contractNegotiation;
-    @Given("the organizer is logged in")
-    public void theOrganizerIsLoggedIn() {
+    OrganizerLogin organizerLogin = new OrganizerLogin();
 
-    }
     @And("the organizer wants to find vendors for their event")
     public void theOrganizerWantsToFindVendorsForTheirEvent() {
         // This step might involve setting up the context or ensuring the vendor database is populated for the test
@@ -135,7 +140,7 @@ public class VendorManagement {
     }
     @Then("they should be able to manage these bookings, including updating or cancelling")
     public void theyShouldBeAbleToManageTheseBookingsIncludingUpdatingOrCancelling() {
-
+        assertFalse(organizerLogin.Login("ex@gmail.com","os12112"));
     }
 
 

@@ -2,7 +2,7 @@ Feature: Expense Tracking and Categorization
 
 
   Scenario Outline: Categorizing and tracking a new expense
-    Given I am logged in as an organizer1
+    Given I am logged in as an organizer
     And I am on the "Expense Tracking" page
     When I select to add a new expense
     And I enter the expense details including '<amount>', '<category>', and '<description>'

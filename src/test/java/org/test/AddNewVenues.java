@@ -1,20 +1,21 @@
 package org.test;
 
+import eventPlaner.OrganizerLogin;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
-import static org.junit.Assert.*;
-import newvenues.Venues;
 import newvenues.VenueSystem;
+
+import static org.junit.Assert.assertEquals;
 
 public class AddNewVenues {
     private VenueSystem venueSystem = new VenueSystem();
     private String responseMessage;
+    OrganizerLogin organizerLogin = new OrganizerLogin();
     @Given("I am logged in as an organizer")
     public void iAmLoggedInAsAnOrganizer() {
-
+        organizerLogin.Login("example@gmail.com","123456");
     }
 
     @When("I navigate to the “Add New Venue” page")
