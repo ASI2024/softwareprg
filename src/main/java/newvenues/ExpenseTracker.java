@@ -14,7 +14,7 @@ public class ExpenseTracker {
     }
 
     public boolean updateExpense(int id, double amount, String category, String description) {
-        for (Expense expense : expenses) {
+        for (Expense expense : expenses){
             if (expense.getId() == id) {
                 expense.setAmount(amount);
                 expense.setCategory(category);

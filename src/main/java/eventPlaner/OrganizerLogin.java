@@ -5,7 +5,7 @@ import java.util.List;
 
 public class OrganizerLogin {
 
-    public List<Organizer>Organizers = new ArrayList<>();
+    public static List<Organizer>Organizers = new ArrayList<>();
     public  boolean RegistrationFlag;
 
 

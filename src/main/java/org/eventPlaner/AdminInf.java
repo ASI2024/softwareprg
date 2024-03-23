@@ -46,7 +46,7 @@ public class AdminInf {
         return status;
     }
 
-    public void setServiceProvide(String status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

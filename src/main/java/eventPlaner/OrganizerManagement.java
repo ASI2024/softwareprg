@@ -14,13 +14,14 @@ public class OrganizerManagement {
     public HashMap<Integer, String> reasonRejection;
 
     public OrganizerManagement() {
-        this.eventsList = new ArrayList<>();
+        eventsList = new ArrayList<>();
         this.reasonRejection = new HashMap<>();
     }
 
-    public void reviewsThePendingEventAddition() {
+    public void reviewsThePendingEventAddition(){
+        int i=0;
         for (Event existingEvent : eventsRequest) {
-            String statement = "Event Number: " + existingEvent.getEventNumber() +
+            String statement = i+")"+"Event Number: " + existingEvent.getEventNumber() +
                     "Event Date: " + existingEvent.getDate() +
                     "Event Time: " + existingEvent.getTime() +
                     "Event Location: " + existingEvent.getLocation() +
@@ -28,6 +29,7 @@ public class OrganizerManagement {
                     "Event Description: " + existingEvent.getDescription() +
                     "Event Category: " + existingEvent.getCategory();
             System.out.println(statement);
+            i++;
         }
     }
 
@@ -153,5 +155,23 @@ public class OrganizerManagement {
             }
         }
         return "Event Not Found";
+    }
+
+    public static void ShowEventList(){
+
+        int i=1;
+        for (Event existingEvent : eventsList) {
+            System.out.print(i+")");
+            String statement = "Event Number: " + existingEvent.getEventNumber() +
+                    "Event Date: " + existingEvent.getDate() +
+                    "Event Time: " + existingEvent.getTime() +
+                    "Event Location: " + existingEvent.getLocation() +
+                    "Event Theme: " + existingEvent.getTheme() +
+                    "Event Description: " + existingEvent.getDescription() +
+                    "Event Category: " + existingEvent.getCategory();
+            System.out.println(statement);
+            i++;
+        }
+
     }
 }
