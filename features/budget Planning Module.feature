@@ -1,12 +1,14 @@
 Feature: Budget Planning Module
 
 
-  Scenario: Organizer search about hall for rent
-    When Organizer enter the value of hall rent
-    And the date want to rent the hell
-    Then the system search in database about hell that suitable for the information enter
-    And the value of rent must be between the value enter that decrease about 999 or increase about 999 only
-    And show them for the organizer
+
+
+  Scenario: Organizer finds halls within the budget
+    Given the Organizer specifies a rental value by entering 3000
+    And the date they want to rent the hall is "2024-01-01"
+    When the system searches the database for halls suitable for the information entered
+    Then the value of rent must be the value entered and less than it
+    And show them to the organizer
 
   Scenario: Organizer searches for a hall with an unavailable rental value
     Given the Organizer specifies a rental value that is too high or too low
