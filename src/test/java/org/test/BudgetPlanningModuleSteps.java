@@ -1,99 +1,109 @@
 package org.test;
 
-import BudgetingandFinance.BudgetPlanningModule;
+import BudgetingandFinance.Hall;
+import BudgetingandFinance.HallRepositoryImpl;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class BudgetPlanningModuleSteps {
+    private HallRepositoryImpl hallRepository = new HallRepositoryImpl() {
+        @Override
+        public List<Hall> findHallsByCriteria(int budget, String eventType, Date date) {
+            return null;
+        }
+    };
+    private int specifiedRent;
+    private Date specifiedDate;
+    private List<Hall> searchResults;
 
-    private BudgetPlanningModule budgetPlanningModule;
-    private Map<String, Double> estimatedExpenses;
-    private Map<String, Double> actualExpenses;
-
-    @Given("the organizer is on the budget planning page")
-    public void the_organizer_is_on_the_budget_planning_page() {
-        budgetPlanningModule = new BudgetPlanningModule();
-        estimatedExpenses = new HashMap<>();
-        actualExpenses = new HashMap<>();
+    @When("Organizer enter the value of hall rent")
+    public void organizerEnterTheValueOfHallRent() {
+        this.specifiedRent =2000;
+    }
+    @When("the date want to rent the hell")
+    public void theDateWantToRentTheHell(){
+        try {
+            this.specifiedDate = new SimpleDateFormat("yyyy-MM-dd").parse("2024-01-01"); // Default or predefined date
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
-    @When("the organizer enters the estimated expenses for various categories such as venue, catering, decorations, marketing, etc.")
-    public void the_organizer_enters_the_estimated_expenses_for_various_categories_such_as_venue_catering_decorations_marketing_etc() {
-        estimatedExpenses.put("Venue", 1000.0);
-        estimatedExpenses.put("Catering", 2000.0);
-        estimatedExpenses.put("Decorations", 500.0);
-        budgetPlanningModule.estimateExpenses(estimatedExpenses);
+    @Then("the system search in database about hell that suitable for the information enter")
+    public void theSystemSearchInDatabaseAboutHellThatSuitableForTheInformationEnter() {
+        this.searchResults = hallRepository.findHallsByCriteria(specifiedRent, specifiedDate);
     }
 
-    @Then("the system calculates the total estimated expenses for the event")
-    public void the_system_calculates_the_total_estimated_expenses_for_the_event() {
-        double totalEstimatedExpenses = budgetPlanningModule.getEstimatedExpenses().values().stream().mapToDouble(Double::doubleValue).sum();
-        assertEquals(totalEstimatedExpenses, budgetPlanningModule.calculateTotalEstimatedExpenses(), 0);
+    @Then("the value of rent must be between the value enter that decrease about {int} or increase about {int} only")
+    public void the_value_of_rent_must_be_between_the_value_enter_that_decrease_about_or_increase_about_only(Integer int1, Integer int2) {
+        assertTrue("Search results should not be empty", !searchResults.isEmpty());
+        for (Hall hall : searchResults) {
+            assertTrue("Rent should be within the specified range",
+                    hall.getRent() >= (specifiedRent - int1) && hall.getRent() <= (specifiedRent + int2));
+        }
     }
 
-
-    @When("the organizer enters the actual expenses for various categories such as venue, catering, decorations, marketing, etc.")
-    public void the_organizer_enters_the_actual_expenses_for_various_categories_such_as_venue_catering_decorations_marketing_etc() {
-        actualExpenses.put("Venue", 1200.0);
-        actualExpenses.put("Catering", 2200.0);
-        actualExpenses.put("Decorations", 600.0);
-        budgetPlanningModule.trackActualExpenses(actualExpenses);
+    @Then("show them for the organizer")
+    public void show_them_for_the_organizer() {
+        assertFalse("Results should be displayed to the Organizer", searchResults.isEmpty());
+        // You might print out hall details here for real application scenarios or handle UI interactions.
+        for (Hall hall : searchResults) {
+            System.out.println("Available Hall: " + hall.getName() + ", Rent: " + hall.getRent());
+        }
     }
 
-    @Then("the system calculates the total actual expenses for the event")
-    public void the_system_calculates_the_total_actual_expenses_for_the_event() {
-        double totalActualExpenses = budgetPlanningModule.getActualExpenses().values().stream().mapToDouble(Double::doubleValue).sum();
-        assertEquals(totalActualExpenses, budgetPlanningModule.calculateTotalActualExpenses(), 0);
+    @Then("the halls should be available on the specified date")
+    public void the_halls_should_be_available_on_the_specified_date() {
+        for (Hall hall : searchResults) {
+            Assert.assertEquals("Hall should be available on the specified date",
+                    specifiedDate, hall.getAvailableDate());
+        }
     }
 
-
-    @Then("displays the variance between the estimated and actual expenses")
-    public void displays_the_variance_between_the_estimated_and_actual_expenses() {
-        double variance = budgetPlanningModule.calculateTotalActualExpenses() - budgetPlanningModule.calculateTotalEstimatedExpenses();
-        System.out.println("Variance: " + variance);
+    @Then("the results should be displayed to the Organizer")
+    public void the_results_should_be_displayed_to_the_organizer() {
+        Assert.assertNotNull("Results should not be null", searchResults);
+        assertFalse("Results should not be empty", searchResults.isEmpty());
+        // Here you could add more detailed checks, like logging each hall's details
     }
 
-    @When("the organizer compares the estimated and actual expenses for various categories")
-    public void the_organizer_compares_the_estimated_and_actual_expenses_for_various_categories() {
+    @Given("the Organizer specifies a rental value that is too high or too low")
+    public void the_organizer_specifies_a_rental_value_that_is_too_high_or_too_low() {
+        // Assuming the value is set beyond normal ranges to ensure no halls will match
+        this.specifiedRent = 100000; // Change this value based on what "too high" or "too low" means for your application
     }
 
-    @Then("the system provides options to adjust the budget for categories where actual expenses exceed the estimates")
-    public void the_system_provides_options_to_adjust_the_budget_for_categories_where_actual_expenses_exceed_the_estimates() {
-        budgetPlanningModule.adjustBudget();
+    @When("the system searches for halls")
+    public void the_system_searches_for_halls() {
+        // This reuses the search method; make sure that specifiedDate is already set by previous steps or set a default
+        this.specifiedDate = this.specifiedDate != null ? this.specifiedDate : new Date(); // Default date if not set
+        this.searchResults = hallRepository.findHallsByCriteria(specifiedRent, specifiedDate);
     }
 
-    @When("the organizer selects the view budget summary option")
-    public void the_organizer_selects_the_view_budget_summary_option() {
+    @Then("the system should indicate that no halls are available within the specified budget")
+    public void the_system_should_indicate_that_no_halls_are_available_within_the_specified_budget() {
+        assertFalse("No halls should be available within the specified budget", searchResults.isEmpty());
     }
 
-    @Then("the system displays a summary of estimated and actual expenses for each category")
-    public void the_system_displays_a_summary_of_estimated_and_actual_expenses_for_each_category() {
-        budgetPlanningModule.viewBudgetSummary();
+    @Given("the Organizer specifies a date on which no halls are available")
+    public void the_organizer_specifies_a_date_on_which_no_halls_are_available() throws Exception {
+        // Set a date where you know no halls will be available
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        this.specifiedDate = formatter.parse("2100-01-01"); // Change this to a suitable date
     }
 
-    @Then("provides the total estimated and actual expenses for the event")
-    public void provides_the_total_estimated_and_actual_expenses_for_the_event() {
-        // Total estimated and actual expenses are already calculated in previous steps
-    }
-
-    @When("the organizer selects the export budget report option")
-    public void the_organizer_selects_the_export_budget_report_option() {
-        // This step is already covered in previous steps
-    }
-
-    @Then("the system generates a detailed budget report including estimated and actual expenses for each category")
-    public void the_system_generates_a_detailed_budget_report_including_estimated_and_actual_expenses_for_each_category() {
-        budgetPlanningModule.exportBudgetReport();
-    }
-
-    @Then("provides options to download or email the report")
-    public void provides_options_to_download_or_email_the_report() {
+    @Then("the system should indicate that no halls are available on the specified date")
+    public void the_system_should_indicate_that_no_halls_are_available_on_the_specified_date() {
+        assertFalse("No halls should be available on the specified date", searchResults.isEmpty());
     }
 }
 
