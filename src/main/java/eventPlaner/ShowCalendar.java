@@ -1,16 +1,16 @@
 package eventPlaner;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 import static eventPlaner.OrganizerManagement.eventsList;
 
 public class ShowCalendar {
 
-    ArrayList<Date> Dates = new ArrayList<>();
+    ArrayList<LocalDate> Dates = new ArrayList<>();
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
     public ShowCalendar(){

@@ -1,7 +1,5 @@
 package newvenues;
 
-import java.util.List;
-
 public class Venues {
     private String name;
     private String location;
@@ -31,7 +29,7 @@ public class Venues {
     public String getName() {
         return name;
     }
-    public void setlocation(String location) {
+    public void setLocation(String location) {
 
         this.location =location;
     }
@@ -39,7 +37,7 @@ public class Venues {
     public String getLocation() {
         return location;
     }
-    public void setcapacity(int capacity) {
+    public void setCapacity(int capacity) {
 
         this.capacity =capacity;
     }
@@ -47,7 +45,7 @@ public class Venues {
     public int getCapacity() {
         return capacity;
     }
-    public void setamenities(String amenities) {
+    public void setAmenities(String amenities) {
 
         this.amenities=amenities;
     }
@@ -55,7 +53,7 @@ public class Venues {
     public String getAmenities() {
         return amenities;
     }
-    public void setpricing(double pricing) {
+    public void setPricing(double pricing) {
 
         this.pricing =pricing;
     }

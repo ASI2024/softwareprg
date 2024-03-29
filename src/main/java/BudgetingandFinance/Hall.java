@@ -18,6 +18,10 @@ public class Hall {
         this.availableDate = availableDate;
     }
 
+    public Hall() {
+
+    }
+
     // Getters
     public int getId() { return id; }
     public String getName() { return name; }

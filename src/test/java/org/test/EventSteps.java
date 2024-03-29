@@ -9,6 +9,8 @@ import io.cucumber.java.en.When;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 import static org.junit.Assert.assertTrue;
 
@@ -17,10 +19,10 @@ public class EventSteps {
 
     EventManagement event = new EventManagement();
     OrganizerLogin organizerLogin = new OrganizerLogin();
-    Date d=Date.valueOf("2024-05-14");
-    Time t=Time.valueOf("10:30:35");
-    Date dn=Date.valueOf("2024-11-10");
-    Time tn=Time.valueOf("8:20:00");
+    LocalDate d= Date.valueOf("2024-05-14").toLocalDate();
+    LocalTime t= Time.valueOf("10:30:35").toLocalTime();
+    LocalDate dn= Date.valueOf("2024-11-10").toLocalDate();
+    LocalTime tn= Time.valueOf("8:20:00").toLocalTime();
     Event e =new Event(985123,d,t,"nablus","party","DJ",null);
     @Given("organizer is logged in")
     public void organizer_is_logged_in() {

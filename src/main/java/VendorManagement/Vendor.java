@@ -13,6 +13,9 @@ public class Vendor {
     private List<PackageRequest> packageRequests;
     private List<ContractNegotiation> contractNegotiations;
 
+    public Vendor(){
+
+    }
     public Vendor(String id, String name, String type, String service, String location, boolean availability, double pricing, double reviewScore) {
         this.id = id;
         this.name = name;

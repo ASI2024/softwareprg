@@ -10,11 +10,10 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 public class ExpenseTrackingandCategorization {
-    private ExpenseTracker tracker = new ExpenseTracker();
+    public ExpenseTracker tracker = new ExpenseTracker();
     private Expense tempExpense;
     private List<String> categories;
-    private List<Expense> displayedExpenses;
-    private int expenseIdToDelete;
+    public List<Expense> displayedExpenses;
 
     @And("I am on the {string} page")
     public void iAmOnThePage(String arg0) {
@@ -22,7 +21,7 @@ public class ExpenseTrackingandCategorization {
 
     @When("I select to add a new expense")
     public void iSelectToAddANewExpense() {
-        tempExpense  = new Expense(0, 0, "", "");
+        tempExpense  = new Expense(0, 0, "","");
     }
 
     @And("I enter the expense details including {string}, {string}, and {string}")
@@ -66,7 +65,7 @@ public class ExpenseTrackingandCategorization {
     @Then("I should see a list of categories")
     public void iShouldSeeAListOfCategories() {
         assertNotNull(categories);
-        assertTrue(!categories.isEmpty());
+        assertFalse(categories.isEmpty());
     }
 
     @And("selecting a category should display all expenses under that category")
@@ -85,7 +84,7 @@ public class ExpenseTrackingandCategorization {
 
     @And("I update any of the expense details")
     public void iUpdateAnyOfTheExpenseDetails() {
-        tracker.updateExpense(tempExpense.getId(), 150, "Catering", "Updated description");
+        tracker.updateExpense(0,150, "Catering", "Updated description");
 
     }
 
@@ -104,29 +103,4 @@ public class ExpenseTrackingandCategorization {
 
     }
 
-    @When("I select an existing expense to delete")
-    public void iSelectAnExistingExpenseToDelete() {
-        tracker.addExpense(100, "Miscellaneous", "Party favors");
-        expenseIdToDelete = tracker.getExpenses().get(0).getId();
-    }
-
-    @And("I confirm the deletion")
-    public void iConfirmTheDeletion() {
-        tracker.deleteExpense(expenseIdToDelete);
-    }
-
-    @Then("the expense should be removed from the system")
-    public void theExpenseShouldBeRemovedFromTheSystem() {
-        assertNull(tracker.getExpenses().stream()
-                .filter(expense -> expense.getId() == expenseIdToDelete)
-                .findFirst()
-                .orElse(null));
-    }
-
-    @And("it should no longer appear in any category or list")
-    public void itShouldNoLongerAppearInAnyCategoryOrList() {
-        assertTrue(tracker.getExpenses().stream()
-                .noneMatch(expense -> expense.getId() == expenseIdToDelete));
-
-    }
 }

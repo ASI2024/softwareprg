@@ -6,6 +6,8 @@ import java.util.List;
 public class Service {
 
     public static List<ServiceProvider>ServiceProviders = new ArrayList<>();
+
+
     public static String registerService(String email, String userName, String city,String address,String status, String phoneNum, String password) {
 
         boolean test = email.isEmpty()|userName.isEmpty()|city.isEmpty()

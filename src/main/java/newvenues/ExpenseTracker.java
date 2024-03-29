@@ -5,29 +5,29 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ExpenseTracker {
-    private List<Expense> expenses = new ArrayList<>();
-    private int nextId = 1;
+    public List<Expense> expenses = new ArrayList<>();
+    public int nextId =0;
+
 
     public void addExpense(double amount, String category, String description) {
-        Expense newExpense = new Expense(nextId++, amount, category, description);
+        Expense newExpense = new Expense( nextId,amount, category, description);
         expenses.add(newExpense);
+        nextId++;
     }
 
     public boolean updateExpense(int id, double amount, String category, String description) {
         for (Expense expense : expenses){
-            if (expense.getId() == id) {
+            if(expense.getId()==id) {
                 expense.setAmount(amount);
                 expense.setCategory(category);
                 expense.setDescription(description);
                 return true; // Update successful
             }
+
         }
         return false; // Expense not found
     }
 
-    public boolean deleteExpense(int id) {
-        return expenses.removeIf(expense -> expense.getId() == id);
-    }
 
     public List<Expense> getExpensesByCategory(String category) {
         return expenses.stream()

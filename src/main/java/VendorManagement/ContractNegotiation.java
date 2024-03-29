@@ -3,15 +3,15 @@ package VendorManagement;
 public class ContractNegotiation {
     private String negotiationId;
     private String vendorId;
-    private String organizerId;
     private boolean agreed;
     private String terms;
 
+    public ContractNegotiation(){
 
-    public ContractNegotiation(String negotiationId, String vendorId, String organizerId, boolean agreed, String terms) {
+    }
+    public ContractNegotiation(String negotiationId, String vendorId, boolean agreed, String terms) {
         this.negotiationId = negotiationId;
         this.vendorId = vendorId;
-        this.organizerId = organizerId;
         this.agreed = agreed;
         this.terms = terms;
     }
@@ -33,14 +33,6 @@ public class ContractNegotiation {
         this.vendorId = vendorId;
     }
 
-    public String getOrganizerId() {
-        return organizerId;
-    }
-
-    public void setOrganizerId(String organizerId) {
-        this.organizerId = organizerId;
-    }
-
     public boolean isAgreed() {
         return agreed;
     }
@@ -60,8 +52,11 @@ public class ContractNegotiation {
     // Method to finalize the negotiation
     public void finalizeNegotiation(boolean agreed, String updatedTerms) {
         setAgreed(agreed);
-        if (updatedTerms != null && !updatedTerms.isEmpty()) {
+        if ( agreed  && updatedTerms != null && !updatedTerms.isEmpty()) {
             setTerms(updatedTerms);
+        }
+        else{
+            setTerms(null);
         }
         // Additional logic to handle the finalization of the negotiation could be implemented here
     }

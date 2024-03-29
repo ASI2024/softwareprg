@@ -6,22 +6,13 @@ public class Expense {
     private String category;
     private String description;
 
-    public Expense(int id, double amount, String category, String description) {
-        this.id = id;
+    public Expense(int id,double amount, String category, String description) {
         this.amount = amount;
         this.category = category;
         this.description = description;
     }
 
     // Getters and setters
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public double getAmount() {
         return amount;
     }
@@ -44,5 +35,13 @@ public class Expense {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

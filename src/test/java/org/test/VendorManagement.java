@@ -88,7 +88,7 @@ public class VendorManagement {
     public void theySelectTheVendorAndChooseTo(String string) {
         assertNotNull(selectedVendor);
         if ("Request Package".equals(string)) {
-            packageRequest = new PackageRequest("req1", selectedVendor.getId(), "org1", "Details of the package request");
+            packageRequest = new PackageRequest("req1", selectedVendor.getId(), "Details of the package request");
             vendorDatabase.requestPackageFromVendor(selectedVendor.getId(), packageRequest);
         }
 
@@ -104,7 +104,7 @@ public class VendorManagement {
     }
     @Given("the vendor has responded with an offer")
     public void theVendorHasRespondedWithAnOffer() {
-        contractNegotiation = new ContractNegotiation("neg1", selectedVendor.getId(), "org1", false, "Initial terms");
+        contractNegotiation = new ContractNegotiation("neg1", selectedVendor.getId(), false, "Initial terms");
         selectedVendor.negotiateContract(contractNegotiation);
         assertNotNull(this.contractNegotiation);
     }

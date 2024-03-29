@@ -1,21 +1,21 @@
 package eventPlaner;
 
 
-import java.sql.Time;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Event {
 
     private int eventNumber;
-    private Date date;
-    private Time time;
+    private LocalDate date;
+    private LocalTime time;
     private String location;
     private String theme;
     private String description;
     private String category;
 
 
-    public Event(int eventNumber, Date date, Time time, String location, String theme, String description, String category) {
+    public Event(int eventNumber, LocalDate date, LocalTime time, String location, String theme, String description, String category) {
 
         this.eventNumber = eventNumber;
         this.date = date;
@@ -42,22 +42,22 @@ public class Event {
         return eventNumber;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
 
         this.date = date;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
 
         return date;
     }
 
-    public void setTime(Time time) {
+    public void setTime(LocalTime time) {
 
         this.time = time;
     }
 
-    public Time getTime() {
+    public LocalTime getTime() {
 
         return time;
     }

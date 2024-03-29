@@ -43,6 +43,7 @@ public class Admin {
             if(Objects.equals(adminInf.getEmail(), email) && Objects.equals(adminInf.getStatus(), "Pending")) {
 
                 reasonRejection.put(email,reason);
+                adminInf.setStatus("Rejected");
                 return true;
             }
 
@@ -53,6 +54,7 @@ public class Admin {
             if(Objects.equals(organizer.getEmail(), email) && Objects.equals(organizer.getStatus(), "Pending")) {
 
                 reasonRejection.put(email,reason);
+                organizer.setStatus("Rejected");
                 return true;
             }
 
@@ -63,6 +65,7 @@ public class Admin {
             if(Objects.equals(serviceProvider.getEmail(), email) && Objects.equals(serviceProvider.getStatus(), "Pending")) {
 
                 reasonRejection.put(email,reason);
+                serviceProvider.setServiceProvide("Rejected");
                 return true;
             }
 

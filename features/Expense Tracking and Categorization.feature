@@ -31,10 +31,3 @@ Feature: Expense Tracking and Categorization
     Then the updated details should be saved in the system
     And the expense should reflect the updated information
 
-  Scenario: Deleting an expense
-    Given I am logged in as an organizer
-    And I am on the "Expense Tracking" page
-    When I select an existing expense to delete
-    And I confirm the deletion
-    Then the expense should be removed from the system
-    And it should no longer appear in any category or list

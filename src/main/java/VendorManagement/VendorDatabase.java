@@ -39,12 +39,7 @@ public class  VendorDatabase {
     }
 
     // Facilitates negotiation of a contract between an organizer and a vendor
-    public void negotiateContractWithVendor(String vendorId, ContractNegotiation negotiationDetails) {
-        Vendor vendor = findVendorById(vendorId);
-        if (vendor != null) {
-            vendor.negotiateContract(negotiationDetails);
-        }
-    }
+
 
     // Helper method to find a vendor by ID
     public Vendor findVendorById(String id) {

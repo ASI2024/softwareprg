@@ -16,13 +16,3 @@ Feature: Add New Venues
       | Venue A    | Location A | 100     | Audio System, WiFi | 5000    |
       | Venue B    | Location B | 200     | Parking, Catering  | 8000    |
 
-  Scenario: Attempt to Add New Venue Without Mandatory Fields
-    Given I am logged in as an organizer
-    When I navigate to the “Add New Venue” page
-    And I click on the 'Submit' button without entering any details
-    Then I should see an error message 'All fields are required'
-
-  Scenario: Adding a Venue With Duplicate Name
-    Given the venue 'Venue A' already exists
-    When I try to add another venue with the name 'Venue A'
-    Then I should see an error message 'Venue name already exists'

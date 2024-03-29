@@ -1,7 +1,7 @@
 package eventPlaner;
 
-import java.sql.Date;
-import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +9,7 @@ public class EventManagement {
 
     public static List<Event> eventsRequest;
     public static List<Event> eventsEdition;
+    List<String>Category = new ArrayList<>();
     public static boolean addFlag;
     public static boolean editDateFlag = false;
     public static boolean editTimeFlag = false;
@@ -57,7 +58,7 @@ public class EventManagement {
     }
 
 
-    public void EditDate(int eventNumber,Date d) {
+    public void EditDate(int eventNumber, LocalDate d) {
 
         for(Event existingEvent : eventsRequest){
 
@@ -71,7 +72,7 @@ public class EventManagement {
 
     }
 
-    public void EditTime(int eventNumber, Time t) {
+    public void EditTime(int eventNumber, LocalTime t) {
 
         for(Event existingEvent : eventsRequest){
 
@@ -143,14 +144,20 @@ public class EventManagement {
 
     }
 
-    public void SelectCategory(int eventNumber,int category) {
+    public void ShowCategory(){
 
-        List<String>Category = new ArrayList<>();
-        Category.add(0,"Birthday");
-        Category.add(1,"Wedding");
-        Category.add(2,"Workshop");
-        Category.add(3,"Graduation");
-        Category.add(4,"Seminar");
+        Category.add(1,"Birthday");
+        Category.add(2,"Wedding");
+        Category.add(3,"Workshop");
+        Category.add(4,"Graduation");
+        Category.add(5,"Seminar");
+
+        for (int i=1;i<=5;i++){
+            System.out.println(i+")"+Category.get(i));
+        }
+    }
+
+    public void SelectCategory(int eventNumber,int category) {
 
         for(Event existingEvent : eventsRequest){
 
