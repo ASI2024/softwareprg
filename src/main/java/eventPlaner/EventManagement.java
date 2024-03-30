@@ -77,63 +77,53 @@ public class EventManagement {
 }
 
 
-    public void EditLocation(int eventNumber, String location) {
-
-        for(Event existingEvent : eventsRequest){
-
-            if(existingEvent.getEventNumber() == eventNumber) {
-
-                Event E = new Event(eventNumber,null,null,location,null,null,null);
-                eventsEdition.add(E);
-                editLocationFlag = true;
-            }
-
+   public static void EditLocation(int eventNumber, String location) {
+    for (Event existingEvent : eventsRequest) {
+        if (existingEvent.getEventNumber() == eventNumber) {
+            Event E = new Event(eventNumber, null, null, location, null, null, null);
+            eventsEdition.add(E);
+            editLocationFlag = true;
         }
-
     }
+}
 
-    public void EditTheme(int eventNumber, String theme) {
 
-        for(Event existingEvent : eventsRequest){
-
-            if(existingEvent.getEventNumber() == eventNumber) {
-
-                Event E = new Event(eventNumber,null,null,null,theme,null,null);
-                eventsEdition.add(E);
-                editThemeFlag = true;
-            }
+  public static void EditTheme(int eventNumber, String theme) {
+    for (Event existingEvent : eventsRequest) {
+        if (existingEvent.getEventNumber() == eventNumber) {
+            Event E = new Event(eventNumber, null, null, null, theme, null, null);
+            eventsEdition.add(E);
+            editThemeFlag = true;
         }
-
     }
+}
 
-    public void EditDescription(int eventNumber, String description) {
 
-        for(Event existingEvent : eventsRequest){
-
-            if(existingEvent.getEventNumber() == eventNumber) {
-
-                Event E = new Event(eventNumber,null,null,null,null,description,null);
-                eventsEdition.add(E);
-                editDescriptionFlag = true;
-            }
-
+public static void EditDescription(int eventNumber, String description) {
+    for (Event existingEvent : eventsRequest) {
+        if (existingEvent.getEventNumber() == eventNumber) {
+            Event E = new Event(eventNumber, null, null, null, null, description, null);
+            eventsEdition.add(E);
+            editDescriptionFlag = true;
         }
-
     }
+}
 
-    public void DeletEvent(int eventNumber) {
 
-        for(Event existingEvent : eventsRequest){
-
-            if(existingEvent.getEventNumber() == eventNumber) {
-
-                Event E = new Event(eventNumber,null,null,null,null,null,null);
-                eventsEdition.add(E);
-                deletFlag = true;
-            }
+    public static void DeletEvent(int eventNumber) {
+    for (Iterator<Event> iterator = eventsRequest.iterator(); iterator.hasNext(); ) {
+        Event existingEvent = iterator.next();
+        if (existingEvent.getEventNumber() == eventNumber) {
+            iterator.remove(); 
+       
+            Event E = new Event(eventNumber, null, null, null, null, null, null);
+            eventsEdition.add(E);
+            deletFlag = true;
+            break;
         }
-
     }
+}
+
 
     public void ShowCategory(){
 
@@ -148,19 +138,15 @@ public class EventManagement {
         }
     }
 
-    public void SelectCategory(int eventNumber,int category) {
-
-        for(Event existingEvent : eventsRequest){
-
-            if(existingEvent.getEventNumber() == eventNumber) {
-
-                existingEvent.setCategory(Category.get(category));
-                setCategoryFlag = true;
-            }
-
+  public static void SelectCategory(int eventNumber, int category) {
+    for (Event existingEvent : eventsRequest) {
+        if (existingEvent.getEventNumber() == eventNumber) {
+            existingEvent.setCategory(Category.get(category));
+            setCategoryFlag = true;
+            break; 
         }
-
     }
+}
 
 
 }
