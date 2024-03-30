@@ -27,7 +27,7 @@ public class EventManagement {
     }
 
    
-}
+
 
    public static void AddEvent(Event event) {
         eventsRequest.add(event);
@@ -150,6 +150,6 @@ public static void EditDescription(int eventNumber, String description) {
         }
     }
 }
-
+}
 
 }
