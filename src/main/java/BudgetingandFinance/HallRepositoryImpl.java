@@ -6,7 +6,7 @@ import java.util.*;
 public abstract class HallRepositoryImpl implements HallRepository {
     private Map<Integer, Hall> hallDatabase = new HashMap<>();
 
-    public HallRepositoryImpl() {
+   protected HallRepositoryImpl(){
         hallDatabase.put(1, new Hall(1, "Grand Ballroom", 3000, 200, new Date()));
         hallDatabase.put(2, new Hall(2, "Conference Center", 1500, 100, new Date()));
     }
