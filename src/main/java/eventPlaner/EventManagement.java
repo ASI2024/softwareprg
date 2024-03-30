@@ -66,19 +66,16 @@ public class EventManagement {
     }
 }
 
-    public void EditTime(int eventNumber, LocalTime t) {
-
-        for(Event existingEvent : eventsRequest){
-
-            if(existingEvent.getEventNumber() == eventNumber) {
-
-                Event E = new Event(eventNumber,null,t,null,null,null,null);
-                eventsEdition.add(E);
-                editTimeFlag = true;
-            }
+   public static void EditTime(int eventNumber, LocalTime t) {
+    for (Event existingEvent : eventsRequest) {
+        if (existingEvent.getEventNumber() == eventNumber) {
+            Event E = new Event(eventNumber, null, t, null, null, null, null);
+            eventsEdition.add(E);
+            editTimeFlag = true;
         }
-
     }
+}
+
 
     public void EditLocation(int eventNumber, String location) {
 
