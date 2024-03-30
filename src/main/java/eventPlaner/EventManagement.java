@@ -1,15 +1,17 @@
 package eventPlaner;
 
+package eventPlaner;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Iterator; 
 import java.util.List;
 
 public class EventManagement {
-
     public static List<Event> eventsRequest;
     public static List<Event> eventsEdition;
-    List<String>Category = new ArrayList<>();
+    public static List<String> Category = new ArrayList<>(); // Made Category static
     public static boolean addFlag;
     public static boolean editDateFlag = false;
     public static boolean editTimeFlag = false;
@@ -17,14 +19,15 @@ public class EventManagement {
     public static boolean editThemeFlag = false;
     public static boolean editDescriptionFlag = false;
     public static boolean deletFlag = false;
-
     public static boolean setCategoryFlag;
 
-    public EventManagement(){
-
+    public EventManagement() {
         eventsRequest = new ArrayList<>();
         eventsEdition = new ArrayList<>();
     }
+
+   
+}
 
    public static void AddEvent(Event event) {
         eventsRequest.add(event);
