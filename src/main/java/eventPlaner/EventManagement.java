@@ -26,13 +26,11 @@ public class EventManagement {
         eventsEdition = new ArrayList<>();
     }
 
-    public void AddEvent(Event event){
-
+   public static void AddEvent(Event event) {
         eventsRequest.add(event);
-        addFlag=true;
-
+        addFlag = true;
     }
-
+    
     public static boolean hasConflict(Event event) {
 
         for(Event existingEvent : eventsRequest){
