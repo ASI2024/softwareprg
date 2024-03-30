@@ -56,19 +56,15 @@ public class EventManagement {
     }
 
 
-    public void EditDate(int eventNumber, LocalDate d) {
-
-        for(Event existingEvent : eventsRequest){
-
-            if (existingEvent.getEventNumber() == eventNumber) {
-
-                Event E = new Event(eventNumber, d, null, null, null, null, null);
-                eventsEdition.add(E);
-                editDateFlag = true;
-            }
+   public static void EditDate(int eventNumber, LocalDate d) {
+    for (Event existingEvent : eventsRequest) {
+        if (existingEvent.getEventNumber() == eventNumber) {
+            Event E = new Event(eventNumber, d, null, null, null, null, null);
+            eventsEdition.add(E);
+            editDateFlag = true;
         }
-
     }
+}
 
     public void EditTime(int eventNumber, LocalTime t) {
 
