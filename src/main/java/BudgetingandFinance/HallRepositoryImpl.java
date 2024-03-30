@@ -2,6 +2,8 @@ package BudgetingandFinance;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public abstract class HallRepositoryImpl implements HallRepository {
     private Map<Integer, Hall> hallDatabase = new HashMap<>();
@@ -13,21 +15,18 @@ public abstract class HallRepositoryImpl implements HallRepository {
 
     @Override
     public List<Hall> findHallsByCriteria(int budget, Date date) {
-        // Debugging output
-        System.out.println("Searching for halls with budget <= " + budget + " and date == " + date);
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        // Log the search criteria
+        logger.info("Searching for halls with budget <= {} and date == {}", budget, date);
+        
         List<Hall> matchingHalls = new ArrayList<>();
         for (Hall hall : hallDatabase.values()) {
-            System.out.println("Hall: " + hall.getName() + ", Rent: " + hall.getRent() + ", Date: " + hall.getAvailableDate());
+            // Log each hall's details
+            logger.info("Hall: {}, Rent: {}, Date: {}", hall.getName(), hall.getRent(), hall.getAvailableDate());
+            
             if (hall.getRent() <= budget && hall.getAvailableDate().compareTo(date) == 0) {
                 matchingHalls.add(hall);
             }
         }
-
-
-
         return matchingHalls;
     }
-
-    public abstract List<Hall> findHallsByCriteria(int budget, String eventType, Date date);
 }
