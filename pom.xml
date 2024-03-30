@@ -67,6 +67,10 @@
             <scope>compile</scope>
         </dependency>
 
+<properties>
+  <sonar.organization>asi2024</sonar.organization>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+</properties>
 
     </dependencies>
 </project>
