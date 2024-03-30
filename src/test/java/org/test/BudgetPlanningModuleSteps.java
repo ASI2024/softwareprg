@@ -73,8 +73,7 @@ public class BudgetPlanningModuleSteps {
 
     @When("the system searches for halls")
     public void the_system_searches_for_halls() {
-        // This reuses the search method; make sure that specifiedDate is already set by previous steps or set a default
-        this.specifiedDate = this.specifiedDate != null ? this.specifiedDate : new Date(); // Default date if not set
+        this.specifiedDate = this.specifiedDate != null ? this.specifiedDate : new Date();
         this.searchResults = hallRepository.findHallsByCriteria(specifiedRent, specifiedDate);
     }
 

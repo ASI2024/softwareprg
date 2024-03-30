@@ -64,7 +64,6 @@ public class Vendor {
     public void handlePackageRequest(PackageRequest packageRequest) {
 
         this.packageRequests.add(packageRequest);
-        // Implementation could include notifying the vendor, updating the status, etc.
     }
 
 

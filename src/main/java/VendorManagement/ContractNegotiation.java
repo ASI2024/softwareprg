@@ -58,6 +58,5 @@ public class ContractNegotiation {
         else{
             setTerms(null);
         }
-        // Additional logic to handle the finalization of the negotiation could be implemented here
     }
 }

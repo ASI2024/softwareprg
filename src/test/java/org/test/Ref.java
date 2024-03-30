@@ -20,14 +20,12 @@ public class Ref {
 
     @Then("the user should be successfully registered")
     public void the_user_should_be_successfully_registered() {
-        // Write code here that turns the phrase above into concrete actions
         assertEquals("User registered successfully", registrationStatus);
 
     }
 
     @When("the user Not fills all in the registration form")
     public void the_user_not_fills_all_in_the_registration_form() {
-        // Write code here that turns the phrase above into concrete actions
         registrationStatus = UserService.registerUser("Abdelrahman@gmail.com", "", "Jenin", "0548739226", "123456");
     }
 

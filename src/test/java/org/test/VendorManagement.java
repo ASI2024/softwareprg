@@ -52,7 +52,7 @@ public class VendorManagement {
     }
     @And("the organizer is on the {string} section")
     public void theOrganizerIsOnTheSection(String arg0) {
-        //
+
     }
     @When("the organizer applies filters based on location, availability, pricing, and reviews")
     public void theOrganizerAppliesFiltersBasedOnLocationAvailabilityPricingAndReviews() {
@@ -77,7 +77,6 @@ public class VendorManagement {
 
     @Given("the organizer has found a preferred vendor")
     public void theOrganizerHasFoundAPreferredVendor() {
-        // Assuming the preferred vendor is added to the database for the purpose of this test
         selectedVendor =new Vendor("1", "Catering Co", "Catering", "Food Services", "NYC", true, 500.0, 4.5);
         vendorDatabase.addVendor(selectedVendor);
         selectedVendor = vendorDatabase.findVendorById(selectedVendor.getId());

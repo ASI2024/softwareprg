@@ -7,7 +7,7 @@ public class Venues {
     private String amenities;
     private double pricing;
 
-    // Constructor
+
     public Venues(String name, String location, int capacity, String amenities, double pricing) {
         this.name = name;
         this.location = location;
@@ -20,7 +20,6 @@ public class Venues {
 
     }
 
-    // Getter methods
 
     public void setName(String name) {
 

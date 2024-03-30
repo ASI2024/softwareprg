@@ -1,5 +1,7 @@
 package org.example;
 
+import BudgetingandFinance.Hall;
+import BudgetingandFinance.HallRepositoryImpl;
 import VendorManagement.ContractNegotiation;
 import VendorManagement.PackageRequest;
 import VendorManagement.Vendor;
@@ -16,11 +18,11 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+         Map<Integer, Hall> hallDatabase = new HashMap<>();
 
         Scanner scanner1 = new Scanner(System.in);
         Scanner scanner2 = new Scanner(System.in);
@@ -587,8 +589,28 @@ public class Main {
                                         } catch (ParseException ee) {
                                             System.out.println("Invalid date format.");
                                         }
-                                        //HallRepositoryImpl hallRepository =new HallRepositoryImpl();
-                                        //System.out.println(hallRepository.findHallsByCriteria(budget,date1));
+
+                                        HallRepositoryImpl hallRepository = new HallRepositoryImpl() {
+                                            @Override
+                                            public List<Hall> findHallsByCriteria(int budget, String eventType, java.util.Date date) {
+
+                                                System.out.println("Searching for halls with budget <= " + budget + " and date == " + date);
+                                                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                                                List<Hall> matchingHalls = new ArrayList<>();
+                                                for (Hall hall : hallDatabase.values()) {
+                                                    System.out.println("Hall: " + hall.getName() + ", Rent: " + hall.getRent() + ", Date: " + hall.getAvailableDate());
+                                                    if (hall.getRent() <= budget && hall.getAvailableDate().compareTo(date) == 0) {
+                                                        matchingHalls.add(hall);
+                                                    }
+                                                }
+
+
+
+                                                return matchingHalls;
+                                            }
+
+                                        };
+                                        System.out.println(hallRepository.findHallsByCriteria(budget,date1));
                                         break;
 
                                     case 11:

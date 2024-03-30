@@ -21,7 +21,7 @@ public class ExpenseTracker {
                 expense.setAmount(amount);
                 expense.setCategory(category);
                 expense.setDescription(description);
-                return true; // Update successful
+                return true;
             }
 
         }
@@ -35,7 +35,6 @@ public class ExpenseTracker {
                 .collect(Collectors.toList());
     }
 
-    // Additional helper methods as needed, e.g., getExpenses, for testing purposes
     public List<Expense> getExpenses() {
         return new ArrayList<>(expenses);
     }

@@ -9,7 +9,7 @@ public class Hall {
     private int capacity;
     private Date availableDate;
 
-    // Constructor
+
     public Hall(int id, String name, int rent, int capacity, Date availableDate) {
         this.id = id;
         this.name = name;
@@ -22,14 +22,13 @@ public class Hall {
 
     }
 
-    // Getters
     public int getId() { return id; }
     public String getName() { return name; }
     public int getRent() { return rent; }
     public int getCapacity() { return capacity; }
     public Date getAvailableDate() { return availableDate; }
 
-    // Setters
+
     public void setId(int id) { this.id = id; }
     public void setName(String name) { this.name = name; }
     public void setRent(int rent) { this.rent = rent; }
