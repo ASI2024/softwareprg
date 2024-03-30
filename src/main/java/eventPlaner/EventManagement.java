@@ -1,17 +1,15 @@
 package eventPlaner;
 
-package eventPlaner;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Iterator; 
+import java.util.Iterator;
 import java.util.List;
 
 public class EventManagement {
-    public static List<Event> eventsRequest;
-    public static List<Event> eventsEdition;
-    public static List<String> Category = new ArrayList<>(); // Made Category static
+    public static List<Event> eventsRequest = new ArrayList<>();
+    public static List<Event> eventsEdition = new ArrayList<>();
+    public static List<String> Category = new ArrayList<>(); 
     public static boolean addFlag;
     public static boolean editDateFlag = false;
     public static boolean editTimeFlag = false;
@@ -22,25 +20,21 @@ public class EventManagement {
     public static boolean setCategoryFlag;
 
     public EventManagement() {
-        eventsRequest = new ArrayList<>();
+       eventsRequest = new ArrayList<>();
         eventsEdition = new ArrayList<>();
     }
 
-   
-
-
-   public static void AddEvent(Event event) {
+    public static void AddEvent(Event event) {
         eventsRequest.add(event);
         addFlag = true;
     }
     
     public static boolean hasConflict(Event event) {
-
-        for(Event existingEvent : eventsRequest){
-
-            return existingEvent.getDate().equals(event.getDate()) &&
-                    existingEvent.getTime().equals(event.getTime());
-
+        for(Event existingEvent : eventsRequest) {
+            if(existingEvent.getDate().equals(event.getDate()) &&
+                    existingEvent.getTime().equals(event.getTime())) {
+                return true;
+            }
         }
         return false;
     }
@@ -141,15 +135,13 @@ public static void EditDescription(int eventNumber, String description) {
         }
     }
 
-  public static void SelectCategory(int eventNumber, int category) {
-    for (Event existingEvent : eventsRequest) {
-        if (existingEvent.getEventNumber() == eventNumber) {
-            existingEvent.setCategory(Category.get(category));
-            setCategoryFlag = true;
-            break; 
+    public static void SelectCategory(int eventNumber, int category) {
+        for (Event existingEvent : eventsRequest) {
+            if (existingEvent.getEventNumber() == eventNumber) {
+                existingEvent.setCategory(Category.get(category));
+                setCategoryFlag = true;
+                break;
+            }
         }
     }
-}
-}
-
 }
