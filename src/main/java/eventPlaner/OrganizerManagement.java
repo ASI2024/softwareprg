@@ -19,11 +19,11 @@ public static final String EVENT_NOT_FOUND = "Event Not Found";
   
 
 
-    public static List<Event> eventsList;
+    
     public HashMap<Integer, String> reasonRejection;
 
     public OrganizerManagement() {
-        eventsList = new ArrayList<>();
+     
         this.reasonRejection = new HashMap<>();
     }
 
