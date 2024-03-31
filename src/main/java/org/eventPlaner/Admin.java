@@ -1,8 +1,6 @@
 package org.eventPlaner;
 
 import eventPlaner.Organizer;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,7 +12,7 @@ import static org.eventPlaner.Service.ServiceProviders;
 
 public class Admin {
     public static List<AdminInf> AdminList = new ArrayList<>();
-    public static HashMap<String, String> reasonRejection;
+    public static HashMap<String, String> reasonRejection = new HashMap<>(); 
 
     public static String registerAdmin(String emailAdmin, String userName, String city, String adminPassword, String status) {
        
@@ -27,7 +25,6 @@ public class Admin {
             return "Admin registration failed"; 
         }
     }
-}
     public static String login(String emailAdmin, String adminPassword) {
 
         for(AdminInf adminInf :AdminList){
