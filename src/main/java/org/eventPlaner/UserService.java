@@ -9,7 +9,7 @@ public class UserService {
 
     public static String registerUser(String email, String userName, String city, String phoneNumber, String password) {
 
-        boolean test = email.isEmpty()|userName.isEmpty()|city.isEmpty()|phoneNumber.isEmpty()|password.isEmpty();
+        boolean test = email.isEmpty()||userName.isEmpty()||city.isEmpty()||phoneNumber.isEmpty()||password.isEmpty();
         if(!test){
             User U = new User(userName,password,email,city,phoneNumber);
             users.add(U);
