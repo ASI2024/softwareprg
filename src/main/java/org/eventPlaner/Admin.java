@@ -1,6 +1,8 @@
 package org.eventPlaner;
 
 import eventPlaner.Organizer;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,20 +13,21 @@ import static eventPlaner.OrganizerLogin.Organizers;
 import static org.eventPlaner.Service.ServiceProviders;
 
 public class Admin {
-
-    public static List<AdminInf>AdminList= new ArrayList<>();
+    public static List<AdminInf> AdminList = new ArrayList<>();
     public static HashMap<String, String> reasonRejection;
-    public static String registerAdmin(String emailAdmin, String userName, String city, String adminPassword,String status) {
 
-        boolean test = emailAdmin.isEmpty()|userName.isEmpty()|city.isEmpty()|adminPassword.isEmpty();
-        if(!test) {
-            AdminInf A = new AdminInf(userName,adminPassword,emailAdmin,city,status);
+    public static String registerAdmin(String emailAdmin, String userName, String city, String adminPassword, String status) {
+       
+        boolean test = emailAdmin.isEmpty() || userName.isEmpty() || city.isEmpty() || adminPassword.isEmpty();
+        if (!test) {
+            AdminInf A = new AdminInf(userName, adminPassword, emailAdmin, city, status);
             AdminList.add(A);
             return "Admin registered successfully";
-        }else{
-            return "Admin registered failed";
+        } else {
+            return "Admin registration failed"; 
         }
     }
+}
     public static String login(String emailAdmin, String adminPassword) {
 
         for(AdminInf adminInf :AdminList){
