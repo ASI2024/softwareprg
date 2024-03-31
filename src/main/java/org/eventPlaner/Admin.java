@@ -62,7 +62,7 @@ private static final String STATUS_ACCEPTABLE = "Acceptable";
     } 
      
     public static void showRequest(){
-       logger.info();
+       logger.info("");
        logger.info("               Admin Requests List");
          logger.info("Email               Password     UserName     City");
 
@@ -70,68 +70,68 @@ private static final String STATUS_ACCEPTABLE = "Acceptable";
 
              if(adminInf.getStatus().equals(STATUS_PENDING)){
 
-                 logger.info(adminInf.getEmail());
+                 System.out.print(adminInf.getEmail());
                  for(int i =0;i<20-adminInf.getEmail().length();i++)
-                     System.out.print("\t");
-                 logger.info(adminInf.getPassword());
+                      logger.info("\t");
+                System.out.print(adminInf.getPassword());
                  for(int i =0;i<13-adminInf.getPassword().length();i++)
                      logger.info("\t");
-                 logger.info(adminInf.getUserName());
+                System.out.print(adminInf.getUserName());
                  for(int i =0;i<13-adminInf.getUserName().length();i++)
                      logger.info("\t");
-                  logger.info(adminInf.getCity());
+                 System.out.print(adminInf.getCity());
 
              }
 
         }
-        logger.info();
+        logger.info("");
         logger.info("                       Organizer Requests List");
         logger.info("Email               Password     UserName     City     PhoneNumber");
         for(Organizer organizer :Organizers){
 
             if(organizer.getStatus().equals(STATUS_PENDING)){
 
-                 logger.info(organizer.getEmail());
+                 System.out.print(organizer.getEmail());
                 for(int i =0;i<20-organizer.getEmail().length();i++)
                      logger.info("\t");
-               logger.info(organizer.getPassword());
+               System.out.print(organizer.getPassword());
                 for(int i =0;i<13-organizer.getPassword().length();i++)
-                    System.out.print("\t");
-                 logger.info(organizer.getUsername());
+                     logger.info("\t");
+                System.out.print(organizer.getUsername());
                 for(int i =0;i<13-organizer.getUsername().length();i++)
-                    System.out.print("\t");
-                logger.info(organizer.getCity());
+                    logger.info("\t");
+               System.out.print(organizer.getCity());
                 for(int i =0;i<9-organizer.getCity().length();i++)
-                    System.out.print("\t");
-                logger.info(organizer.getPhoneNumber());
+                     logger.info("\t");
+                System.out.print(organizer.getPhoneNumber());
 
             }
 
         }
 
-        logger.info();
+        logger.info("");
         logger.info("                         ServiceProvider Requests List");
          logger.info("Email               Password     UserName     City     PhoneNumber     Address");
         for(ServiceProvider serviceProvider :ServiceProviders){
 
             if(serviceProvider.getStatus().equals(STATUS_PENDING)){
 
-              logger.info(serviceProvider.getEmail());
+              System.out.print(serviceProvider.getEmail());
                 for(int i =0;i<20-serviceProvider.getEmail().length();i++)
-                    System.out.print("\t");
-                logger.info(serviceProvider.getPassword());
+                    logger.info("\t");
+               System.out.print(serviceProvider.getPassword());
                 for(int i =0;i<13-serviceProvider.getPassword().length();i++)
-                    System.out.print("\t");
-                 logger.info(serviceProvider.getUserName());
+                    logger.info("\t");
+                System.out.print(serviceProvider.getUserName());
                 for(int i =0;i<13-serviceProvider.getUserName().length();i++)
                      logger.info("\t");
-               logger.info(serviceProvider.getCity());
+              System.out.print(serviceProvider.getCity());
                 for(int i =0;i<9-serviceProvider.getCity().length();i++)
-                    System.out.print("\t");
-                logger.info(serviceProvider.getPhoneNum());
+                   logger.info("\t");
+                System.out.print(serviceProvider.getPhoneNum());
                 for(int i =0;i<16-serviceProvider.getPhoneNum().length();i++)
-                    System.out.print("\t");
-                 logger.info(serviceProvider.getAddress());
+                    logger.info("\t");
+              System.out.print(serviceProvider.getAddress());
 
             }
 
