@@ -44,8 +44,6 @@ public class Main {
         Scanner scanner4 = new Scanner(System.in);
         Scanner scanner5 = new Scanner(System.in);
         Random random = new Random();
-int randomInt = random.nextInt(100); 
-double randomDouble = random.nextDouble();
 
         int minValue = 100000;
         int maxValue = 999999;
