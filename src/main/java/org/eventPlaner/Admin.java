@@ -16,6 +16,9 @@ private static final String STATUS_ACCEPTABLE = "Acceptable";
     private static final String STATUS_REJECTED = "Rejected";
     public static List<AdminInf>AdminList= new ArrayList<>();
     public static HashMap<String, String> reasonRejection;
+    private Admin() {
+        
+    }
     public static String registerAdmin(String emailAdmin, String userName, String city, String adminPassword,String status) {
 
         boolean test = emailAdmin.isEmpty()||userName.isEmpty()||city.isEmpty()||adminPassword.isEmpty();
