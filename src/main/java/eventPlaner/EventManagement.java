@@ -125,16 +125,15 @@ public static void EditDescription(int eventNumber, String description) {
 }
 
 
-   public void ShowCategory() {
-    if (Category.isEmpty()) {
+ public void ShowCategory() {
+        if (Category.isEmpty()) {
+            Category.addAll(Arrays.asList("Birthday", "Wedding", "Workshop", "Graduation", "Seminar"));
+        }
         
-        Category.addAll(Arrays.asList("Birthday", "Wedding", "Workshop", "Graduation", "Seminar"));
+        for (int i = 0; i < Category.size(); i++) {
+            LOGGER.log(Level.INFO, "{0}){1}", new Object[] {i + 1, Category.get(i)});
+        }
     }
-    
-    for (int i = 0; i < Category.size(); i++) {
-        LOGGER.log(Level.INFO, "{0}){1}", new Object[] {i + 1, Category.get(i)});
-    }
-}
 
 
     public static void SelectCategory(int eventNumber, int category) {
