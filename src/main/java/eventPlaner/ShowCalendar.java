@@ -39,7 +39,7 @@ public void PrintCalender(int month, int year) {
         }
         
         int daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
-        for (int day = 1, dayOfWeek = firstDayOfWeek; day <= daysInMonth; day++) {
+        for (int day = 1, dayOfWeek = firstDayOfWeek; day <= daysInMonth; day++, dayOfWeek = dayOfWeek % 7 + 1) {
             String currentDateString = String.format("%d-%02d-%02d", year, month + 1, day);
             boolean isSpecialDate = Dates.stream().anyMatch(d -> sdf.format(d).equals(currentDateString));
             
@@ -51,10 +51,7 @@ public void PrintCalender(int month, int year) {
             
             if (dayOfWeek == Calendar.SATURDAY) {
                 sb.append(String.format("%n"));
-                
             }
-           
-            dayOfWeek = (dayOfWeek == Calendar.SATURDAY) ? Calendar.SUNDAY : dayOfWeek + 1;
         }
         
         logger.info(sb.toString());
