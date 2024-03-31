@@ -13,7 +13,9 @@ import static org.eventPlaner.Service.ServiceProviders;
 public class Admin {
     public static List<AdminInf> AdminList = new ArrayList<>();
     public static HashMap<String, String> reasonRejection = new HashMap<>(); 
-
+private static final String STATUS_ACCEPTABLE = "Acceptable";
+    private static final String STATUS_PENDING = "Pending"; 
+    private static final String STATUS_REJECTED = "Rejected";
     public static String registerAdmin(String emailAdmin, String userName, String city, String adminPassword, String status) {
        
         boolean test = emailAdmin.isEmpty() || userName.isEmpty() || city.isEmpty() || adminPassword.isEmpty();
@@ -29,7 +31,7 @@ public class Admin {
 
         for(AdminInf adminInf :AdminList){
 
-            if(adminInf.getEmail().equals(emailAdmin)&&adminInf.getPassword().equals(adminPassword)&&adminInf.getStatus().equals("Acceptable"))
+            if(adminInf.getEmail().equals(emailAdmin)&&adminInf.getPassword().equals(adminPassword)&&adminInf.getStatus().equals(STATUS_ACCEPTABLE))
                 return "Admin logged in successfully";
         }
 
@@ -40,10 +42,10 @@ public class Admin {
 
         for(AdminInf adminInf :AdminList){
 
-            if(Objects.equals(adminInf.getEmail(), email) && Objects.equals(adminInf.getStatus(), "Pending")) {
+            if(Objects.equals(adminInf.getEmail(), email) && Objects.equals(adminInf.getStatus(), STATUS_PENDING)) {
 
                 reasonRejection.put(email,reason);
-                adminInf.setStatus("Rejected");
+                adminInf.setStatus(STATUS_REJECTED);
                 return true;
             }
 
@@ -51,10 +53,10 @@ public class Admin {
 
         for(Organizer organizer :Organizers){
 
-            if(Objects.equals(organizer.getEmail(), email) && Objects.equals(organizer.getStatus(), "Pending")) {
+            if(Objects.equals(organizer.getEmail(), email) && Objects.equals(organizer.getStatus(),STATUS_PENDING)) {
 
                 reasonRejection.put(email,reason);
-                organizer.setStatus("Rejected");
+                organizer.setStatus(STATUS_REJECTED);
                 return true;
             }
 
@@ -62,10 +64,10 @@ public class Admin {
 
         for(ServiceProvider serviceProvider :ServiceProviders){
 
-            if(Objects.equals(serviceProvider.getEmail(), email) && Objects.equals(serviceProvider.getStatus(), "Pending")) {
+            if(Objects.equals(serviceProvider.getEmail(), email) && Objects.equals(serviceProvider.getStatus(), STATUS_PENDING)) {
 
                 reasonRejection.put(email,reason);
-                serviceProvider.setServiceProvide("Rejected");
+                serviceProvider.setServiceProvide(STATUS_REJECTED);
                 return true;
             }
 
@@ -74,89 +76,54 @@ public class Admin {
 
     }
 
-    public static void showRequest(){
-        System.out.println();
-        System.out.println("               Admin Requests List");
+    public static void showRequest() {
+        System.out.println("\n               Admin Requests List");
         System.out.println("Email               Password     UserName     City");
+        AdminList.stream()
+                 .filter(adminInf -> PENDING_STATUS.equals(adminInf.getStatus()))
+                 .forEach(YourClass::printAdminInfo);
 
-        for(AdminInf adminInf :AdminList){
-
-             if(adminInf.getStatus().equals("Pending")){
-
-                 System.out.print(adminInf.getEmail());
-                 for(int i =0;i<20-adminInf.getEmail().length();i++)
-                     System.out.print("\t");
-                 System.out.print(adminInf.getPassword());
-                 for(int i =0;i<13-adminInf.getPassword().length();i++)
-                     System.out.print("\t");
-                 System.out.print(adminInf.getUserName());
-                 for(int i =0;i<13-adminInf.getUserName().length();i++)
-                     System.out.print("\t");
-                 System.out.println(adminInf.getCity());
-
-             }
-
-        }
-        System.out.println();
-        System.out.println("                       Organizer Requests List");
+        System.out.println("\n                       Organizer Requests List");
         System.out.println("Email               Password     UserName     City     PhoneNumber");
-        for(Organizer organizer :Organizers){
+        Organizers.stream()
+                  .filter(organizer -> PENDING_STATUS.equals(organizer.getStatus()))
+                  .forEach(YourClass::printOrganizerInfo);
 
-            if(organizer.getStatus().equals("Pending")){
-
-                System.out.print(organizer.getEmail());
-                for(int i =0;i<20-organizer.getEmail().length();i++)
-                    System.out.print("\t");
-                System.out.print(organizer.getPassword());
-                for(int i =0;i<13-organizer.getPassword().length();i++)
-                    System.out.print("\t");
-                System.out.print(organizer.getUsername());
-                for(int i =0;i<13-organizer.getUsername().length();i++)
-                    System.out.print("\t");
-                System.out.println(organizer.getCity());
-                for(int i =0;i<9-organizer.getCity().length();i++)
-                    System.out.print("\t");
-                System.out.println(organizer.getPhoneNumber());
-
-            }
-
-        }
-
-        System.out.println();
-        System.out.println("                         ServiceProvider Requests List");
+        System.out.println("\n                         ServiceProvider Requests List");
         System.out.println("Email               Password     UserName     City     PhoneNumber     Address");
-        for(ServiceProvider serviceProvider :ServiceProviders){
-
-            if(serviceProvider.getStatus().equals("Pending")){
-
-                System.out.print(serviceProvider.getEmail());
-                for(int i =0;i<20-serviceProvider.getEmail().length();i++)
-                    System.out.print("\t");
-                System.out.print(serviceProvider.getPassword());
-                for(int i =0;i<13-serviceProvider.getPassword().length();i++)
-                    System.out.print("\t");
-                System.out.print(serviceProvider.getUserName());
-                for(int i =0;i<13-serviceProvider.getUserName().length();i++)
-                    System.out.print("\t");
-                System.out.println(serviceProvider.getCity());
-                for(int i =0;i<9-serviceProvider.getCity().length();i++)
-                    System.out.print("\t");
-                System.out.println(serviceProvider.getPhoneNum());
-                for(int i =0;i<16-serviceProvider.getPhoneNum().length();i++)
-                    System.out.print("\t");
-                System.out.println(serviceProvider.getAddress());
-
-            }
-
-        }
+        ServiceProviders.stream()
+                        .filter(serviceProvider -> PENDING_STATUS.equals(serviceProvider.getStatus()))
+                        .forEach(YourClass::printServiceProviderInfo);
     }
+
+    private static void printAdminInfo(AdminInf adminInf) {
+        System.out.println(formatString(adminInf.getEmail(), 20) + formatString(adminInf.getPassword(), 13) +
+                           formatString(adminInf.getUserName(), 13) + adminInf.getCity());
+    }
+
+    private static void printOrganizerInfo(Organizer organizer) {
+        System.out.println(formatString(organizer.getEmail(), 20) + formatString(organizer.getPassword(), 13) +
+                           formatString(organizer.getUsername(), 13) + formatString(organizer.getCity(), 9) +
+                           organizer.getPhoneNumber());
+    }
+
+    private static void printServiceProviderInfo(ServiceProvider serviceProvider) {
+        System.out.println(formatString(serviceProvider.getEmail(), 20) + formatString(serviceProvider.getPassword(), 13) +
+                           formatString(serviceProvider.getUserName(), 13) + formatString(serviceProvider.getCity(), 9) +
+                           formatString(serviceProvider.getPhoneNum(), 16) + serviceProvider.getAddress());
+    }
+
+    private static String formatString(String str, int length) {
+        return String.format("%-" + length + "s", str);
+    }
+
 
     public static void AcceptAll(){
 
         for(AdminInf adminInf :AdminList){
 
-            if(adminInf.getStatus().equals("Pending"))
-                adminInf.setStatus("Acceptable");
+            if(adminInf.getStatus().equals(STATUS_PENDING))
+                adminInf.setStatus(STATUS_ACCEPTABLE);
         }
 
     }
@@ -165,8 +132,8 @@ public class Admin {
 
         for(AdminInf adminInf :AdminList){
 
-            if(adminInf.getStatus().equals("Pending")&&adminInf.getEmail().equals(email))
-                adminInf.setStatus("Acceptable");
+            if(adminInf.getStatus().equals(STATUS_PENDING)&&adminInf.getEmail().equals(email))
+                adminInf.setStatus(STATUS_ACCEPTABLE);
         }
 
     }
