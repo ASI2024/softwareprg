@@ -91,19 +91,19 @@ private static final String STATUS_ACCEPTABLE = "Acceptable";
 
             if(organizer.getStatus().equals(STATUS_PENDING)){
 
-                 System.out.print(organizer.getEmail());
+                  logger.info("Organizer Email: {}",organizer.getEmail());
                 for(int i =0;i<20-organizer.getEmail().length();i++)
                      logger.info("\t");
                System.out.print(organizer.getPassword());
                 for(int i =0;i<13-organizer.getPassword().length();i++)
                      logger.info("\t");
-                System.out.print(organizer.getUsername());
+                logger.info("Organizer username: {}", organizer.getUsername());
                 for(int i =0;i<13-organizer.getUsername().length();i++)
                     logger.info("\t");
-               System.out.print(organizer.getCity());
+                logger.info("Organizer City: {}",organizer.getCity());
                 for(int i =0;i<9-organizer.getCity().length();i++)
                      logger.info("\t");
-                System.out.print(organizer.getPhoneNumber());
+                 logger.info("Organizer PhoneNumber: {}",organizer.getPhoneNumber());
 
             }
 
