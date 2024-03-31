@@ -21,7 +21,7 @@ public class EventManagement {
 
     public EventManagement() {
        eventsRequest = new ArrayList<>();
-        eventsEdition = new ArrayList<>();
+    
     }
 
     public static void AddEvent(Event event) {
