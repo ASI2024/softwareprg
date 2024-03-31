@@ -10,8 +10,8 @@ public class Service {
 
     public static String registerService(String email, String userName, String city,String address,String status, String phoneNum, String password) {
 
-        boolean test = email.isEmpty()|userName.isEmpty()|city.isEmpty()
-                |address.isEmpty()|phoneNum.isEmpty()|password.isEmpty();
+        boolean test = email.isEmpty()||userName.isEmpty()||city.isEmpty()
+               ||address.isEmpty()||phoneNum.isEmpty()||password.isEmpty();
         if(!test){
 
             ServiceProvider S = new ServiceProvider(email,userName,city,address,status,phoneNum,password);
