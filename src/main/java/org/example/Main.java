@@ -43,7 +43,8 @@ public class Main {
         ExpenseTracker expenseTracker=new ExpenseTracker();
         VenueSystem venueSystem =new VenueSystem();
         Vendor vendor;
-        Vendor vendor2=new Vendor();
+       Vendor vendor = new Vendor.Builder().build();
+
         VendorDatabase vendorDatabase=new VendorDatabase();
         ContractNegotiation contractNegotiation=new ContractNegotiation();
         Event event;
@@ -362,7 +363,8 @@ public class Main {
                                         double price=scanner4.nextDouble();
                                         System.out.println("Enter review score of vendor:");
                                         double review=scanner4.nextDouble();
-                                        vendor=new Vendor(id,name,type,service,location,availability,price,review);
+                                       Vendor vendor = new Vendor("idValue", "nameValue", "typeValue", "serviceValue", "locationValue", true, 1000.0, 4.5);
+
                                         vendorDatabase.addVendor(vendor);
                                         System.out.println("Vendor added successfully");
                                         break;
