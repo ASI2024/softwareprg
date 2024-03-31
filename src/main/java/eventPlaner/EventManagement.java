@@ -7,9 +7,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
 import java.util.logging.Level;
+import java.util.Arrays;
 
 public class EventManagement {
-    private static final Logger LOGGER = Logger.getLogger(YourClassName.class.getName());
+ private static final Logger LOGGER = Logger.getLogger(EventManagement.class.getName());
     public static List<Event> eventsRequest = new ArrayList<>();
     public static List<Event> eventsEdition = new ArrayList<>();
     public static List<String> Category = new ArrayList<>(); 
@@ -125,7 +126,7 @@ public static void EditDescription(int eventNumber, String description) {
 }
 
 
- public void ShowCategory() {
+public void ShowCategory() {
         if (Category.isEmpty()) {
             Category.addAll(Arrays.asList("Birthday", "Wedding", "Workshop", "Graduation", "Seminar"));
         }
