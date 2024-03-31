@@ -26,10 +26,10 @@ public class ShowCalendar {
 public void PrintCalender(int month, int year) {
     month--;
     Calendar calendar = new GregorianCalendar(year, month, 1);
-
    
     if (logger.isInfoEnabled()) {
-        String header = String.format("\nCalendar for %s %d", calendar.getDisplayName(Calendar.MONTH, Calendar.LONG, java.util.Locale.US), year);
+     
+        String header = String.format("%nCalendar for %s %d%n", calendar.getDisplayName(Calendar.MONTH, Calendar.LONG, java.util.Locale.US), year);
         logger.info(header);
         logger.info("Sun Mon Tue Wed Thu Fri Sat");
         
@@ -44,24 +44,25 @@ public void PrintCalender(int month, int year) {
             String currentDateString = String.format("%d-%02d-%02d", year, month + 1, day);
             boolean isSpecialDate = Dates.stream().anyMatch(d -> sdf.format(d).equals(currentDateString));
             
-            
             if (isSpecialDate) {
-              
+               
                 sb.append(String.format("**%3d** ", day));
             } else {
                 sb.append(String.format("%3d ", day));
             }
             
             if (dayOfWeek == Calendar.SATURDAY) {
-                sb.append("\n");
+              
+                sb.append(String.format("%n"));
                 dayOfWeek = Calendar.SUNDAY - 1;
             }
         }
         
-       
+        
         logger.info(sb.toString());
     }
 }
+
 
 
 }
