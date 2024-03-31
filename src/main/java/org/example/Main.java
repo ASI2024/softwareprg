@@ -22,7 +22,7 @@ import java.util.*;
 
 public class Main {
     private static final String INVALID_INPUT_MESSAGE = "Invalid input please try again:";
-    private static final String Enter_Phone = "Enter Your PhoneNumber:";
+  private static final String ENTER_PHONE_NUMBER = "Enter Your PhoneNumber:";
     private static final String REQUEST_SUBMITTED_MESSAGE = "The request has been submitted successfully. Please wait for admin approval";
     private static final String STATUS_PENDING = "Pending";
     private static final String PROMPT_EMAIL = "Enter Your Email:";
@@ -95,7 +95,7 @@ public class Main {
                                 String user = scanner1.next();
                                 System.out.println(PROMPT_CITY);
                                 String cit = scanner1.next();
-                                System.out.println(Enter_Phone);
+                                System.out.println(ENTER_PHONE_NUMBER);
                                 String phone = scanner1.next();
                                 System.out.println(PROMPT_PASSWORD);
                                 String pass = scanner1.next();
@@ -111,7 +111,7 @@ public class Main {
                                 String ci = scanner1.next();
                                 System.out.println("Enter Your Address:");
                                 String address = scanner1.next();
-                                System.out.println(Enter_Phone);
+                                System.out.println(ENTER_PHONE_NUMBER);
                                 String pho = scanner1.next();
                                 System.out.println(PROMPT_PASSWORD);
                                 String pas = scanner1.next();
@@ -131,7 +131,7 @@ public class Main {
                                 String us = scanner1.next();
                                 System.out.println(PROMPT_CITY);
                                 String c = scanner1.next();
-                                System.out.println(Enter_Phone);
+                                System.out.println(ENTER_PHONE_NUMBER);
                                 String ph = scanner1.next();
                                 System.out.println(PROMPT_PASSWORD);
                                 String pa = scanner1.next();
