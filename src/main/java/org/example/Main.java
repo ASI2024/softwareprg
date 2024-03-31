@@ -383,15 +383,15 @@ public class Main {
                                         System.out.println(vendorDatabase.filterVendors(loc,avail,pri,rev));
                                         break;
 
-                                   case 4:
+                                  case 4:
                                         System.out.println("Enter request id:");
-                                        String re = scanner4.next(); 
+                                        String re=scanner4.next();
                                         System.out.println("Enter vendor id:");
-                                        String ve = scanner4.next();
+                                        String ve=scanner4.next();
                                         System.out.println("Enter details:");
-                                        String de = scanner4.next();
-                                        PackageRequest packageRequest = new PackageRequest(ve, de); 
-                                        vendorDatabase.requestPackageFromVendor(ve, packageRequest); 
+                                        String de=scanner4.next();
+                                        PackageRequest packageRequest=new PackageRequest(re,ve,de);
+                                        vendorDatabase.requestPackageFromVendor(ve,packageRequest);
                                         System.out.println("Requested successfully");
                                         break;
 
