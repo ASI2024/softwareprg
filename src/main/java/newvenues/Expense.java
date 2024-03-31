@@ -12,7 +12,6 @@ public class Expense {
         this.description = description;
     }
 
-    // Getters and setters
     public double getAmount() {
         return amount;
     }
