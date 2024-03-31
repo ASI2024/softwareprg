@@ -1,14 +1,13 @@
 package VendorManagement;
 
 public class PackageRequest {
-    private String requestId;
     private String vendorId;
     private String details;
 
-
-    public PackageRequest(String requestId, String vendorId, String details) {
-        this.requestId = requestId;
+    public PackageRequest(String vendorId, String details) {
         this.vendorId = vendorId;
         this.details = details;
     }
+
+    
 }
