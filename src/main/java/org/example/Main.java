@@ -77,9 +77,9 @@ public class Main {
                         choose = scanner1.nextInt();
                         switch (choose) {
                             case 1:
-                                logger.info("Enter Admin Email : {}",PROMPT_EMAIL);
+                                logger.info(PROMPT_EMAIL);
                                 String email = scanner1.next();
-                               logger.info("Enter Admin UserName : {}",PROMPT_USERNAME);
+                               logger.info(PROMPT_USERNAME);
                                 String username = scanner1.next();
                                 logger.info("Enter Admin City : {}",PROMPT_CITY);
                                 String city = scanner1.next();
