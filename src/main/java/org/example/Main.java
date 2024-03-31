@@ -515,20 +515,20 @@ public class Main {
                                         System.out.println("The edite has been added. Please wait for the organizer’s approval");
                                         break;
 
-                                   case 4:
-                                      System.out.println("Enter event number:");
-                                           int eve = scanner5.nextInt();
+                                  case 4:
+                                        System.out.println("Enter event number:");
+                                        int eve=scanner5.nextInt();
                                         System.out.println("Enter Time(HH:MM):");
-                                        String TN = scanner5.next();
-                                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+                                        String TN =scanner5.next();
+                                        formatter = DateTimeFormatter.ofPattern("HH:mm");
                                         LocalTime tn = LocalTime.now();
-                                         try {
-                                          tn = LocalTime.parse(TN, formatter);
+                                        try {
+                                            tn = LocalTime.parse(TN, formatter);
                                         } catch (Exception ex) {
-                                      System.out.println("Invalid time format. Please enter the time in the format HH:mm.");
-                                           }
-                                      EventManagement.EditTime(eve, tn);
-                                      System.out.println("The edit has been added. Please wait for the organizer’s approval");
+                                            System.out.println("Invalid date format. Please enter the date in the format yyyy-MM-dd.");
+                                        }
+                                        eventManagement.EditTime(eve,tn);
+                                        System.out.println("The edite has been added. Please wait for the organizer’s approval");
                                         break;
 
 
