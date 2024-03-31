@@ -23,6 +23,14 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
          Map<Integer, Hall> hallDatabase = new HashMap<>();
+    private static final String INVALID_INPUT_MESSAGE = "Invalid input please try again:";
+  private static final String Enter_Phone = "Enter Your PhoneNumber:";
+            private static final String REQUEST_SUBMITTED_MESSAGE = "The request has been submitted successfully. Please wait for admin approval";
+    private static final String STATUS_PENDING = "Pending";
+    private static final String PROMPT_EMAIL = "Enter Your Email:";
+    private static final String PROMPT_USERNAME = "Enter Your Username:";
+    private static final String PROMPT_CITY = "Enter Your City:";
+    private static final String PROMPT_PASSWORD = "Enter Your Password:";
 
         Scanner scanner1 = new Scanner(System.in);
         Scanner scanner2 = new Scanner(System.in);
@@ -63,70 +71,70 @@ public class Main {
                         choose = scanner1.nextInt();
                         switch (choose) {
                             case 1:
-                                System.out.println("Enter Your Email:");
+                                System.out.println(PROMPT_EMAIL);
                                 String email = scanner1.next();
-                                System.out.println("Enter Your Username:");
+                                System.out.println(PROMPT_USERNAME);
                                 String username = scanner1.next();
-                                System.out.println("Enter Your City:");
+                                System.out.println(PROMPT_CITY);
                                 String city = scanner1.next();
-                                System.out.println("Enter Your Password:");
+                                System.out.println(PROMPT_PASSWORD);
                                 String password = scanner1.next();
-                                Admin.registerAdmin(email, username, city, password, "Pending");
-                                if (Admin.registerAdmin(email, username, city, password, "Pending").equals("Admin registered successfully")) {
+                                Admin.registerAdmin(email, username, city, password, STATUS_PENDING);
+                                if (Admin.registerAdmin(email, username, city, password, STATUS_PENDING).equals("Admin registered successfully")) {
 
-                                    System.out.println("The request has been submitted successfully. Please wait for admin approval");
+                                    System.out.println(REQUEST_SUBMITTED_MESSAGE);
                                 } else {
 
-                                    System.out.println(Admin.registerAdmin(email, username, city, password, "Pending"));
+                                    System.out.println(Admin.registerAdmin(email, username, city, password, STATUS_PENDING));
                                 }
                                 break;
 
                             case 2:
-                                System.out.println("Enter Your Email:");
+                                System.out.println(PROMPT_EMAIL);
                                 String ema = scanner1.next();
-                                System.out.println("Enter Your Username:");
+                                System.out.println(PROMPT_USERNAME);
                                 String user = scanner1.next();
-                                System.out.println("Enter Your City:");
+                                System.out.println(PROMPT_CITY);
                                 String cit = scanner1.next();
-                                System.out.println("Enter Your PhoneNumber:");
+                                System.out.println(Enter_Phone);
                                 String phone = scanner1.next();
-                                System.out.println("Enter Your Password:");
+                                System.out.println(PROMPT_PASSWORD);
                                 String pass = scanner1.next();
-                                organizerLogin.Registration(ema, pass, user, cit, phone, "Pending");
-                                System.out.println("The request has been submitted successfully. Please wait for admin approval");
+                                organizerLogin.Registration(ema, pass, user, cit, phone, STATUS_PENDING);
+                                System.out.println(REQUEST_SUBMITTED_MESSAGE);
                                 break;
                             case 3:
-                                System.out.println("Enter Your Email:");
+                                System.out.println(PROMPT_EMAIL);
                                 String em = scanner1.next();
-                                System.out.println("Enter Your Username:");
+                                System.out.println(PROMPT_USERNAME);
                                 String use = scanner1.next();
-                                System.out.println("Enter Your City:");
+                                System.out.println(PROMPT_CITY);
                                 String ci = scanner1.next();
                                 System.out.println("Enter Your Address:");
                                 String address = scanner1.next();
-                                System.out.println("Enter Your PhoneNumber:");
+                                System.out.println(Enter_Phone);
                                 String pho = scanner1.next();
-                                System.out.println("Enter Your Password:");
+                                System.out.println(PROMPT_PASSWORD);
                                 String pas = scanner1.next();
-                                Service.registerService(em, use, ci, address, "Pending", pho, pas);
-                                if (Service.registerService(em, use, ci, address, "Pending", pho, pas).equals("Service registered successfully")) {
+                                Service.registerService(em, use, ci, address, STATUS_PENDING, pho, pas);
+                                if (Service.registerService(em, use, ci, address, STATUS_PENDING, pho, pas).equals("Service registered successfully")) {
 
-                                    System.out.println("The request has been submitted successfully. Please wait for admin approval");
+                                    System.out.println(REQUEST_SUBMITTED_MESSAGE);
                                 } else {
 
-                                    System.out.println(Service.registerService(em, use, ci, address, "Pending", pho, pas));
+                                    System.out.println(Service.registerService(em, use, ci, address, STATUS_PENDING , pho, pas));
                                 }
                                 break;
                             case 4:
-                                System.out.println("Enter Your Email:");
+                                System.out.println(PROMPT_EMAIL);
                                 String e = scanner1.next();
-                                System.out.println("Enter Your Username:");
+                                System.out.println(PROMPT_USERNAME);
                                 String us = scanner1.next();
-                                System.out.println("Enter Your City:");
+                                System.out.println(PROMPT_CITY);
                                 String c = scanner1.next();
-                                System.out.println("Enter Your PhoneNumber:");
+                                System.out.println(Enter_Phone);
                                 String ph = scanner1.next();
-                                System.out.println("Enter Your Password:");
+                                System.out.println(PROMPT_PASSWORD);
                                 String pa = scanner1.next();
                                 UserService.registerUser(e, us, c, ph, pa);
                                 if (UserService.registerUser(e, us, c, ph, pa).equals("User registered successfully")) {
@@ -139,7 +147,7 @@ public class Main {
                                 break;
 
                             default:
-                                System.out.println("Invalid input pleas try again:");
+                                System.out.println(INVALID_INPUT_MESSAGE);
                                 break;
                         }
                         if(choose<=4)
@@ -202,7 +210,7 @@ public class Main {
                                         break;
 
                                     default:
-                                        System.out.println("Invalid input pleas try again:");
+                                        System.out.println(INVALID_INPUT_MESSAGE);
                                         break;
 
 
@@ -327,7 +335,7 @@ public class Main {
                                         break;
 
                                     default:
-                                        System.out.println("Invalid input pleas try again:");
+                                        System.out.println(INVALID_INPUT_MESSAGE);
                                         break;
 
                                 }
@@ -430,7 +438,7 @@ public class Main {
                                         break;
 
                                     default:
-                                        System.out.println("Invalid input pleas try again:");
+                                        System.out.println(INVALID_INPUT_MESSAGE);
                                         break;
 
 
@@ -618,7 +626,7 @@ public class Main {
                                         break;
 
                                     default:
-                                        System.out.println("Invalid input pleas try again:");
+                                        System.out.println(INVALID_INPUT_MESSAGE);
                                         break;
 
                                 }
@@ -638,7 +646,7 @@ public class Main {
                     break;
 
                 default:
-                    System.out.println("Invalid input pleas try again:");
+                    System.out.println(INVALID_INPUT_MESSAGE);
                     break;
             }
 
