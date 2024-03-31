@@ -10,7 +10,7 @@ import static eventPlaner.EventManagement.hasConflict;
 
 public class OrganizerManagement {
 public static final String EVENT_NOT_FOUND = "Event Not Found";
-
+ private static final String EVENT_NUMBER_PREFIX = "Event Number: ";
 
     public static List<Event> eventsList;
     public HashMap<Integer, String> reasonRejection;
@@ -23,7 +23,7 @@ public static final String EVENT_NOT_FOUND = "Event Not Found";
     public void reviewsThePendingEventAddition(){
         int i=0;
         for (Event existingEvent : eventsRequest) {
-            String statement = i+")"+"Event Number: " + existingEvent.getEventNumber() +
+            String statement = i+")"+ EVENT_NUMBER_PREFIX + existingEvent.getEventNumber() +
                     "Event Date: " + existingEvent.getDate() +
                     "Event Time: " + existingEvent.getTime() +
                     "Event Location: " + existingEvent.getLocation() +
@@ -112,23 +112,23 @@ public static final String EVENT_NOT_FOUND = "Event Not Found";
     public void reviewsThePendingModification() {
         for (Event existingEvent : eventsEdition) {
             if (existingEvent.getDate() != null) {
-                String statement = "Event Number: " + existingEvent.getEventNumber() +
+                String statement = EVENT_NUMBER_PREFIX + existingEvent.getEventNumber() +
                         "Request To Change The Date To " + existingEvent.getDate();
                 System.out.println(statement);
             } else if (existingEvent.getTime() != null) {
-                String statement = "Event Number: " + existingEvent.getEventNumber() +
+                String statement = EVENT_NUMBER_PREFIX + existingEvent.getEventNumber() +
                         "Request To Change The Time To " + existingEvent.getTime();
                 System.out.println(statement);
             } else if (existingEvent.getLocation() != null) {
-                String statement = "Event Number: " + existingEvent.getEventNumber() +
+                String statement = EVENT_NUMBER_PREFIX + existingEvent.getEventNumber() +
                         "Request To Change The Location To " + existingEvent.getLocation();
                 System.out.println(statement);
             } else if (existingEvent.getTheme() != null) {
-                String statement = "Event Number: " + existingEvent.getEventNumber() +
+                String statement = EVENT_NUMBER_PREFIX + existingEvent.getEventNumber() +
                         "Request To Change The Theme To " + existingEvent.getTheme();
                 System.out.println(statement);
             } else if (existingEvent.getDescription() != null) {
-                String statement = "Event Number: " + existingEvent.getEventNumber() +
+                String statement = EVENT_NUMBER_PREFIX + existingEvent.getEventNumber() +
                         "Request To Change The Description To " + existingEvent.getDescription();
                 System.out.println(statement);
             }
@@ -142,7 +142,7 @@ public static final String EVENT_NOT_FOUND = "Event Not Found";
                     existingEvent.getLocation() == null &&
                     existingEvent.getTheme() == null &&
                     existingEvent.getDescription() == null) {
-                String statement = "Event Number: " + existingEvent.getEventNumber() +
+                String statement = EVENT_NUMBER_PREFIX + existingEvent.getEventNumber() +
                         "Request To Delete The Event";
                 System.out.println(statement);
             }
@@ -164,7 +164,7 @@ public static final String EVENT_NOT_FOUND = "Event Not Found";
         int i=1;
         for (Event existingEvent : eventsList) {
             System.out.print(i+")");
-            String statement = "Event Number: " + existingEvent.getEventNumber() +
+            String statement = EVENT_NUMBER_PREFIX + existingEvent.getEventNumber() +
                     "Event Date: " + existingEvent.getDate() +
                     "Event Time: " + existingEvent.getTime() +
                     "Event Location: " + existingEvent.getLocation() +
