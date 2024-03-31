@@ -1,12 +1,12 @@
 package newvenues;
 
 public class Expense {
-   
+    private int id;
     private double amount;
     private String category;
     private String description;
 
-    public Expense(double amount, String category, String description) {
+    public Expense(int id,double amount, String category, String description) {
         this.amount = amount;
         this.category = category;
         this.description = description;
@@ -37,5 +37,11 @@ public class Expense {
         this.description = description;
     }
 
- 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
