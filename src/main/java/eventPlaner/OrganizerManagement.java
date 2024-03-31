@@ -168,19 +168,22 @@ public static final String EVENT_NOT_FOUND = "Event Not Found";
 
 public static void ShowEventList() {
     int i = 1;
-    for (Event existingEvent : eventsList) {
-        StringBuilder statement = new StringBuilder();
-        statement.append(i).append(")").append(EVENT_NUMBER_PREFIX).append(existingEvent.getEventNumber())
-                 .append(" Event Date: ").append(existingEvent.getDate())
-                 .append(" Event Time: ").append(existingEvent.getTime())
-                 .append(" Event Location: ").append(existingEvent.getLocation())
-                 .append(" Event Theme: ").append(existingEvent.getTheme())
-                 .append(" Event Description: ").append(existingEvent.getDescription())
-                 .append(" Event Category: ").append(existingEvent.getCategory());
-        logger.info(statement.toString());
-        i++;
+    if (logger.isInfoEnabled()) { 
+        for (Event existingEvent : eventsList) {
+            StringBuilder statement = new StringBuilder();
+            statement.append(i).append(")").append(EVENT_NUMBER_PREFIX).append(existingEvent.getEventNumber())
+                     .append(" Event Date: ").append(existingEvent.getDate())
+                     .append(" Event Time: ").append(existingEvent.getTime())
+                     .append(" Event Location: ").append(existingEvent.getLocation())
+                     .append(" Event Theme: ").append(existingEvent.getTheme())
+                     .append(" Event Description: ").append(existingEvent.getDescription())
+                     .append(" Event Category: ").append(existingEvent.getCategory());
+            logger.info(statement.toString());
+            i++;
+        }
     }
 }
+
 
 
 }
