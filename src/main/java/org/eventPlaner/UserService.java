@@ -6,9 +6,7 @@ import java.util.List;
 public class UserService {
 
     public static List<User>users =new ArrayList<>();
-private UserService() {
-       
-    }
+
 
     public static String registerUser(String email, String userName, String city, String phoneNumber, String password) {
 
