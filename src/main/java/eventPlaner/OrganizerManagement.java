@@ -1,6 +1,7 @@
 package eventPlaner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import java.util.logging.Level;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,6 +16,7 @@ public static final String EVENT_NOT_FOUND = "Event Not Found";
  private static final String EVENT_NUMBER_PREFIX = "Event Number: ";
     private static final String UPDATE_SUCCESS = "The Update Was Accepted Successfully";
     private static final Logger logger = LogManager.getLogger(OrganizerManagement.class);
+    private static final Logger logger = Logger.getLogger(OrganizerManagement.class.getName());
 
     public static List<Event> eventsList;
     public HashMap<Integer, String> reasonRejection;
