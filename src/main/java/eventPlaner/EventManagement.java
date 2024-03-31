@@ -5,8 +5,11 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Logger;
+import java.util.logging.Level;
 
 public class EventManagement {
+    private static final Logger LOGGER = Logger.getLogger(YourClassName.class.getName());
     public static List<Event> eventsRequest = new ArrayList<>();
     public static List<Event> eventsEdition = new ArrayList<>();
     public static List<String> Category = new ArrayList<>(); 
@@ -122,18 +125,17 @@ public static void EditDescription(int eventNumber, String description) {
 }
 
 
-    public void ShowCategory(){
-
-        Category.add(1,"Birthday");
-        Category.add(2,"Wedding");
-        Category.add(3,"Workshop");
-        Category.add(4,"Graduation");
-        Category.add(5,"Seminar");
-
-        for (int i=1;i<=5;i++){
-            System.out.println(i+")"+Category.get(i));
-        }
+   public void ShowCategory() {
+    if (Category.isEmpty()) {
+        
+        Category.addAll(Arrays.asList("Birthday", "Wedding", "Workshop", "Graduation", "Seminar"));
     }
+    
+    for (int i = 0; i < Category.size(); i++) {
+        LOGGER.log(Level.INFO, "{0}){1}", new Object[] {i + 1, Category.get(i)});
+    }
+}
+
 
     public static void SelectCategory(int eventNumber, int category) {
         for (Event existingEvent : eventsRequest) {
