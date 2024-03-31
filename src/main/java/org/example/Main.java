@@ -390,7 +390,7 @@ public class Main {
                                         String ve=scanner4.next();
                                         System.out.println("Enter details:");
                                         String de=scanner4.next();
-                                        PackageRequest packageRequest=new PackageRequest(re,ve,de);
+                                        PackageRequest packageRequest = new PackageRequest(ve, de);
                                         vendorDatabase.requestPackageFromVendor(ve,packageRequest);
                                         System.out.println("Requested successfully");
                                         break;
