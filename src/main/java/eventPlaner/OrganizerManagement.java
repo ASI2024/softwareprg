@@ -9,7 +9,7 @@ import static eventPlaner.EventManagement.eventsRequest;
 import static eventPlaner.EventManagement.hasConflict;
 
 public class OrganizerManagement {
-const EVENT_NOT_FOUND = "Event Not Found";
+public static final String EVENT_NOT_FOUND = "Event Not Found";
 
 
     public static List<Event> eventsList;
