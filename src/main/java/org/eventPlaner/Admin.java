@@ -6,10 +6,14 @@ import java.util.List;
 import java.util.Objects;
 import static eventPlaner.OrganizerLogin.Organizers;
 import static org.eventPlaner.Service.ServiceProviders;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 public class Admin {
 private static final String STATUS_ACCEPTABLE = "Acceptable";
     private static final String STATUS_PENDING = "Pending";
     private static final String STATUS_REJECTED = "Rejected";
+    private static final Logger logger = LoggerFactory.getLogger(Admin.class);
+
     public static List<AdminInf>AdminList= new ArrayList<>();
     public static HashMap<String, String> reasonRejection;
     private Admin() {
@@ -56,82 +60,69 @@ private static final String STATUS_ACCEPTABLE = "Acceptable";
         }
         return false;
     } 
-     public static void showRequest(){
-        System.out.println();
-        System.out.println("               Admin Requests List");
-        System.out.println("Email               Password     UserName     City");
+      public static void showRequest() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\nAdmin Requests List\nEmail\t\t\t\tPassword\t\tUserName\t\tCity\n");
 
-        for(AdminInf adminInf :AdminList){
-
-             if(adminInf.getStatus().equals(STATUS_PENDING)){
-
-                 System.out.print(adminInf.getEmail());
-                 for(int i =0;i<20-adminInf.getEmail().length();i++)
-                     System.out.print("\t");
-                 System.out.print(adminInf.getPassword());
-                 for(int i =0;i<13-adminInf.getPassword().length();i++)
-                     System.out.print("\t");
-                 System.out.print(adminInf.getUserName());
-                 for(int i =0;i<13-adminInf.getUserName().length();i++)
-                     System.out.print("\t");
-                 System.out.println(adminInf.getCity());
-
-             }
-
-        }
-        System.out.println();
-        System.out.println("                       Organizer Requests List");
-        System.out.println("Email               Password     UserName     City     PhoneNumber");
-        for(Organizer organizer :Organizers){
-
-            if(organizer.getStatus().equals(STATUS_PENDING)){
-
-                System.out.print(organizer.getEmail());
-                for(int i =0;i<20-organizer.getEmail().length();i++)
-                    System.out.print("\t");
-                System.out.print(organizer.getPassword());
-                for(int i =0;i<13-organizer.getPassword().length();i++)
-                    System.out.print("\t");
-                System.out.print(organizer.getUsername());
-                for(int i =0;i<13-organizer.getUsername().length();i++)
-                    System.out.print("\t");
-                System.out.println(organizer.getCity());
-                for(int i =0;i<9-organizer.getCity().length();i++)
-                    System.out.print("\t");
-                System.out.println(organizer.getPhoneNumber());
-
+        for (AdminInf adminInf : AdminList) {
+            if (STATUS_PENDING.equals(adminInf.getStatus())) {
+                sb.append(String.format("%-20s\t%-20s\t%-20s\t%s\n",
+                        adminInf.getEmail(),
+                        adminInf.getPassword(),
+                        adminInf.getUserName(),
+                        adminInf.getCity()));
             }
-
+            logger.info(sb.toString());
         }
 
-        System.out.println();
-        System.out.println("                         ServiceProvider Requests List");
-        System.out.println("Email               Password     UserName     City     PhoneNumber     Address");
-        for(ServiceProvider serviceProvider :ServiceProviders){
 
-            if(serviceProvider.getStatus().equals(STATUS_PENDING)){
 
-                System.out.print(serviceProvider.getEmail());
-                for(int i =0;i<20-serviceProvider.getEmail().length();i++)
-                    System.out.print("\t");
-                System.out.print(serviceProvider.getPassword());
-                for(int i =0;i<13-serviceProvider.getPassword().length();i++)
-                    System.out.print("\t");
-                System.out.print(serviceProvider.getUserName());
-                for(int i =0;i<13-serviceProvider.getUserName().length();i++)
-                    System.out.print("\t");
-                System.out.println(serviceProvider.getCity());
-                for(int i =0;i<9-serviceProvider.getCity().length();i++)
-                    System.out.print("\t");
-                System.out.println(serviceProvider.getPhoneNum());
-                for(int i =0;i<16-serviceProvider.getPhoneNum().length();i++)
-                    System.out.print("\t");
-                System.out.println(serviceProvider.getAddress());
+        StringBuilder sb = new StringBuilder();
+        sb.append("\nOrganizer Requests List\nEmail\t\t\t\tPassword\t\tUserName\t\tCity\t\tPhoneNumber\n");
 
+        for (Organizer organizer : Organizers) {
+            if (STATUS_PENDING.equals(organizer.getStatus())) {
+                String formattedLine = String.format("%-20s\t%-20s\t%-20s\t%-20s\t%s",
+                        organizer.getEmail(),
+                        organizer.getPassword(),
+                        organizer.getUsername(),
+                        organizer.getCity(),
+                        organizer.getPhoneNumber());
+
+                sb.append(formattedLine).append("\n");
             }
-
+            logger.info(sb.toString());
         }
+
+
+
+
+    StringBuilder sb = new StringBuilder();
+    sb.append("\nServiceProvider Requests List\nEmail\t\t\t\tPassword\t\tUserName\t\tCity\t\tPhoneNumber\t\tAddress\n");
+
+    for(
+    ServiceProvider serviceProvider :ServiceProviders)
+
+    {
+        if (STATUS_PENDING.equals(serviceProvider.getStatus())) {
+            // Construct each service provider's details as a formatted string
+            String formattedDetails = String.format("%-20s\t%-20s\t%-20s\t%-20s\t%-20s\t%s",
+                    serviceProvider.getEmail(),
+                    serviceProvider.getPassword(),
+                    serviceProvider.getUserName(),
+                    serviceProvider.getCity(),
+                    serviceProvider.getPhoneNum(),
+                    serviceProvider.getAddress());
+
+            // Append the formatted details to the StringBuilder
+            sb.append(formattedDetails).append("\n");
+        }
+        logger.info(sb.toString());
     }
+
+
+ 
+}
 
     public static void AcceptAll(){
 
