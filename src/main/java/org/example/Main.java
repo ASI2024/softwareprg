@@ -12,7 +12,8 @@ import newvenues.VenueSystem;
 import org.eventPlaner.Admin;
 import org.eventPlaner.Service;
 import org.eventPlaner.UserService;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -33,7 +34,7 @@ public class Main {
     private static final String EDIT_ADDED_APPROVAL_MESSAGE = "The edit has been added. Please wait for the organizer’s approval";
     private static final String INVALID_DATE_FORMAT_MESSAGE = "Invalid date format. Please enter the date in the format yyyy-MM-dd.";
     private static final String DATE_FORMAT_PATTERN = "yyyy-MM-dd";
-
+ private static final Logger logger = LoggerFactory.getLogger(Main.class);
     public static void main(String[] args) {
         Map<Integer, Hall> hallDatabase = new HashMap<>();
 
@@ -67,22 +68,22 @@ public class Main {
 
         while (true) {
 
-            System.out.println("1.Sign Up\n2.Sign In");
+            logger.info("1.Sign Up\n2.Sign In");
             sign = scanner1.nextInt();
             switch (sign) {
                 case 1:
                     while (true) {
-                        System.out.println("Choose the account type:\n1.Admin\n2.Organizer\n3.Service Provider\n4.User\n");
+                       logger.info("Choose the account type:\n1.Admin\n2.Organizer\n3.Service Provider\n4.User\n");
                         choose = scanner1.nextInt();
                         switch (choose) {
                             case 1:
-                                System.out.println(PROMPT_EMAIL);
+                                logger.info("Enter Admin Email : {}",PROMPT_EMAIL);
                                 String email = scanner1.next();
-                                System.out.println(PROMPT_USERNAME);
+                               logger.info("Enter Admin UserName : {}",PROMPT_USERNAME);
                                 String username = scanner1.next();
-                                System.out.println(PROMPT_CITY);
+                                logger.info("Enter Admin City : {}",PROMPT_CITY);
                                 String city = scanner1.next();
-                                System.out.println(PROMPT_PASSWORD);
+                             logger.info("Enter Admin Password : {}",PROMPT_PASSWORD);
                                 String password = scanner1.next();
                                 Admin.registerAdmin(email, username, city, password, STATUS_PENDING);
                                 if (Admin.registerAdmin(email, username, city, password, STATUS_PENDING).equals("Admin registered successfully")) {
@@ -95,31 +96,31 @@ public class Main {
                                 break;
 
                             case 2:
-                                System.out.println(PROMPT_EMAIL);
+                               logger.info("Enter Orgamizer Email : {}",PROMPT_EMAIL);
                                 String ema = scanner1.next();
-                                System.out.println(PROMPT_USERNAME);
+                                  logger.info("Enter Orgamizer UserName: {}",PROMPT_USERNAME);
                                 String user = scanner1.next();
-                                System.out.println(PROMPT_CITY);
+                                  logger.info("Enter Orgamizer City : {}",PROMPT_CITY);
                                 String cit = scanner1.next();
-                                System.out.println(ENTER_PHONE_NUMBER);
+                                  logger.info("Enter Orgamizer PhoneNumber : {}",ENTER_PHONE_NUMBER);
                                 String phone = scanner1.next();
-                                System.out.println(PROMPT_PASSWORD);
+                                   logger.info("Enter Orgamizer Password : {}",PROMPT_PASSWORD);
                                 String pass = scanner1.next();
                                 organizerLogin.Registration(ema, pass, user, cit, phone, STATUS_PENDING);
                                 System.out.println(REQUEST_SUBMITTED_MESSAGE);
                                 break;
                             case 3:
-                                System.out.println(PROMPT_EMAIL);
+                                logger.info("Enter ServiceProvidor Email : {}",PROMPT_EMAIL);
                                 String em = scanner1.next();
-                                System.out.println(PROMPT_USERNAME);
+                                 logger.info("Enter ServiceProvidor UserName : {}",PROMPT_USERNAME);
                                 String use = scanner1.next();
-                                System.out.println(PROMPT_CITY);
+                                logger.info("Enter ServiceProvidor City : {}",PROMPT_CITY);
                                 String ci = scanner1.next();
                                 System.out.println("Enter Your Address:");
                                 String address = scanner1.next();
-                                System.out.println(ENTER_PHONE_NUMBER);
+                                logger.info("Enter ServiceProvidor PhoneNumber : {}",ENTER_PHONE_NUMBER);
                                 String pho = scanner1.next();
-                                System.out.println(PROMPT_PASSWORD);
+                               logger.info("Enter ServiceProvidor Pass : {}",PROMPT_PASSWORD);
                                 String pas = scanner1.next();
                                 Service.registerService(em, use, ci, address, STATUS_PENDING, pho, pas);
                                 if (Service.registerService(em, use, ci, address, STATUS_PENDING, pho, pas).equals("Service registered successfully")) {
