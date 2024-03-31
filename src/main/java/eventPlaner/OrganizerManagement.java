@@ -9,6 +9,8 @@ import static eventPlaner.EventManagement.eventsRequest;
 import static eventPlaner.EventManagement.hasConflict;
 
 public class OrganizerManagement {
+const EVENT_NOT_FOUND = "Event Not Found";
+
 
     public static List<Event> eventsList;
     public HashMap<Integer, String> reasonRejection;
@@ -55,7 +57,7 @@ public class OrganizerManagement {
                 return "The Event Was Rejected Successfully";
             }
         }
-        return "Event Not Found";
+        return EVENT_NOT_FOUND;
     }
 
     public String acceptModification(int eventNumber) {
@@ -94,7 +96,7 @@ public class OrganizerManagement {
                 }
             }
         }
-        return "Event Not Found";
+        return EVENT_NOT_FOUND;
     }
 
     public String rejectModification(int eventNumber, String reason) {
@@ -104,7 +106,7 @@ public class OrganizerManagement {
                 return "Modification Was Rejected Successfully";
             }
         }
-        return "Event Not Found";
+        return EVENT_NOT_FOUND;
     }
 
     public void reviewsThePendingModification() {
@@ -154,7 +156,7 @@ public class OrganizerManagement {
                 return "The Event Was Deleted Successfully";
             }
         }
-        return "Event Not Found";
+        return EVENT_NOT_FOUND;
     }
 
     public static void ShowEventList(){
