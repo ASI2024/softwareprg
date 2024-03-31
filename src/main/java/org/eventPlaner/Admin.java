@@ -63,7 +63,7 @@ private static final String STATUS_ACCEPTABLE = "Acceptable";
 
         for(AdminInf adminInf :AdminList){
 
-             if(adminInf.getStatus().equals("Pending")){
+             if(adminInf.getStatus().equals(STATUS_PENDING)){
 
                  System.out.print(adminInf.getEmail());
                  for(int i =0;i<20-adminInf.getEmail().length();i++)
@@ -84,7 +84,7 @@ private static final String STATUS_ACCEPTABLE = "Acceptable";
         System.out.println("Email               Password     UserName     City     PhoneNumber");
         for(Organizer organizer :Organizers){
 
-            if(organizer.getStatus().equals("Pending")){
+            if(organizer.getStatus().equals(STATUS_PENDING)){
 
                 System.out.print(organizer.getEmail());
                 for(int i =0;i<20-organizer.getEmail().length();i++)
@@ -109,7 +109,7 @@ private static final String STATUS_ACCEPTABLE = "Acceptable";
         System.out.println("Email               Password     UserName     City     PhoneNumber     Address");
         for(ServiceProvider serviceProvider :ServiceProviders){
 
-            if(serviceProvider.getStatus().equals("Pending")){
+            if(serviceProvider.getStatus().equals(STATUS_PENDING)){
 
                 System.out.print(serviceProvider.getEmail());
                 for(int i =0;i<20-serviceProvider.getEmail().length();i++)
@@ -137,8 +137,8 @@ private static final String STATUS_ACCEPTABLE = "Acceptable";
 
         for(AdminInf adminInf :AdminList){
 
-            if(adminInf.getStatus().equals("Pending"))
-                adminInf.setStatus("Acceptable");
+            if(adminInf.getStatus().equals(STATUS_PENDING))
+                adminInf.setStatus(STATUS_ACCEPTABLE);
         }
 
     }
@@ -147,8 +147,8 @@ private static final String STATUS_ACCEPTABLE = "Acceptable";
 
         for(AdminInf adminInf :AdminList){
 
-            if(adminInf.getStatus().equals("Pending")&&adminInf.getEmail().equals(email))
-                adminInf.setStatus("Acceptable");
+            if(adminInf.getStatus().equals(STATUS_PENDING)&&adminInf.getEmail().equals(email))
+                adminInf.setStatus(STATUS_ACCEPTABLE);
         }
 
     }
