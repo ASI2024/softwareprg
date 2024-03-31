@@ -11,27 +11,27 @@ import static eventPlaner.OrganizerLogin.Organizers;
 import static org.eventPlaner.Service.ServiceProviders;
 
 public class Admin {
-    public static List<AdminInf> AdminList = new ArrayList<>();
-    public static HashMap<String, String> reasonRejection = new HashMap<>(); 
 private static final String STATUS_ACCEPTABLE = "Acceptable";
-    private static final String STATUS_PENDING = "Pending"; 
+    private static final String STATUS_PENDING = "Pending";
     private static final String STATUS_REJECTED = "Rejected";
-    public static String registerAdmin(String emailAdmin, String userName, String city, String adminPassword, String status) {
-       
-        boolean test = emailAdmin.isEmpty() || userName.isEmpty() || city.isEmpty() || adminPassword.isEmpty();
-        if (!test) {
-            AdminInf A = new AdminInf(userName, adminPassword, emailAdmin, city, status);
+    public static List<AdminInf>AdminList= new ArrayList<>();
+    public static HashMap<String, String> reasonRejection;
+    public static String registerAdmin(String emailAdmin, String userName, String city, String adminPassword,String status) {
+
+        boolean test = emailAdmin.isEmpty()||userName.isEmpty()||city.isEmpty()||adminPassword.isEmpty();
+        if(!test) {
+            AdminInf A = new AdminInf(userName,adminPassword,emailAdmin,city,status);
             AdminList.add(A);
             return "Admin registered successfully";
-        } else {
-            return "Admin registration failed"; 
+        }else{
+            return "Admin registered failed";
         }
     }
     public static String login(String emailAdmin, String adminPassword) {
 
         for(AdminInf adminInf :AdminList){
 
-            if(adminInf.getEmail().equals(emailAdmin)&&adminInf.getPassword().equals(adminPassword)&&adminInf.getStatus().equals(STATUS_ACCEPTABLE))
+            if(adminInf.getEmail().equals(emailAdmin)&&adminInf.getPassword().equals(adminPassword)&&adminInf.getStatus().equals( STATUS_ACCEPTABLE))
                 return "Admin logged in successfully";
         }
 
@@ -42,7 +42,7 @@ private static final String STATUS_ACCEPTABLE = "Acceptable";
 
         for(AdminInf adminInf :AdminList){
 
-            if(Objects.equals(adminInf.getEmail(), email) && Objects.equals(adminInf.getStatus(), STATUS_PENDING)) {
+            if(Objects.equals(adminInf.getEmail(), email) && Objects.equals(adminInf.getStatus(),  STATUS_PENDING)) {
 
                 reasonRejection.put(email,reason);
                 adminInf.setStatus(STATUS_REJECTED);
@@ -53,7 +53,7 @@ private static final String STATUS_ACCEPTABLE = "Acceptable";
 
         for(Organizer organizer :Organizers){
 
-            if(Objects.equals(organizer.getEmail(), email) && Objects.equals(organizer.getStatus(),STATUS_PENDING)) {
+            if(Objects.equals(organizer.getEmail(), email) && Objects.equals(organizer.getStatus(),  STATUS_PENDING)) {
 
                 reasonRejection.put(email,reason);
                 organizer.setStatus(STATUS_REJECTED);
@@ -76,14 +76,14 @@ private static final String STATUS_ACCEPTABLE = "Acceptable";
 
     }
 
-     public static void showRequest(){
+    public static void showRequest(){
         System.out.println();
         System.out.println("               Admin Requests List");
         System.out.println("Email               Password     UserName     City");
 
         for(AdminInf adminInf :AdminList){
 
-             if(adminInf.getStatus().equals("Pending")){
+             if(adminInf.getStatus().equals( STATUS_PENDING)){
 
                  System.out.print(adminInf.getEmail());
                  for(int i =0;i<20-adminInf.getEmail().length();i++)
@@ -104,7 +104,7 @@ private static final String STATUS_ACCEPTABLE = "Acceptable";
         System.out.println("Email               Password     UserName     City     PhoneNumber");
         for(Organizer organizer :Organizers){
 
-            if(organizer.getStatus().equals("Pending")){
+            if(organizer.getStatus().equals( STATUS_PENDING)){
 
                 System.out.print(organizer.getEmail());
                 for(int i =0;i<20-organizer.getEmail().length();i++)
@@ -129,7 +129,7 @@ private static final String STATUS_ACCEPTABLE = "Acceptable";
         System.out.println("Email               Password     UserName     City     PhoneNumber     Address");
         for(ServiceProvider serviceProvider :ServiceProviders){
 
-            if(serviceProvider.getStatus().equals("Pending")){
+            if(serviceProvider.getStatus().equals( STATUS_PENDING)){
 
                 System.out.print(serviceProvider.getEmail());
                 for(int i =0;i<20-serviceProvider.getEmail().length();i++)
@@ -153,13 +153,22 @@ private static final String STATUS_ACCEPTABLE = "Acceptable";
         }
     }
 
+    public static void AcceptAll(){
+
+        for(AdminInf adminInf :AdminList){
+
+            if(adminInf.getStatus().equals( STATUS_PENDING))
+                adminInf.setStatus( STATUS_ACCEPTABLE);
+        }
+
+    }
 
     public static void Accept(String email){
 
         for(AdminInf adminInf :AdminList){
 
-            if(adminInf.getStatus().equals(STATUS_PENDING)&&adminInf.getEmail().equals(email))
-                adminInf.setStatus(STATUS_ACCEPTABLE);
+            if(adminInf.getStatus().equals( STATUS_PENDING)&&adminInf.getEmail().equals(email))
+                adminInf.setStatus( STATUS_ACCEPTABLE);
         }
 
     }
