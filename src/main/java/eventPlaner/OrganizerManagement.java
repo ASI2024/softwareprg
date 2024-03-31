@@ -163,8 +163,10 @@ public static final String EVENT_NOT_FOUND = "Event Not Found";
         return EVENT_NOT_FOUND;
     }
 
-    public static void ShowEventList() {
-        int i = 1;
+ public static void ShowEventList() {
+    int i = 1;
+   
+    if (logger.isLoggable(Level.INFO)) {
         for (Event existingEvent : eventsList) {
             StringBuilder statement = new StringBuilder();
             statement.append(i).append(")").append(EVENT_NUMBER_PREFIX).append(existingEvent.getEventNumber())
@@ -174,9 +176,10 @@ public static final String EVENT_NOT_FOUND = "Event Not Found";
                      .append(" Event Theme: ").append(existingEvent.getTheme())
                      .append(" Event Description: ").append(existingEvent.getDescription())
                      .append(" Event Category: ").append(existingEvent.getCategory());
-            
             logger.info(statement.toString());
             i++;
         }
     }
+}
+
 }
