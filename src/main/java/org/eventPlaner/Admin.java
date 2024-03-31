@@ -81,63 +81,77 @@ private static final String STATUS_ACCEPTABLE = "Acceptable";
 
     }
 
- public static void showRequest() {
-        logger.info("");
-        logger.info("               Admin Requests List");
-        logger.info("Email               Password     UserName     City");
-        for (AdminInf adminInf : AdminList) {
-            if (adminInf.getStatus().equals(STATUS_PENDING)) {
-                logger.info(adminInf.getEmail() + "\t" +
-                        adminInf.getPassword() + "\t" +
-                        adminInf.getUserName() + "\t" +
-                        adminInf.getCity());
-            }
-        }
+    public static void showRequest(){
 
-        logger.info("");
-        logger.info("                       Organizer Requests List");
-        logger.info("Email               Password     UserName     City     PhoneNumber");
-        for (Organizer organizer : Organizers) {
-            if (organizer.getStatus().equals(STATUS_PENDING)) {
-                logger.info(organizer.getEmail() + "\t" +
-                        organizer.getPassword() + "\t" +
-                        organizer.getUsername() + "\t" +
-                        organizer.getCity() + "\t" +
-                        organizer.getPhoneNumber());
-            }
-        }
+        System.out.println();
 
-        logger.info("");
-        logger.info("                         ServiceProvider Requests List");
-        logger.info("Email               Password     UserName     City     PhoneNumber     Address");
-        for (ServiceProvider serviceProvider : ServiceProviders) {
-            if (serviceProvider.getStatus().equals(STATUS_PENDING)) {
-                logger.info(serviceProvider.getEmail() + "\t" +
-                        serviceProvider.getPassword() + "\t" +
-                        serviceProvider.getUserName() + "\t" +
-                        serviceProvider.getCity() + "\t" +
-                        serviceProvider.getPhoneNum() + "\t" +
-                        serviceProvider.getAddress());
-            }
-        }
-    }
-
-    public static void AcceptAll() {
-        for (AdminInf adminInf : AdminList) {
-            if (adminInf.getStatus().equals(STATUS_PENDING))
-                adminInf.setStatus(STATUS_ACCEPTABLE);
-        }
-    }
-
-    public static void AcceptAll(){
-
+        System.out.println("               Admin Requests List");
+        System.out.println("Email               Password     UserName     City");
         for(AdminInf adminInf :AdminList){
-
+             if(adminInf.getStatus().equals( STATUS_PENDING)){
+                 System.out.print(adminInf.getEmail());
+                 for(int i =0;i<20-adminInf.getEmail().length();i++)
+                     System.out.print("\t");
+                 System.out.print(adminInf.getPassword());
+                 for(int i =0;i<13-adminInf.getPassword().length();i++)
+                     System.out.print("\t");
+                 System.out.print(adminInf.getUserName());
+                 for(int i =0;i<13-adminInf.getUserName().length();i++)
+                     System.out.print("\t");
+                 System.out.println(adminInf.getCity());
+             }
+        }
+        System.out.println();
+        System.out.println("                       Organizer Requests List");
+        System.out.println("Email               Password     UserName     City     PhoneNumber");
+        for(Organizer organizer :Organizers){
+            if(organizer.getStatus().equals( STATUS_PENDING)){
+                System.out.print(organizer.getEmail());
+                for(int i =0;i<20-organizer.getEmail().length();i++)
+                    System.out.print("\t");
+                System.out.print(organizer.getPassword());
+                for(int i =0;i<13-organizer.getPassword().length();i++)
+                    System.out.print("\t");
+                System.out.print(organizer.getUsername());
+                for(int i =0;i<13-organizer.getUsername().length();i++)
+                    System.out.print("\t");
+                System.out.println(organizer.getCity());
+                for(int i =0;i<9-organizer.getCity().length();i++)
+                    System.out.print("\t");
+                System.out.println(organizer.getPhoneNumber());
+            }
+        }
+        System.out.println();
+        System.out.println("                         ServiceProvider Requests List");
+        System.out.println("Email               Password     UserName     City     PhoneNumber     Address");
+        for(ServiceProvider serviceProvider :ServiceProviders){
+            if(serviceProvider.getStatus().equals( STATUS_PENDING)){
+                System.out.print(serviceProvider.getEmail());
+                for(int i =0;i<20-serviceProvider.getEmail().length();i++)
+                    System.out.print("\t");
+                System.out.print(serviceProvider.getPassword());
+                for(int i =0;i<13-serviceProvider.getPassword().length();i++)
+                    System.out.print("\t");
+                System.out.print(serviceProvider.getUserName());
+                for(int i =0;i<13-serviceProvider.getUserName().length();i++)
+                    System.out.print("\t");
+                System.out.println(serviceProvider.getCity());
+                for(int i =0;i<9-serviceProvider.getCity().length();i++)
+                    System.out.print("\t");
+                System.out.println(serviceProvider.getPhoneNum());
+                for(int i =0;i<16-serviceProvider.getPhoneNum().length();i++)
+                    System.out.print("\t");
+                System.out.println(serviceProvider.getAddress());
+            }
+        }
+    }
+    public static void AcceptAll(){
+        for(AdminInf adminInf :AdminList){
             if(adminInf.getStatus().equals( STATUS_PENDING))
                 adminInf.setStatus( STATUS_ACCEPTABLE);
         }
-
     }
+
 
     public static void Accept(String email){
 
