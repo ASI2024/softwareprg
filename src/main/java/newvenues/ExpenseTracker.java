@@ -25,7 +25,7 @@ public class ExpenseTracker {
             }
 
         }
-        return false; // Expense not found
+        return false; 
     }
 
 
