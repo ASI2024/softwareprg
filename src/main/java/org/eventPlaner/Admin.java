@@ -70,16 +70,16 @@ private static final String STATUS_ACCEPTABLE = "Acceptable";
 
              if(adminInf.getStatus().equals(STATUS_PENDING)){
 
-                 System.out.print(adminInf.getEmail());
+               logger.info("Admin Email : {}",adminInf.getEmail());
                  for(int i =0;i<20-adminInf.getEmail().length();i++)
                       logger.info("\t");
-                System.out.print(adminInf.getPassword());
+               logger.info("Admin Password : {}",adminInf.getPassword());
                  for(int i =0;i<13-adminInf.getPassword().length();i++)
                      logger.info("\t");
-                System.out.print(adminInf.getUserName());
+                logger.info("Admin UserName : {}",adminInf.getUserName());
                  for(int i =0;i<13-adminInf.getUserName().length();i++)
                      logger.info("\t");
-                 System.out.print(adminInf.getCity());
+                logger.info("Admin City: {}",adminInf.getCity());
 
              }
 
@@ -116,22 +116,22 @@ private static final String STATUS_ACCEPTABLE = "Acceptable";
 
             if(serviceProvider.getStatus().equals(STATUS_PENDING)){
 
-              System.out.print(serviceProvider.getEmail());
+             logger.info("ServiceProvider Email :{}",serviceProvider.getEmail());
                 for(int i =0;i<20-serviceProvider.getEmail().length();i++)
                     logger.info("\t");
-               System.out.print(serviceProvider.getPassword());
+              logger.info("ServiceProvider Password : {} ",serviceProvider.getPassword());
                 for(int i =0;i<13-serviceProvider.getPassword().length();i++)
                     logger.info("\t");
-                System.out.print(serviceProvider.getUserName());
+                logger.info("ServiceProvider Username : {}",serviceProvider.getUserName());
                 for(int i =0;i<13-serviceProvider.getUserName().length();i++)
                      logger.info("\t");
-              System.out.print(serviceProvider.getCity());
+             logger.info("ServiceProvider City : {}",serviceProvider.getCity());
                 for(int i =0;i<9-serviceProvider.getCity().length();i++)
                    logger.info("\t");
-                System.out.print(serviceProvider.getPhoneNum());
+                logger.info("ServiceProvider PhoneNum : {}",serviceProvider.getPhoneNum());
                 for(int i =0;i<16-serviceProvider.getPhoneNum().length();i++)
                     logger.info("\t");
-              System.out.print(serviceProvider.getAddress());
+             logger.info("ServiceProvider Address : {}",serviceProvider.getAddress());
 
             }
 
