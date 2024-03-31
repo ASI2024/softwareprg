@@ -22,13 +22,18 @@ import java.util.*;
 
 public class Main {
     private static final String INVALID_INPUT_MESSAGE = "Invalid input please try again:";
-  private static final String ENTER_PHONE_NUMBER = "Enter Your PhoneNumber:";
+    private static final String ENTER_PHONE_NUMBER = "Enter Your PhoneNumber:";
     private static final String REQUEST_SUBMITTED_MESSAGE = "The request has been submitted successfully. Please wait for admin approval";
     private static final String STATUS_PENDING = "Pending";
     private static final String PROMPT_EMAIL = "Enter Your Email:";
     private static final String PROMPT_USERNAME = "Enter Your Username:";
     private static final String PROMPT_CITY = "Enter Your City:";
     private static final String PROMPT_PASSWORD = "Enter Your Password:";
+    private static final String PROMPT_EVENT_NUMBER = "Enter event number: ";
+    private static final String EDIT_ADDED_APPROVAL_MESSAGE = "The edit has been added. Please wait for the organizer’s approval";
+    private static final String INVALID_DATE_FORMAT_MESSAGE = "Invalid date format. Please enter the date in the format yyyy-MM-dd.";
+    private static final String DATE_FORMAT_PATTERN = "yyyy-MM-dd";
+
     public static void main(String[] args) {
         Map<Integer, Hall> hallDatabase = new HashMap<>();
 
@@ -242,13 +247,13 @@ public class Main {
                                         break;
 
                                     case 4:
-                                        System.out.println("Enter event number: ");
+                                        System.out.println(PROMPT_EVENT_NUMBER);
                                         int eventNumber = scanner3.nextInt();
                                         System.out.println(organizerManagement.acceptAddEvent(eventNumber));
                                         break;
 
                                     case 5:
-                                        System.out.println("Enter event number: ");
+                                        System.out.println(PROMPT_EVENT_NUMBER);
                                         int ev = scanner3.nextInt();
                                         System.out.println("Enter the reason for rejection: ");
                                         String re = scanner3.next();
@@ -256,13 +261,13 @@ public class Main {
                                         break;
 
                                     case 6:
-                                        System.out.println("Enter event number: ");
+                                        System.out.println(PROMPT_EVENT_NUMBER);
                                         int eve = scanner3.nextInt();
                                         System.out.println(organizerManagement.acceptModification(eve));
                                         break;
 
                                     case 7:
-                                        System.out.println("Enter event number: ");
+                                        System.out.println(PROMPT_EVENT_NUMBER);
                                         int e = scanner3.nextInt();
                                         System.out.println("Enter the reason for rejection: ");
                                         String res = scanner3.next();
@@ -270,7 +275,7 @@ public class Main {
                                         break;
 
                                     case 8:
-                                        System.out.println("Enter event number: ");
+                                        System.out.println(PROMPT_EVENT_NUMBER);
                                         int even = scanner3.nextInt();
                                         System.out.println(organizerManagement.acceptDeletEvent(even));
                                         break;
@@ -464,12 +469,12 @@ public class Main {
                                         int eventNumber = random.nextInt(maxValue - minValue + 1) + minValue;
                                         System.out.println("Enter date(YYYY-MM-DD):");
                                         String Date = scanner5.next();
-                                        formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                                        formatter = DateTimeFormatter.ofPattern(DATE_FORMAT_PATTERN);
                                         LocalDate date = LocalDate.now();
                                         try {
                                             date = LocalDate.parse(Date, formatter);
                                         } catch (Exception e) {
-                                            System.out.println("Invalid date format. Please enter the date in the format yyyy-MM-dd.");
+                                            System.out.println(INVALID_DATE_FORMAT_MESSAGE);
                                         }
                                         System.out.println("Enter Time(HH:MM):");
                                         String Time = scanner5.next();
@@ -496,7 +501,7 @@ public class Main {
                                         eventManagement.ShowCategory();
                                         System.out.println("Enter number of category:");
                                         int category = scanner5.nextInt();
-                                        System.out.println("Enter event number:");
+                                        System.out.println(PROMPT_EVENT_NUMBER);
                                         int e = scanner5.nextInt();
                                         eventManagement.SelectCategory(e, category);
                                         if (EventManagement.setCategoryFlag)
@@ -506,23 +511,23 @@ public class Main {
                                         break;
 
                                     case 3:
-                                        System.out.println("Enter event number:");
+                                        System.out.println(PROMPT_EVENT_NUMBER);
                                         int ev = scanner5.nextInt();
                                         System.out.println("Enter new date(YYYY-MM-DD):");
                                         String DN = scanner5.next();
-                                        formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                                        formatter = DateTimeFormatter.ofPattern(DATE_FORMAT_PATTERN);
                                         LocalDate dn = LocalDate.now();
                                         try {
                                             dn = LocalDate.parse(DN, formatter);
                                         } catch (Exception ex) {
-                                            System.out.println("Invalid date format. Please enter the date in the format yyyy-MM-dd.");
+                                            System.out.println(INVALID_DATE_FORMAT_MESSAGE);
                                         }
                                         eventManagement.EditDate(ev, dn);
-                                        System.out.println("The edite has been added. Please wait for the organizer’s approval");
+                                        System.out.println(EDIT_ADDED_APPROVAL_MESSAGE);
                                         break;
 
                                     case 4:
-                                        System.out.println("Enter event number:");
+                                        System.out.println(PROMPT_EVENT_NUMBER);
                                         int eve = scanner5.nextInt();
                                         System.out.println("Enter Time(HH:MM):");
                                         String TN = scanner5.next();
@@ -531,42 +536,42 @@ public class Main {
                                         try {
                                             tn = LocalTime.parse(TN, formatter);
                                         } catch (Exception ex) {
-                                            System.out.println("Invalid date format. Please enter the date in the format yyyy-MM-dd.");
+                                            System.out.println(INVALID_DATE_FORMAT_MESSAGE);
                                         }
                                         eventManagement.EditTime(eve, tn);
-                                        System.out.println("The edite has been added. Please wait for the organizer’s approval");
+                                        System.out.println(EDIT_ADDED_APPROVAL_MESSAGE);
                                         break;
 
 
                                     case 5:
-                                        System.out.println("Enter event number:");
+                                        System.out.println(PROMPT_EVENT_NUMBER);
                                         int even = scanner5.nextInt();
                                         System.out.println("Enter new location:");
                                         String lo = scanner5.next();
                                         eventManagement.EditLocation(even, lo);
-                                        System.out.println("The edite has been added. Please wait for the organizer’s approval");
+                                        System.out.println(EDIT_ADDED_APPROVAL_MESSAGE);
                                         break;
 
                                     case 6:
-                                        System.out.println("Enter event number:");
+                                        System.out.println(PROMPT_EVENT_NUMBER);
                                         int eventN = scanner5.nextInt();
                                         System.out.println("Enter new theme:");
                                         String them = scanner5.next();
                                         eventManagement.EditLocation(eventN, them);
-                                        System.out.println("The edite has been added. Please wait for the organizer’s approval");
+                                        System.out.println(EDIT_ADDED_APPROVAL_MESSAGE);
                                         break;
 
                                     case 7:
-                                        System.out.println("Enter event number:");
+                                        System.out.println(PROMPT_EVENT_NUMBER);
                                         int eventNu = scanner5.nextInt();
                                         System.out.println("Enter new description:");
                                         String des = scanner5.next();
                                         eventManagement.EditLocation(eventNu, des);
-                                        System.out.println("The edite has been added. Please wait for the organizer’s approval");
+                                        System.out.println(EDIT_ADDED_APPROVAL_MESSAGE);
                                         break;
 
                                     case 8:
-                                        System.out.println("Enter event number:");
+                                        System.out.println(PROMPT_EVENT_NUMBER);
                                         int eventNum = scanner5.nextInt();
                                         eventManagement.DeletEvent(eventNum);
                                         System.out.println("The deletion request has been added. Please wait for the organizer’s approval");
@@ -587,7 +592,7 @@ public class Main {
                                         int budget = scanner5.nextInt();
                                         System.out.println("Enter new date(YYYY-MM-DD):");
                                         String d = scanner5.next();
-                                        SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd");
+                                        SimpleDateFormat formatter1 = new SimpleDateFormat(DATE_FORMAT_PATTERN);
                                         java.util.Date date1 = null;
                                         try {
 
@@ -602,7 +607,7 @@ public class Main {
                                             public List<Hall> findHallsByCriteria(int budget, String eventType, java.util.Date date) {
 
                                                 System.out.println("Searching for halls with budget <= " + budget + " and date == " + date);
-                                                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                                                SimpleDateFormat formatter = new SimpleDateFormat(DATE_FORMAT_PATTERN);
                                                 List<Hall> matchingHalls = new ArrayList<>();
                                                 for (Hall hall : hallDatabase.values()) {
                                                     System.out.println("Hall: " + hall.getName() + ", Rent: " + hall.getRent() + ", Date: " + hall.getAvailableDate());
