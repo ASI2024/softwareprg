@@ -526,7 +526,7 @@ if (logger.isInfoEnabled()) {
                                       logger.info("Enter description:");
                                         String de = scanner5.next();
                                         event = new Event(eventNumber, date, time, location, theme, de, null);
-                                        eventManagement.AddEvent(event);
+                                        EventManagement.AddEvent(event);
                                        logger.info("Your event number: {}", eventNumber);
 
                                       logger.info("The event has been added. Please wait for the organizer’s approval");
