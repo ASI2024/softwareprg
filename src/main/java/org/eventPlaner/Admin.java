@@ -61,82 +61,79 @@ private static final String STATUS_ACCEPTABLE = "Acceptable";
         return false;
     } 
      
-    public static void showRequest(){
-       logger.info("");
-       logger.info("               Admin Requests List");
-         logger.info("Email               Password     UserName     City");
+   public static void showRequest() {
+    logger.info("Admin Requests List");
+    logger.info("Email               Password     UserName     City");
 
-        for(AdminInf adminInf :AdminList){
+    logAdminRequests(AdminList);
 
-             if(adminInf.getStatus().equals(STATUS_PENDING)){
+    logger.info("");
+    logger.info("Organizer Requests List");
+    logger.info("Email               Password     UserName     City     PhoneNumber");
 
-               logger.info("Admin Email : {}",adminInf.getEmail());
-                 for(int i =0;i<20-adminInf.getEmail().length();i++)
-                      logger.info("\t");
-               logger.info("Admin Password : {}",adminInf.getPassword());
-                 for(int i =0;i<13-adminInf.getPassword().length();i++)
-                     logger.info("\t");
-                logger.info("Admin UserName : {}",adminInf.getUserName());
-                 for(int i =0;i<13-adminInf.getUserName().length();i++)
-                     logger.info("\t");
-                logger.info("Admin City: {}",adminInf.getCity());
+    logOrganizerRequests(Organizers);
 
-             }
+    logger.info("");
+    logger.info("ServiceProvider Requests List");
+    logger.info("Email               Password     UserName     City     PhoneNumber     Address");
 
-        }
-        logger.info("");
-        logger.info("                       Organizer Requests List");
-        logger.info("Email               Password     UserName     City     PhoneNumber");
-        for(Organizer organizer :Organizers){
+    logServiceProviderRequests(ServiceProviders);
+}
 
-            if(organizer.getStatus().equals(STATUS_PENDING)){
-
-                  logger.info("Organizer Email: {}",organizer.getEmail());
-                for(int i =0;i<20-organizer.getEmail().length();i++)
-                     logger.info("\t");
-                   logger.info("{}",organizer.getPassword());
-                for(int i =0;i<13-organizer.getPassword().length();i++)
-                     logger.info("\t");
-                logger.info("Organizer username: {}", organizer.getUsername());
-                for(int i =0;i<13-organizer.getUsername().length();i++)
-                    logger.info("\t");
-                logger.info("Organizer City: {}",organizer.getCity());
-                for(int i =0;i<9-organizer.getCity().length();i++)
-                     logger.info("\t");
-                 logger.info("Organizer PhoneNumber: {}",organizer.getPhoneNumber());
-
-            }
-
-        }
-
-        logger.info("");
-        logger.info("                         ServiceProvider Requests List");
-         logger.info("Email               Password     UserName     City     PhoneNumber     Address");
-        for(ServiceProvider serviceProvider :ServiceProviders){
-
-            if(serviceProvider.getStatus().equals(STATUS_PENDING)){
-
-             logger.info("ServiceProvider Email :{}",serviceProvider.getEmail());
-                for(int i =0;i<20-serviceProvider.getEmail().length();i++)
-                    logger.info("\t");
-              logger.info("ServiceProvider Password : {} ",serviceProvider.getPassword());
-                for(int i =0;i<13-serviceProvider.getPassword().length();i++)
-                    logger.info("\t");
-                logger.info("ServiceProvider Username : {}",serviceProvider.getUserName());
-                for(int i =0;i<13-serviceProvider.getUserName().length();i++)
-                     logger.info("\t");
-             logger.info("ServiceProvider City : {}",serviceProvider.getCity());
-                for(int i =0;i<9-serviceProvider.getCity().length();i++)
-                   logger.info("\t");
-                logger.info("ServiceProvider PhoneNum : {}",serviceProvider.getPhoneNum());
-                for(int i =0;i<16-serviceProvider.getPhoneNum().length();i++)
-                    logger.info("\t");
-             logger.info("ServiceProvider Address : {}",serviceProvider.getAddress());
-
-            }
-
+private static void logAdminRequests(List<AdminInf> adminList) {
+    for (AdminInf adminInf : adminList) {
+        if (adminInf.getStatus().equals(STATUS_PENDING)) {
+            logger.info("Admin Email : {}", adminInf.getEmail());
+            logSpaces(20 - adminInf.getEmail().length());
+            logger.info("Admin Password : {}", adminInf.getPassword());
+            logSpaces(13 - adminInf.getPassword().length());
+            logger.info("Admin UserName : {}", adminInf.getUserName());
+            logSpaces(13 - adminInf.getUserName().length());
+            logger.info("Admin City: {}", adminInf.getCity());
         }
     }
+}
+
+private static void logOrganizerRequests(List<Organizer> organizers) {
+    for (Organizer organizer : organizers) {
+        if (organizer.getStatus().equals(STATUS_PENDING)) {
+            logger.info("Organizer Email: {}", organizer.getEmail());
+            logSpaces(20 - organizer.getEmail().length());
+            logger.info("{}", organizer.getPassword());
+            logSpaces(13 - organizer.getPassword().length());
+            logger.info("Organizer username: {}", organizer.getUsername());
+            logSpaces(13 - organizer.getUsername().length());
+            logger.info("Organizer City: {}", organizer.getCity());
+            logSpaces(9 - organizer.getCity().length());
+            logger.info("Organizer PhoneNumber: {}", organizer.getPhoneNumber());
+        }
+    }
+}
+
+private static void logServiceProviderRequests(List<ServiceProvider> serviceProviders) {
+    for (ServiceProvider serviceProvider : serviceProviders) {
+        if (serviceProvider.getStatus().equals(STATUS_PENDING)) {
+            logger.info("ServiceProvider Email :{}", serviceProvider.getEmail());
+            logSpaces(20 - serviceProvider.getEmail().length());
+            logger.info("ServiceProvider Password : {} ", serviceProvider.getPassword());
+            logSpaces(13 - serviceProvider.getPassword().length());
+            logger.info("ServiceProvider Username : {}", serviceProvider.getUserName());
+            logSpaces(13 - serviceProvider.getUserName().length());
+            logger.info("ServiceProvider City : {}", serviceProvider.getCity());
+            logSpaces(9 - serviceProvider.getCity().length());
+            logger.info("ServiceProvider PhoneNum : {}", serviceProvider.getPhoneNum());
+            logSpaces(16 - serviceProvider.getPhoneNum().length());
+            logger.info("ServiceProvider Address : {}", serviceProvider.getAddress());
+        }
+    }
+}
+
+private static void logSpaces(int count) {
+    for (int i = 0; i < count; i++) {
+        logger.info("\t");
+    }
+}
+
 
     public static void AcceptAll(){
 
