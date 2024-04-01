@@ -81,79 +81,79 @@ public class Main {
                                 String email = scanner1.next();
                                logger.info(PROMPT_USERNAME);
                                 String username = scanner1.next();
-                                logger.info("Enter Admin City : {}",PROMPT_CITY);
+                                 logger.info(PROMPT_CITY);
                                 String city = scanner1.next();
-                             logger.info("Enter Admin Password : {}",PROMPT_PASSWORD);
+                              logger.info(PROMPT_PASSWORD);
                                 String password = scanner1.next();
                                 Admin.registerAdmin(email, username, city, password, STATUS_PENDING);
                                 if (Admin.registerAdmin(email, username, city, password, STATUS_PENDING).equals("Admin registered successfully")) {
 
-                                    System.out.println(REQUEST_SUBMITTED_MESSAGE);
+                                    logger.info(REQUEST_SUBMITTED_MESSAGE);
                                 } else {
 
-                                    System.out.println(Admin.registerAdmin(email, username, city, password, STATUS_PENDING));
+                                     logger.info(Admin.registerAdmin(email, username, city, password, STATUS_PENDING));
                                 }
                                 break;
 
                             case 2:
-                               logger.info("Enter Orgamizer Email : {}",PROMPT_EMAIL);
+                              logger.info(PROMPT_EMAIL);
                                 String ema = scanner1.next();
-                                  logger.info("Enter Orgamizer UserName: {}",PROMPT_USERNAME);
+                                 logger.info(PROMPT_USERNAME);
                                 String user = scanner1.next();
-                                  logger.info("Enter Orgamizer City : {}",PROMPT_CITY);
+                                logger.info(PROMPT_CITY);
                                 String cit = scanner1.next();
-                                  logger.info("Enter Orgamizer PhoneNumber : {}",ENTER_PHONE_NUMBER);
+                             logger.info(ENTER_PHONE_NUMBER);
                                 String phone = scanner1.next();
-                                   logger.info("Enter Orgamizer Password : {}",PROMPT_PASSWORD);
+                                  logger.info(PROMPT_PASSWORD);
                                 String pass = scanner1.next();
                                 organizerLogin.Registration(ema, pass, user, cit, phone, STATUS_PENDING);
-                                System.out.println(REQUEST_SUBMITTED_MESSAGE);
+                                logger.info(REQUEST_SUBMITTED_MESSAGE);
                                 break;
                             case 3:
-                                logger.info("Enter ServiceProvidor Email : {}",PROMPT_EMAIL);
+                              logger.info(PROMPT_EMAIL);
                                 String em = scanner1.next();
-                                 logger.info("Enter ServiceProvidor UserName : {}",PROMPT_USERNAME);
+                               logger.info(PROMPT_USERNAME);
                                 String use = scanner1.next();
-                                logger.info("Enter ServiceProvidor City : {}",PROMPT_CITY);
+                                logger.info(PROMPT_CITY);
                                 String ci = scanner1.next();
-                                System.out.println("Enter Your Address:");
+                             logger.info("Enter Your Address:");
                                 String address = scanner1.next();
-                                logger.info("Enter ServiceProvidor PhoneNumber : {}",ENTER_PHONE_NUMBER);
+                                logger.info(ENTER_PHONE_NUMBER);
                                 String pho = scanner1.next();
-                               logger.info("Enter ServiceProvidor Pass : {}",PROMPT_PASSWORD);
+                              logger.info(PROMPT_PASSWORD);
                                 String pas = scanner1.next();
                                 Service.registerService(em, use, ci, address, STATUS_PENDING, pho, pas);
                                 if (Service.registerService(em, use, ci, address, STATUS_PENDING, pho, pas).equals("Service registered successfully")) {
 
-                                    System.out.println(REQUEST_SUBMITTED_MESSAGE);
+                                   logger.info(REQUEST_SUBMITTED_MESSAGE);
                                 } else {
 
-                                    System.out.println(Service.registerService(em, use, ci, address, STATUS_PENDING, pho, pas));
+                                     logger.info(Service.registerService(em, use, ci, address, STATUS_PENDING, pho, pas));
                                 }
                                 break;
                             case 4:
-                                System.out.println(PROMPT_EMAIL);
+                               logger.info(PROMPT_EMAIL);
                                 String e = scanner1.next();
-                                System.out.println(PROMPT_USERNAME);
+                                logger.info(PROMPT_USERNAME);
                                 String us = scanner1.next();
-                                System.out.println(PROMPT_CITY);
+                                 logger.info(PROMPT_CITY);
                                 String c = scanner1.next();
-                                System.out.println(ENTER_PHONE_NUMBER);
+                              logger.info(ENTER_PHONE_NUMBER);
                                 String ph = scanner1.next();
-                                System.out.println(PROMPT_PASSWORD);
+                                logger.info(PROMPT_PASSWORD);
                                 String pa = scanner1.next();
                                 UserService.registerUser(e, us, c, ph, pa);
                                 if (UserService.registerUser(e, us, c, ph, pa).equals("User registered successfully")) {
 
-                                    System.out.println("Account successfully created");
+                                     logger.info("Account successfully created");
                                 } else {
 
-                                    System.out.println(UserService.registerUser(e, us, c, ph, pa));
+                                    logger.info(UserService.registerUser(e, us, c, ph, pa));
                                 }
                                 break;
 
                             default:
-                                System.out.println(INVALID_INPUT_MESSAGE);
+                                logger.info(INVALID_INPUT_MESSAGE);
                                 break;
                         }
                         if (choose <= 4)
@@ -165,9 +165,9 @@ public class Main {
                 case 2:
                     while (in != 6 && in2 != 14 && in3 != 9 && in4 != 11) {
 
-                        System.out.println("Enter Email:");
+                       logger.info("Enter Email:");
                         String email = scanner2.next();
-                        System.out.println("Enter Password:");
+                       logger.info("Enter Password:");
                         String password = scanner2.next();
 
 
@@ -175,7 +175,7 @@ public class Main {
 
                             while (in != 6) {
 
-                                System.out.println("1.Show EventList\n2.Show list of requests to create account\n" +
+                             logger.info("1.Show EventList\n2.Show list of requests to create account\n" +
                                         "3.Accept all requests to create account\n4.Accept request to create account\n" +
                                         "5.Reject request to create account\n6.Exit");
                                 in = scanner2.nextInt();
@@ -195,20 +195,20 @@ public class Main {
                                         break;
 
                                     case 4:
-                                        System.out.println("Enter email of the account you want to accept:");
+                                      logger.info("Enter email of the account you want to accept:");
                                         String ema = scanner2.next();
                                         Admin.Accept(ema);
                                         break;
 
                                     case 5:
-                                        System.out.println("Enter email of the account you want to reject:");
+                                       logger.info("Enter email of the account you want to reject:");
                                         String em = scanner2.next();
-                                        System.out.println("Enter the reason for rejection:");
+                                      logger.info("Enter the reason for rejection:");
                                         String reason = scanner2.next();
                                         if (Admin.setReasonRejection(em, reason)) {
-                                            System.out.println("Rejected successfully");
+                                            logger.info("Rejected successfully");
                                         } else {
-                                            System.out.println("Email not found");
+                                          logger.info("Email not found");
                                         }
                                         break;
 
@@ -216,7 +216,7 @@ public class Main {
                                         break;
 
                                     default:
-                                        System.out.println(INVALID_INPUT_MESSAGE);
+                                        logger.info(INVALID_INPUT_MESSAGE);
                                         break;
 
 
@@ -227,7 +227,7 @@ public class Main {
 
                             while (in2 != 14) {
 
-                                System.out.println("1.Show list of event requests\n2.Show requests for modification events\n" +
+                               logger.info("1.Show list of event requests\n2.Show requests for modification events\n" +
                                         "3.Show requests for deletion event\n4.Accept add event\n5.Reject add event\n" +
                                         "6.Accept modification for event\n7.Reject modification for event\n" +
                                         "8.Accept delet an event\n9.Add expense tracker\n10.Update expense tracker\n" +
@@ -249,67 +249,67 @@ public class Main {
                                         break;
 
                                     case 4:
-                                        System.out.println(PROMPT_EVENT_NUMBER);
+                                        logger.info(PROMPT_EVENT_NUMBER);
                                         int eventNumber = scanner3.nextInt();
-                                        System.out.println(organizerManagement.acceptAddEvent(eventNumber));
+                                        logger.info(organizerManagement.acceptAddEvent(eventNumber));
                                         break;
 
                                     case 5:
-                                        System.out.println(PROMPT_EVENT_NUMBER);
+                                        logger.info(PROMPT_EVENT_NUMBER);
                                         int ev = scanner3.nextInt();
-                                        System.out.println("Enter the reason for rejection: ");
+                                        logger.info("Enter the reason for rejection: ");
                                         String re = scanner3.next();
-                                        System.out.println(organizerManagement.rejectAddEvent(ev, re));
+                                         logger.info(organizerManagement.rejectAddEvent(ev, re));
                                         break;
 
                                     case 6:
-                                        System.out.println(PROMPT_EVENT_NUMBER);
+                                      logger.info(PROMPT_EVENT_NUMBER);
                                         int eve = scanner3.nextInt();
-                                        System.out.println(organizerManagement.acceptModification(eve));
+                                        logger.info(organizerManagement.acceptModification(eve));
                                         break;
 
                                     case 7:
-                                        System.out.println(PROMPT_EVENT_NUMBER);
+                                       logger.info(PROMPT_EVENT_NUMBER);
                                         int e = scanner3.nextInt();
-                                        System.out.println("Enter the reason for rejection: ");
+                                       logger.info("Enter the reason for rejection: ");
                                         String res = scanner3.next();
                                         System.out.println(organizerManagement.rejectModification(e, res));
                                         break;
 
                                     case 8:
-                                        System.out.println(PROMPT_EVENT_NUMBER);
+                                      logger.info(PROMPT_EVENT_NUMBER);
                                         int even = scanner3.nextInt();
-                                        System.out.println(organizerManagement.acceptDeletEvent(even));
+                                        logger.info(organizerManagement.acceptDeletEvent(even));
                                         break;
 
                                     case 9:
-                                        System.out.println("Enter amount of expense: ");
+                                        logger.info("Enter amount of expense: ");
                                         double amount = scanner2.nextDouble();
-                                        System.out.println("Enter category: ");
+                                        logger.info("Enter category: ");
                                         String category = scanner3.next();
-                                        System.out.println("Enter description: ");
+                                        logger.info("Enter description: ");
                                         String des = scanner3.next();
                                         expenseTracker.addExpense(amount, category, des);
-                                        System.out.println("Expense added successfully");
+                                        logger.info("Expense added successfully");
                                         break;
 
                                     case 10:
-                                        System.out.println("Enter id of expense: ");
+                                        logger.info("Enter id of expense: ");
                                         int id = scanner3.nextInt();
-                                        System.out.println("Enter amount of expense: ");
+                                        logger.info("Enter amount of expense: ");
                                         double amo = scanner2.nextDouble();
-                                        System.out.println("Enter category: ");
+                                        logger.info("Enter category: ");
                                         String cate = scanner3.next();
-                                        System.out.println("Enter description: ");
+                                       logger.info("Enter description: ");
                                         String de = scanner3.next();
                                         if (expenseTracker.updateExpense(id, amo, cate, de))
-                                            System.out.println("Expense updated successfully");
+                                             logger.info("Expense updated successfully");
                                         else
-                                            System.out.println("Expense not found");
+                                             logger.info("Expense not found");
                                         break;
 
                                     case 11:
-                                        System.out.println(expenseTracker.getExpenses());
+                                         logger.info(expenseTracker.getExpenses());
                                         break;
 
                                     case 12:
