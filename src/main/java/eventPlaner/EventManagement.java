@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 import java.util.logging.Level;
 import java.util.Arrays;
 
-public static class EventManagement {
+public  class EventManagement {
     private static final Logger LOGGER = Logger.getLogger(EventManagement.class.getName());
     static List<Event> eventsRequest = new ArrayList<>();
     static List<Event> eventsEdition = new ArrayList<>();
