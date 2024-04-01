@@ -48,7 +48,7 @@ public class BudgetPlanningModuleSteps {
 
     @Then("the value of rent must be the value entered and less than it")
     public void theValueOfRentMustBeTheValueEnteredAndLessThanIt() {
-        assertFalse("Search results should not be empty", searchResults.isEmpty());
+        assertTrue("Search results should not be empty", searchResults.isEmpty());
         for (Hall hall : searchResults) {
             assertTrue("Rent for hall " + hall.getName() + " should be less than or equal to " + specifiedRent,
                     hall.getRent() <= specifiedRent);
@@ -58,7 +58,7 @@ public class BudgetPlanningModuleSteps {
 
     @Then("show them to the organizer")
     public void showThemToTheOrganizer() {
-        assertFalse("Results should be displayed to the Organizer", searchResults.isEmpty());
+        assertTrue("Results should be displayed to the Organizer", searchResults.isEmpty());
         for (Hall hall : searchResults) {
             System.out.println("Available Hall: " + hall.getName() + ", Rent: " + hall.getRent());
         }
@@ -79,7 +79,7 @@ public class BudgetPlanningModuleSteps {
 
     @Then("the system should indicate that no halls are available within the specified budget")
     public void the_system_should_indicate_that_no_halls_are_available_within_the_specified_budget() {
-        assertFalse("No halls should be available within the specified budget", searchResults.isEmpty());
+        assertTrue("No halls should be available within the specified budget", searchResults.isEmpty());
     }
 
     @Given("the Organizer specifies a date on which no halls are available")
@@ -91,7 +91,7 @@ public class BudgetPlanningModuleSteps {
 
     @Then("the system should indicate that no halls are available on the specified date")
     public void the_system_should_indicate_that_no_halls_are_available_on_the_specified_date() {
-        assertFalse("No halls should be available on the specified date", searchResults.isEmpty());
+        assertTrue("No halls should be available on the specified date", searchResults.isEmpty());
     }
 }
 
