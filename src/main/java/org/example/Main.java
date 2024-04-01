@@ -150,7 +150,8 @@ random.nextBytes(bytes);
                                      logger.info("Account successfully created");
                                 } else {
 
-                                    logger.info(UserService.registerUser(e, us, c, ph, pa));
+                                  logger.info(() -> "Registration result: " + UserService.registerUser(e, us, c, ph, pa));
+
                                 }
                                 break;
 
