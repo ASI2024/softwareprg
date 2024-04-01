@@ -36,7 +36,7 @@ public class ExpenseTracker {
     }
 
     public List<Expense> getExpenses() {
-        return new ArrayList<>(expenses);
+        return new ArrayList<>(Expenses);
     }
     public List<String> getCategories() {
         return Expenses.stream()
