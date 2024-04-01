@@ -639,11 +639,11 @@ random.nextBytes(bytes);
                                             @Override
                                             public List<Hall> findHallsByCriteria(int budget, String eventType, java.util.Date date) {
 
-                                                logger.info("Searching for halls with budget <= " + budget + " and date == " + date);
-                                                SimpleDateFormat formatter = new SimpleDateFormat(DATE_FORMAT_PATTERN);
+logger.info("Searching for halls with budget <= {} and date == {}", budget, new SimpleDateFormat(DATE_FORMAT_PATTERN).format(date));
+
                                                 List<Hall> matchingHalls = new ArrayList<>();
                                                 for (Hall hall : hallDatabase.values()) {
-                                                     logger.info("Hall: " + hall.getName() + ", Rent: " + hall.getRent() + ", Date: " + hall.getAvailableDate());
+logger.info("Hall: {}, Rent: {}, Date: {}", hall.getName(), hall.getRent(), hall.getAvailableDate());
                                                     if (hall.getRent() <= budget && hall.getAvailableDate().compareTo(date) == 0) {
                                                         matchingHalls.add(hall);
                                                     }
