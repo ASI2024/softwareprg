@@ -577,7 +577,7 @@ random.nextBytes(bytes);
                                         int eventNu = scanner5.nextInt();
                                       logger.info("Enter new description:");
                                         String des = scanner5.next();
-                                        eventManagement.EditLocation(eventNu, des);
+                                       eventManagement.EditLocation(eventNu, des);
                                         logger.info(EDIT_ADDED_APPROVAL_MESSAGE);
                                         break;
 
