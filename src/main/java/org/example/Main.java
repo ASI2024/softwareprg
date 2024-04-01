@@ -689,7 +689,6 @@ logger.info("Hall: {}, Rent: {}, Date: {}", hall.getName(), hall.getRent(), hall
                     break;
             }
 
-            break;
         }
 
     }
