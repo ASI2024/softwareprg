@@ -94,7 +94,7 @@ private static final String STATUS_ACCEPTABLE = "Acceptable";
                   logger.info("Organizer Email: {}",organizer.getEmail());
                 for(int i =0;i<20-organizer.getEmail().length();i++)
                      logger.info("\t");
-               System.out.print(organizer.getPassword());
+                   logger.info("{}",organizer.getPassword());
                 for(int i =0;i<13-organizer.getPassword().length();i++)
                      logger.info("\t");
                 logger.info("Organizer username: {}", organizer.getUsername());
