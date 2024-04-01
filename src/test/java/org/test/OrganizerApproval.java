@@ -124,7 +124,8 @@ public class OrganizerApproval {
     @Then("the organizer should receive a notification of the deletion")
     public void the_organizer_should_receive_a_notification_of_the_deletion() {
 
-        assertEquals(organizerManagement.acceptDeletEvent(123456),"The Event Was Deleted Successfully");
+      assertEquals("The Event Was Deleted Successfully", organizerManagement.acceptDeletEvent(123456));
+
     }
 
 }
