@@ -265,7 +265,10 @@ random.nextBytes(bytes);
                                         int ev = scanner3.nextInt();
                                         logger.info("Enter the reason for rejection: ");
                                         String re = scanner3.next();
-                                         logger.info(organizerManagement.rejectAddEvent(ev, re));
+                                      if (logger.isInfoEnabled()) {
+    String result = organizerManagement.rejectAddEvent(ev, re);
+    logger.info(result);
+}
                                         break;
 
                                     case 6:
@@ -279,7 +282,7 @@ random.nextBytes(bytes);
                                         int e = scanner3.nextInt();
                                        logger.info("Enter the reason for rejection: ");
                                         String res = scanner3.next();
-                                        System.out.println(organizerManagement.rejectModification(e, res));
+                                   logger.info("{}", organizerManagement.rejectModification(e, res));
                                         break;
 
                                     case 8:
@@ -315,7 +318,7 @@ random.nextBytes(bytes);
                                         break;
 
                                     case 11:
-                                         System.out.println(expenseTracker.getExpenses());
+                                             logger.info("{}",expenseTracker.getExpenses());
                                         break;
 
                                     case 12:
@@ -329,7 +332,7 @@ random.nextBytes(bytes);
                                         String amenities = scanner3.next();
                                        logger.info("Enter pricing of venue: ");
                                         double pricing = scanner3.nextDouble();
-                                        System.out.println(venueSystem.addVenue(name, location, capacity, amenities, pricing));
+                                           logger.info("{}",venueSystem.addVenue(name, location, capacity, amenities, pricing));
                                         break;
 
                                     case 13:
@@ -388,7 +391,7 @@ random.nextBytes(bytes);
                                         break;
 
                                     case 2:
-                                        System.out.println(vendorDatabase.getAllVendors());
+                                           logger.info("{}",vendorDatabase.getAllVendors());
                                         break;
 
                                     case 3:
@@ -400,7 +403,7 @@ random.nextBytes(bytes);
                                         double pri = scanner4.nextDouble();
                                         logger.info("Enter review score:");
                                         double rev = scanner4.nextDouble();
-                                        System.out.println(vendorDatabase.filterVendors(loc, avail, pri, rev));
+                                            logger.info("{}",vendorDatabase.filterVendors(loc, avail, pri, rev));
                                         break;
 
                                     case 4:
@@ -439,11 +442,11 @@ random.nextBytes(bytes);
                                         break;
 
                                     case 7:
-                                        System.out.println(vendor2.getPackageRequests());
+                                             logger.info("{}",vendor2.getPackageRequests());
                                         break;
 
                                     case 8:
-                                        System.out.println(vendor2.getContractNegotiations());
+                                         logger.info("{}",vendor2.getContractNegotiations());
                                         break;
 
                                     case 9:
@@ -629,7 +632,7 @@ random.nextBytes(bytes);
                                             }
 
                                         };
-                                       System.out.println(hallRepository.findHallsByCriteria(budget,date1));
+                                            logger.info("{}",hallRepository.findHallsByCriteria(budget,date1));
                                         break;
 
                                     case 11:
