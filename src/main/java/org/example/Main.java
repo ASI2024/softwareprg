@@ -538,7 +538,7 @@ if (logger.isInfoEnabled()) {
                                         int category = scanner5.nextInt();
                                       logger.info(PROMPT_EVENT_NUMBER);
                                         int e = scanner5.nextInt();
-                                        eventManagement.SelectCategory(e, category);
+                                        EventManagement.SelectCategory(e, category);
                                         if (EventManagement.setCategoryFlag)
                                           logger.info("Category selected successfully");
                                         else
@@ -557,7 +557,7 @@ if (logger.isInfoEnabled()) {
                                         } catch (Exception ex) {
                                            logger.info(INVALID_DATE_FORMAT_MESSAGE);
                                         }
-                                        eventManagement.EditDate(ev, dn);
+                                        EventManagement.EditDate(ev, dn);
                                       logger.info(EDIT_ADDED_APPROVAL_MESSAGE);
                                         break;
 
@@ -573,7 +573,7 @@ if (logger.isInfoEnabled()) {
                                         } catch (Exception ex) {
                                            logger.info(INVALID_DATE_FORMAT_MESSAGE);
                                         }
-                                        eventManagement.EditTime(eve, tn);
+                                        EventManagement.EditTime(eve, tn);
                                         logger.info(EDIT_ADDED_APPROVAL_MESSAGE);
                                         break;
 
@@ -583,7 +583,7 @@ if (logger.isInfoEnabled()) {
                                         int even = scanner5.nextInt();
                                        logger.info("Enter new location:");
                                         String lo = scanner5.next();
-                                        eventManagement.EditLocation(even, lo);
+                                        EventManagement.EditLocation(even, lo);
                                       logger.info(EDIT_ADDED_APPROVAL_MESSAGE);
                                         break;
 
@@ -592,7 +592,7 @@ if (logger.isInfoEnabled()) {
                                         int eventN = scanner5.nextInt();
                                        logger.info("Enter new theme:");
                                         String them = scanner5.next();
-                                        eventManagement.EditLocation(eventN, them);
+                                        EventManagement.EditLocation(eventN, them);
                                        logger.info(EDIT_ADDED_APPROVAL_MESSAGE);
                                         break;
 
@@ -601,14 +601,14 @@ if (logger.isInfoEnabled()) {
                                         int eventNu = scanner5.nextInt();
                                       logger.info("Enter new description:");
                                         String des = scanner5.next();
-                                       eventManagement.EditLocation(eventNu, des);
+                                       EventManagement.EditLocation(eventNu, des);
                                         logger.info(EDIT_ADDED_APPROVAL_MESSAGE);
                                         break;
 
                                     case 8:
                                        logger.info(PROMPT_EVENT_NUMBER);
                                         int eventNum = scanner5.nextInt();
-                                        eventManagement.DeletEvent(eventNum);
+                                        EventManagement.DeletEvent(eventNum);
                                      logger.info("The deletion request has been added. Please wait for the organizer’s approval");
                                         break;
 
