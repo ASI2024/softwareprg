@@ -23,7 +23,8 @@ public static final String EVENT_NOT_FOUND = "Event Not Found";
     public HashMap<Integer, String> reasonRejection;
 
     public OrganizerManagement() {
-     
+      List<Event> eventsRequest = EventManagement.getEventsRequest();
+        List<Event> eventsEdition = EventManagement.getEventsEdition();
         this.reasonRejection = new HashMap<>();
     }
 
