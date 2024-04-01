@@ -20,7 +20,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-import java.util.Random;
+import java.security.SecureRandom;
 public class Main {
     private static final String INVALID_INPUT_MESSAGE = "Invalid input please try again:";
     private static final String ENTER_PHONE_NUMBER = "Enter Your PhoneNumber:";
