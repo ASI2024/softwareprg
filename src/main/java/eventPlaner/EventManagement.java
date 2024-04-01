@@ -22,9 +22,7 @@ public class EventManagement {
     public static boolean editDescriptionFlag = false;
     public static boolean deletFlag = false;
     public static boolean setCategoryFlag;
-
     public EventManagement() {
-       eventsRequest = new ArrayList<>();
     
     }
 
