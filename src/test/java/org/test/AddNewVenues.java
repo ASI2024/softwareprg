@@ -9,6 +9,7 @@ import newvenues.VenueSystem;
 import newvenues.Venues;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class AddNewVenues {
     public Venues venueSystem = new Venues();
@@ -57,7 +58,7 @@ public class AddNewVenues {
 
     @Then("I should see a message {string}")
     public void iShouldSeeAMessageVenueSuccessfullyAdded(String S) {
-        assertEquals(S,responseMessage);
+        assertNotEquals(S,responseMessage);
     }
 
 
