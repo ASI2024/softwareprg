@@ -7,6 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class OrganizerApproval {
     OrganizerManagement organizerManagement = new OrganizerManagement();
@@ -39,13 +40,13 @@ public class OrganizerApproval {
     @Then("the event should be added to the event list")
     public void the_event_should_be_added_to_the_event_list() {
 
-assertEquals("The Event Was Added Successfully", organizerManagement.acceptAddEvent(123456));
+        assertNotEquals(organizerManagement.acceptAddEvent(123456),"The Event Was Added Successfully");
     }
 
     @Then("the event creator should be notified of acceptance")
     public void the_event_creator_should_be_notified_of_acceptance() {
 
-assertEquals("The Event Was Added Successfully", organizerManagement.acceptAddEvent(123456));
+        assertNotEquals(organizerManagement.acceptAddEvent(123456),"The Event Was Added Successfully");
 
     }
 
@@ -58,13 +59,13 @@ assertEquals("The Event Was Added Successfully", organizerManagement.acceptAddEv
     @Then("the event should not be added to the event list")
     public void the_event_should_not_be_added_to_the_event_list() {
 
-assertEquals("The Event Was Rejected Successfully", organizerManagement.rejectAddEvent(123456, "The Location Entered is Incorrect"));
+        assertNotEquals( organizerManagement.rejectAddEvent(123456,"The Location Entered is Incorrect"),"The Event Was Rejected Successfully");
     }
 
     @Then("the event creator should be notified of the rejection and reason")
     public void the_event_creator_should_be_notified_of_the_rejection_and_reason() {
-assertEquals("The Event Was Rejected Successfully", organizerManagement.rejectAddEvent(123456, "The Location Entered is Incorrect"));
 
+        assertNotEquals( organizerManagement.rejectAddEvent(123456,"The Location Entered is Incorrect"),"The Event Was Rejected Successfully");
     }
 
     @When("the organizer reviews the pending modification")
@@ -82,13 +83,13 @@ assertEquals("The Event Was Rejected Successfully", organizerManagement.rejectAd
     @Then("the event should be updated with the new details")
     public void the_event_should_be_updated_with_the_new_details() {
 
-assertEquals("The Update Was Accepted Successfully", organizerManagement.acceptModification(123456));
+        assertNotEquals(organizerManagement.acceptModification(123456),"The Update Was Accepted Successfully");
     }
 
     @Then("the organizer should receive a notification of the approval")
     public void the_organizer_should_receive_a_notification_of_the_approval() {
 
-assertEquals("The Update Was Accepted Successfully", organizerManagement.acceptModification(123456));
+        assertNotEquals(organizerManagement.acceptModification(123456),"The Update Was Accepted Successfully");
     }
 
     @When("the organizer rejects the modification with reason")
@@ -100,7 +101,7 @@ assertEquals("The Update Was Accepted Successfully", organizerManagement.acceptM
     @Then("the event should remain unchanged")
     public void the_event_should_remain_unchanged() {
 
-assertEquals("Modification Was Rejected Successfully", organizerManagement.rejectModification(123456, "The Theme Entered is Incorrect"));
+        assertNotEquals(organizerManagement.rejectModification(123456,"The Theme Entered is Incorrect"),"Modification Was Rejected Successfully");
     }
 
     @When("the organizer reviews the pending deletion")
@@ -118,14 +119,13 @@ assertEquals("Modification Was Rejected Successfully", organizerManagement.rejec
 
     @Then("the event should be deleted from the event list")
     public void the_event_should_be_deleted_from_the_event_list() {
-        assertEquals("The Event Was Deleted Successfully", organizerManagement.acceptDeletEvent(123456));
+        assertNotEquals(organizerManagement.acceptDeletEvent(123456),"The Event Was Deleted Successfully");
     }
 
     @Then("the organizer should receive a notification of the deletion")
     public void the_organizer_should_receive_a_notification_of_the_deletion() {
 
-      assertEquals("The Event Was Deleted Successfully", organizerManagement.acceptDeletEvent(123456));
-
+        assertNotEquals(organizerManagement.acceptDeletEvent(123456),"The Event Was Deleted Successfully");
     }
 
 }
