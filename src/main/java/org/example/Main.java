@@ -623,7 +623,7 @@ public class Main {
                                             }
 
                                         };
-                                        logger.info(hallRepository.findHallsByCriteria(budget, date1));
+                                       System.out.println(hallRepository.findHallsByCriteria(budget,date1));
                                         break;
 
                                     case 11:
