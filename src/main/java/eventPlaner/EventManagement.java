@@ -17,7 +17,7 @@ public class EventManagement {
     public static boolean addFlag;
     public static boolean editDateFlag = false;
     public static boolean editTimeFlag = false;
-    private static boolean editLocationFlag=false;
+    private static boolean editLocationFlag ;
     public static boolean editThemeFlag = false;
     public static boolean editDescriptionFlag = false;
     public static boolean deletFlag = false;
@@ -75,16 +75,15 @@ public class EventManagement {
     }
 }
 
-  public static void EditLocation(int eventNumber, String location) {
-        for (Event existingEvent : eventsRequest) {
-            if (existingEvent.getEventNumber() == eventNumber) {
-                Event E = new Event(eventNumber, null, null, location, null, null, null);
-                eventsEdition.add(E);
-                editLocationFlag = true;
-            }
+   public static void EditLocation(int eventNumber, String location) {
+    for (Event existingEvent : eventsRequest) {
+        if (existingEvent.getEventNumber() == eventNumber) {
+            Event E = new Event(eventNumber, null, null, location, null, null, null);
+            eventsEdition.add(E);
+            editLocationFlag = true;
         }
     }
-
+}       
 
   public static void EditTheme(int eventNumber, String theme) {
     for (Event existingEvent : eventsRequest) {
