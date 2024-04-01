@@ -10,6 +10,7 @@ public class Expense {
         this.amount = amount;
         this.category = category;
         this.description = description;
+         this.id = id;
     }
 
     public double getAmount() {
