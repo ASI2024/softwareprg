@@ -150,7 +150,10 @@ random.nextBytes(bytes);
                                      logger.info("Account successfully created");
                                 } else {
 
-                                  logger.info(() -> "Registration result: " + UserService.registerUser(e, us, c, ph, pa));
+                               if (logger.isInfoEnabled()) {
+    String result = UserService.registerUser(e, us, c, ph, pa);
+    logger.info(result);
+}
 
                                 }
                                 break;
