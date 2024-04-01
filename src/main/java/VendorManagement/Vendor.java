@@ -13,8 +13,8 @@ public class Vendor {
     private List<PackageRequest> packageRequests;
     private List<ContractNegotiation> contractNegotiations;
 
-     public Vendor(String id, String name, String type) {
-        this(id, name, type, "", "", false, 0.0, 0.0);
+   public Vendor(){
+
     }
     public Vendor(String id, String name, String type, String service, String location, boolean availability, double pricing, double reviewScore) {
         this.id = id;
