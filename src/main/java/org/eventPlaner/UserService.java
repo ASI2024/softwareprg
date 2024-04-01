@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserService {
-public UserService() {
+ private UserService() {
         // Constructor implementation
     }
 
