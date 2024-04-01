@@ -12,8 +12,7 @@ import static eventPlaner.EventManagement.eventsRequest;
 import static eventPlaner.EventManagement.hasConflict;
 
 public class OrganizerManagement {
-public static final String EVENT_NOT_FOUND = "Event Not Found";
- private static final String EVENT_NUMBER_PREFIX = "Event Number: ";
+
     private static final String UPDATE_SUCCESS = "The Update Was Accepted Successfully";
     private static final Logger logger = LogManager.getLogger(OrganizerManagement.class);
   
