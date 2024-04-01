@@ -93,7 +93,10 @@ random.nextBytes(bytes);
                                     logger.info(REQUEST_SUBMITTED_MESSAGE);
                                 } else {
 
-                                     logger.info(Admin.registerAdmin(email, username, city, password, STATUS_PENDING));
+                                     if (logger.isInfoEnabled()) {
+    String registrationResult = Admin.registerAdmin(email, username, city, password, STATUS_PENDING);
+    logger.info(registrationResult);
+}
                                 }
                                 break;
 
@@ -130,7 +133,11 @@ random.nextBytes(bytes);
                                    logger.info(REQUEST_SUBMITTED_MESSAGE);
                                 } else {
 
-                                     logger.info(Service.registerService(em, use, ci, address, STATUS_PENDING, pho, pas));
+                                 if (logger.isInfoEnabled()) {
+    String registrationResult = Service.registerService(em, use, ci, address, STATUS_PENDING, pho, pas);
+    logger.info(registrationResult);
+}
+
                                 }
                                 break;
                             case 4:
@@ -257,7 +264,11 @@ random.nextBytes(bytes);
                                     case 4:
                                         logger.info(PROMPT_EVENT_NUMBER);
                                         int eventNumber = scanner3.nextInt();
-                                        logger.info(organizerManagement.acceptAddEvent(eventNumber));
+                                  if (logger.isInfoEnabled()) {
+    String addEventResult = organizerManagement.acceptAddEvent(eventNumber);
+    logger.info(addEventResult);
+}
+
                                         break;
 
                                     case 5:
@@ -274,7 +285,10 @@ random.nextBytes(bytes);
                                     case 6:
                                       logger.info(PROMPT_EVENT_NUMBER);
                                         int eve = scanner3.nextInt();
-                                        logger.info(organizerManagement.acceptModification(eve));
+                                     if (logger.isInfoEnabled()) {
+    String modificationResult = organizerManagement.acceptModification(eve);
+    logger.info(modificationResult);
+}
                                         break;
 
                                     case 7:
@@ -282,13 +296,21 @@ random.nextBytes(bytes);
                                         int e = scanner3.nextInt();
                                        logger.info("Enter the reason for rejection: ");
                                         String res = scanner3.next();
-                                   logger.info("{}", organizerManagement.rejectModification(e, res));
+                               if (logger.isInfoEnabled()) {
+    String message = organizerManagement.rejectModification(e, res);
+    logger.info("{}", message);
+}
+
                                         break;
 
                                     case 8:
                                       logger.info(PROMPT_EVENT_NUMBER);
                                         int even = scanner3.nextInt();
-                                        logger.info(organizerManagement.acceptDeletEvent(even));
+                                        if (logger.isInfoEnabled()) {
+    String result = organizerManagement.acceptDeletEvent(even);
+    logger.info(result);
+}
+
                                         break;
 
                                     case 9:
@@ -485,7 +507,7 @@ random.nextBytes(bytes);
                                         try {
                                             date = LocalDate.parse(Date, formatter);
                                         } catch (Exception e) {
-                                            System.out.println(INVALID_DATE_FORMAT_MESSAGE);
+                                          logger.info(INVALID_DATE_FORMAT_MESSAGE);
                                         }
                                         logger.info("Enter Time(HH:MM):");
                                         String Time = scanner5.next();
