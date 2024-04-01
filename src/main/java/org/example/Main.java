@@ -309,39 +309,39 @@ public class Main {
                                         break;
 
                                     case 11:
-                                         logger.info(expenseTracker.getExpenses());
+                                         System.out.println(expenseTracker.getExpenses());
                                         break;
 
                                     case 12:
-                                        System.out.println("Enter name of venue: ");
+                                         logger.info("Enter name of venue: ");
                                         String name = scanner3.next();
-                                        System.out.println("Enter location of venue: ");
+                                         logger.info("Enter location of venue: ");
                                         String location = scanner3.next();
-                                        System.out.println("Enter capacity of venue: ");
+                                        logger.info("Enter capacity of venue: ");
                                         int capacity = scanner3.nextInt();
-                                        System.out.println("Enter amenities of venue: ");
+                                        logger.info("Enter amenities of venue: ");
                                         String amenities = scanner3.next();
-                                        System.out.println("Enter pricing of venue: ");
+                                       logger.info("Enter pricing of venue: ");
                                         double pricing = scanner3.nextDouble();
                                         System.out.println(venueSystem.addVenue(name, location, capacity, amenities, pricing));
                                         break;
 
                                     case 13:
-                                        System.out.println("Enter name of venue: ");
+                                         logger.info("Enter name of venue: ");
                                         String name1 = scanner3.next();
-                                        System.out.println("Enter location of venue: ");
+                                       logger.info("Enter location of venue: ");
                                         String location1 = scanner3.next();
                                         if (venueSystem.deletVenue(name1, location1))
-                                            System.out.println("Venue deleted successfully ");
+                                           logger.info("Venue deleted successfully ");
                                         else
-                                            System.out.println("Venue not found ");
+                                           logger.info("Venue not found ");
                                         break;
 
                                     case 14:
                                         break;
 
                                     default:
-                                        System.out.println(INVALID_INPUT_MESSAGE);
+                                         logger.info(INVALID_INPUT_MESSAGE);
                                         break;
 
                                 }
@@ -351,7 +351,7 @@ public class Main {
 
                             while (in3 != 9) {
 
-                                System.out.println("1.Add new vendor\n2.Show all vendor\n3.Filters vendors based on provided criteria\n" +
+                                logger.info("1.Add new vendor\n2.Show all vendor\n3.Filters vendors based on provided criteria\n" +
                                         "4.Package request\n5.Finalize the negotiation\n" +
                                         "6.Add new contract negotiation\n7.Show all package request\n" +
                                         "8.Show all Contract negotiation\n9.Exit");
@@ -360,25 +360,25 @@ public class Main {
                                 switch (in3) {
 
                                     case 1:
-                                        System.out.println("Enter id of vendor:");
+                                        logger.info("Enter id of vendor:");
                                         String id = scanner4.next();
-                                        System.out.println("Enter name of vendor:");
+                                       logger.info("Enter name of vendor:");
                                         String name = scanner4.next();
-                                        System.out.println("Enter type of vendor:");
+                                        logger.info("Enter type of vendor:");
                                         String type = scanner4.next();
-                                        System.out.println("Enter service of vendor:");
+                                         logger.info("Enter service of vendor:");
                                         String service = scanner4.next();
-                                        System.out.println("Enter location of vendor:");
+                                         logger.info("Enter location of vendor:");
                                         String location = scanner4.next();
-                                        System.out.println("Enter availability of vendor(true/false):");
+                                        logger.info("Enter availability of vendor(true/false):");
                                         boolean availability = scanner4.nextBoolean();
-                                        System.out.println("Enter the vendor's service price:");
+                                         logger.info("Enter the vendor's service price:");
                                         double price = scanner4.nextDouble();
-                                        System.out.println("Enter review score of vendor:");
+                                        logger.info("Enter review score of vendor:");
                                         double review = scanner4.nextDouble();
                                         vendor = new Vendor(id, name, type, service, location, availability, price, review);
                                         vendorDatabase.addVendor(vendor);
-                                        System.out.println("Vendor added successfully");
+                                         logger.info("Vendor added successfully");
                                         break;
 
                                     case 2:
@@ -386,50 +386,50 @@ public class Main {
                                         break;
 
                                     case 3:
-                                        System.out.println("Enter location:");
+                                        logger.info("Enter location:");
                                         String loc = scanner4.next();
-                                        System.out.println("Enter availability(true/false):");
+                                         logger.info("Enter availability(true/false):");
                                         boolean avail = scanner4.nextBoolean();
-                                        System.out.println("Enter the price:");
+                                        logger.info("Enter the price:");
                                         double pri = scanner4.nextDouble();
-                                        System.out.println("Enter review score:");
+                                        logger.info("Enter review score:");
                                         double rev = scanner4.nextDouble();
                                         System.out.println(vendorDatabase.filterVendors(loc, avail, pri, rev));
                                         break;
 
                                     case 4:
-                                        System.out.println("Enter request id:");
+                                         logger.info("Enter request id:");
                                         String re = scanner4.next();
-                                        System.out.println("Enter vendor id:");
+                                       logger.info("Enter vendor id:");
                                         String ve = scanner4.next();
-                                        System.out.println("Enter details:");
+                                       logger.info("Enter details:");
                                         String de = scanner4.next();
                                         PackageRequest packageRequest = new PackageRequest(re,ve,de);
                                         vendorDatabase.requestPackageFromVendor(ve, packageRequest);
-                                        System.out.println("Requested successfully");
+                                       logger.info("Requested successfully");
                                         break;
 
                                     case 5:
-                                        System.out.println("Enter agreed(true/false):");
+                                       logger.info("Enter agreed(true/false):");
                                         boolean agreed = scanner4.nextBoolean();
-                                        System.out.println("Enter update terms:");
+                                         logger.info("Enter update terms:");
                                         String ut = scanner4.next();
                                         contractNegotiation.finalizeNegotiation(agreed, ut);
-                                        System.out.println("Finalized the negotiation successfully");
+                                       logger.info("Finalized the negotiation successfully");
                                         break;
 
                                     case 6:
-                                        System.out.println("Enter negotiation id:");
+                                       logger.info("Enter negotiation id:");
                                         String ne = scanner4.next();
-                                        System.out.println("Enter vendor id:");
+                                      logger.info("Enter vendor id:");
                                         String ven = scanner4.next();
-                                        System.out.println("Enter agreed(true/false):");
+                                     logger.info("Enter agreed(true/false):");
                                         boolean ag = scanner4.nextBoolean();
-                                        System.out.println("Enter terms:");
+                                        logger.info("Enter terms:");
                                         String terms = scanner4.next();
                                         contractNegotiation = new ContractNegotiation(ne, ven, ag, terms);
                                         vendor2.negotiateContract(contractNegotiation);
-                                        System.out.println("Contracted negotiation successfully");
+                                         logger.info("Contracted negotiation successfully");
                                         break;
 
                                     case 7:
@@ -444,7 +444,7 @@ public class Main {
                                         break;
 
                                     default:
-                                        System.out.println(INVALID_INPUT_MESSAGE);
+                                        logger.info(INVALID_INPUT_MESSAGE);
                                         break;
 
 
@@ -457,7 +457,7 @@ public class Main {
 
                             while (in4 != 11) {
 
-                                System.out.println("1.Add new event\n2.Select category\n3.Edit your event date\n" +
+                                logger.info("1.Add new event\n2.Select category\n3.Edit your event date\n" +
                                         "4.Edit your event time\n5.Edit your event location\n" +
                                         "6.Edit your event theme\n7.Edit your event description\n" +
                                         "8.Delet your event\n9.Show calender for event\n" +
@@ -469,7 +469,7 @@ public class Main {
 
                                     case 1:
                                         int eventNumber = random.nextInt(maxValue - minValue + 1) + minValue;
-                                        System.out.println("Enter date(YYYY-MM-DD):");
+                                       logger.info("Enter date(YYYY-MM-DD):");
                                         String Date = scanner5.next();
                                         formatter = DateTimeFormatter.ofPattern(DATE_FORMAT_PATTERN);
                                         LocalDate date = LocalDate.now();
@@ -478,121 +478,121 @@ public class Main {
                                         } catch (Exception e) {
                                             System.out.println(INVALID_DATE_FORMAT_MESSAGE);
                                         }
-                                        System.out.println("Enter Time(HH:MM):");
+                                        logger.info("Enter Time(HH:MM):");
                                         String Time = scanner5.next();
                                         formatter = DateTimeFormatter.ofPattern("HH:mm");
                                         LocalTime time = LocalTime.now();
                                         try {
                                             time = LocalTime.parse(Time, formatter);
                                         } catch (Exception e) {
-                                            System.out.println("Invalid time format. Please enter the time in the format HH:mm.");
+                                           logger.info("Invalid time format. Please enter the time in the format HH:mm.");
                                         }
-                                        System.out.println("Enter location:");
+                                      logger.info("Enter location:");
                                         String location = scanner5.next();
-                                        System.out.println("Enter theme:");
+                                        logger.info("Enter theme:");
                                         String theme = scanner5.next();
-                                        System.out.println("Enter description:");
+                                      logger.info("Enter description:");
                                         String de = scanner5.next();
                                         event = new Event(eventNumber, date, time, location, theme, de, null);
                                         eventManagement.AddEvent(event);
-                                        System.out.println("Your event number: " + eventNumber);
-                                        System.out.println("The event has been added. Please wait for the organizer’s approval");
+                                        logger.info("Your event number: " + eventNumber);
+                                      logger.info("The event has been added. Please wait for the organizer’s approval");
                                         break;
 
                                     case 2:
                                         eventManagement.ShowCategory();
-                                        System.out.println("Enter number of category:");
+                                      logger.info("Enter number of category:");
                                         int category = scanner5.nextInt();
-                                        System.out.println(PROMPT_EVENT_NUMBER);
+                                      logger.info(PROMPT_EVENT_NUMBER);
                                         int e = scanner5.nextInt();
                                         eventManagement.SelectCategory(e, category);
                                         if (EventManagement.setCategoryFlag)
-                                            System.out.println("Category selected successfully");
+                                          logger.info("Category selected successfully");
                                         else
-                                            System.out.println("Event not found");
+                                            logger.info("Event not found");
                                         break;
 
                                     case 3:
-                                        System.out.println(PROMPT_EVENT_NUMBER);
+                                        logger.info(PROMPT_EVENT_NUMBER);
                                         int ev = scanner5.nextInt();
-                                        System.out.println("Enter new date(YYYY-MM-DD):");
+                                     logger.info("Enter new date(YYYY-MM-DD):");
                                         String DN = scanner5.next();
                                         formatter = DateTimeFormatter.ofPattern(DATE_FORMAT_PATTERN);
                                         LocalDate dn = LocalDate.now();
                                         try {
                                             dn = LocalDate.parse(DN, formatter);
                                         } catch (Exception ex) {
-                                            System.out.println(INVALID_DATE_FORMAT_MESSAGE);
+                                           logger.info(INVALID_DATE_FORMAT_MESSAGE);
                                         }
                                         eventManagement.EditDate(ev, dn);
-                                        System.out.println(EDIT_ADDED_APPROVAL_MESSAGE);
+                                      logger.info(EDIT_ADDED_APPROVAL_MESSAGE);
                                         break;
 
                                     case 4:
-                                        System.out.println(PROMPT_EVENT_NUMBER);
+                                     logger.info(PROMPT_EVENT_NUMBER);
                                         int eve = scanner5.nextInt();
-                                        System.out.println("Enter Time(HH:MM):");
+                                        logger.info("Enter Time(HH:MM):");
                                         String TN = scanner5.next();
                                         formatter = DateTimeFormatter.ofPattern("HH:mm");
                                         LocalTime tn = LocalTime.now();
                                         try {
                                             tn = LocalTime.parse(TN, formatter);
                                         } catch (Exception ex) {
-                                            System.out.println(INVALID_DATE_FORMAT_MESSAGE);
+                                           logger.info(INVALID_DATE_FORMAT_MESSAGE);
                                         }
                                         eventManagement.EditTime(eve, tn);
-                                        System.out.println(EDIT_ADDED_APPROVAL_MESSAGE);
+                                        logger.info(EDIT_ADDED_APPROVAL_MESSAGE);
                                         break;
 
 
                                     case 5:
-                                        System.out.println(PROMPT_EVENT_NUMBER);
+                                     logger.info(PROMPT_EVENT_NUMBER);
                                         int even = scanner5.nextInt();
-                                        System.out.println("Enter new location:");
+                                       logger.info("Enter new location:");
                                         String lo = scanner5.next();
                                         eventManagement.EditLocation(even, lo);
-                                        System.out.println(EDIT_ADDED_APPROVAL_MESSAGE);
+                                      logger.info(EDIT_ADDED_APPROVAL_MESSAGE);
                                         break;
 
                                     case 6:
-                                        System.out.println(PROMPT_EVENT_NUMBER);
+                                     logger.info(PROMPT_EVENT_NUMBER);
                                         int eventN = scanner5.nextInt();
-                                        System.out.println("Enter new theme:");
+                                       logger.info("Enter new theme:");
                                         String them = scanner5.next();
                                         eventManagement.EditLocation(eventN, them);
-                                        System.out.println(EDIT_ADDED_APPROVAL_MESSAGE);
+                                       logger.info(EDIT_ADDED_APPROVAL_MESSAGE);
                                         break;
 
                                     case 7:
-                                        System.out.println(PROMPT_EVENT_NUMBER);
+                                      logger.info(PROMPT_EVENT_NUMBER);
                                         int eventNu = scanner5.nextInt();
-                                        System.out.println("Enter new description:");
+                                      logger.info("Enter new description:");
                                         String des = scanner5.next();
                                         eventManagement.EditLocation(eventNu, des);
-                                        System.out.println(EDIT_ADDED_APPROVAL_MESSAGE);
+                                        logger.info(EDIT_ADDED_APPROVAL_MESSAGE);
                                         break;
 
                                     case 8:
-                                        System.out.println(PROMPT_EVENT_NUMBER);
+                                       logger.info(PROMPT_EVENT_NUMBER);
                                         int eventNum = scanner5.nextInt();
                                         eventManagement.DeletEvent(eventNum);
-                                        System.out.println("The deletion request has been added. Please wait for the organizer’s approval");
+                                     logger.info("The deletion request has been added. Please wait for the organizer’s approval");
                                         break;
 
                                     case 9:
                                         ShowCalendar showCalendar = new ShowCalendar();
-                                        System.out.println("Enter month:");
+                                        logger.info("Enter month:");
                                         int month = scanner5.nextInt();
-                                        System.out.println("Enter year:");
+                                        logger.info("Enter year:");
                                         int year = scanner5.nextInt();
                                         showCalendar.PrintCalender(month, year);
-                                        System.out.println("Note:The days in red color are reserved.");
+                                        logger.info("Note:The days in red color are reserved.");
                                         break;
 
                                     case 10:
-                                        System.out.println("Enter budget:");
+                                      logger.info("Enter budget:");
                                         int budget = scanner5.nextInt();
-                                        System.out.println("Enter new date(YYYY-MM-DD):");
+                                       logger.info("Enter new date(YYYY-MM-DD):");
                                         String d = scanner5.next();
                                         SimpleDateFormat formatter1 = new SimpleDateFormat(DATE_FORMAT_PATTERN);
                                         java.util.Date date1 = null;
@@ -601,18 +601,18 @@ public class Main {
                                             date1 = formatter1.parse(d);
 
                                         } catch (ParseException ee) {
-                                            System.out.println("Invalid date format.");
+                                           logger.info("Invalid date format.");
                                         }
 
                                         HallRepositoryImpl hallRepository = new HallRepositoryImpl() {
                                             @Override
                                             public List<Hall> findHallsByCriteria(int budget, String eventType, java.util.Date date) {
 
-                                                System.out.println("Searching for halls with budget <= " + budget + " and date == " + date);
+                                                logger.info("Searching for halls with budget <= " + budget + " and date == " + date);
                                                 SimpleDateFormat formatter = new SimpleDateFormat(DATE_FORMAT_PATTERN);
                                                 List<Hall> matchingHalls = new ArrayList<>();
                                                 for (Hall hall : hallDatabase.values()) {
-                                                    System.out.println("Hall: " + hall.getName() + ", Rent: " + hall.getRent() + ", Date: " + hall.getAvailableDate());
+                                                     logger.info("Hall: " + hall.getName() + ", Rent: " + hall.getRent() + ", Date: " + hall.getAvailableDate());
                                                     if (hall.getRent() <= budget && hall.getAvailableDate().compareTo(date) == 0) {
                                                         matchingHalls.add(hall);
                                                     }
@@ -623,14 +623,14 @@ public class Main {
                                             }
 
                                         };
-                                        System.out.println(hallRepository.findHallsByCriteria(budget, date1));
+                                        logger.info(hallRepository.findHallsByCriteria(budget, date1));
                                         break;
 
                                     case 11:
                                         break;
 
                                     default:
-                                        System.out.println(INVALID_INPUT_MESSAGE);
+                                       logger.info(INVALID_INPUT_MESSAGE);
                                         break;
 
                                 }
@@ -640,7 +640,7 @@ public class Main {
 
                         } else {
 
-                            System.out.println("Invalid email or password pleas try again:");
+                             logger.info("Invalid email or password pleas try again:");
                             break;
                         }
 
@@ -650,7 +650,7 @@ public class Main {
                     break;
 
                 default:
-                    System.out.println(INVALID_INPUT_MESSAGE);
+                    logger.info(INVALID_INPUT_MESSAGE);
                     break;
             }
 
