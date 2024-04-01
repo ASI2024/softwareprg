@@ -23,7 +23,7 @@ public class EventManagement {
     public static boolean deletFlag = false;
     public static boolean setCategoryFlag;
     public EventManagement() {
-    
+    //constroctor 
     }
 
     public static void AddEvent(Event event) {
