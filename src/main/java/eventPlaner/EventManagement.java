@@ -11,8 +11,8 @@ import java.util.Arrays;
 
 public class EventManagement {
  private static final Logger LOGGER = Logger.getLogger(EventManagement.class.getName());
-      private static List<Event> eventsRequest = new ArrayList<>();
-    private static List<Event> eventsEdition = new ArrayList<>();
+      static List<Event> eventsRequest = new ArrayList<>();
+    static List<Event> eventsEdition = new ArrayList<>();
     public static List<String> Category = new ArrayList<>(); 
     public static boolean addFlag;
     public static boolean editDateFlag = false;
