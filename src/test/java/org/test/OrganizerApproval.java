@@ -39,13 +39,13 @@ public class OrganizerApproval {
     @Then("the event should be added to the event list")
     public void the_event_should_be_added_to_the_event_list() {
 
-        assertEquals(organizerManagement.acceptAddEvent(123456),"The Event Was Added Successfully");
+assertEquals("The Event Was Added Successfully", organizerManagement.acceptAddEvent(123456));
     }
 
     @Then("the event creator should be notified of acceptance")
     public void the_event_creator_should_be_notified_of_acceptance() {
 
-        assertEquals(organizerManagement.acceptAddEvent(123456),"The Event Was Added Successfully");
+assertEquals("The Event Was Added Successfully", organizerManagement.acceptAddEvent(123456));
 
     }
 
@@ -58,13 +58,13 @@ public class OrganizerApproval {
     @Then("the event should not be added to the event list")
     public void the_event_should_not_be_added_to_the_event_list() {
 
-        assertEquals( organizerManagement.rejectAddEvent(123456,"The Location Entered is Incorrect"),"The Event Was Rejected Successfully");
+assertEquals("The Event Was Rejected Successfully", organizerManagement.rejectAddEvent(123456, "The Location Entered is Incorrect"));
     }
 
     @Then("the event creator should be notified of the rejection and reason")
     public void the_event_creator_should_be_notified_of_the_rejection_and_reason() {
+assertEquals("The Event Was Rejected Successfully", organizerManagement.rejectAddEvent(123456, "The Location Entered is Incorrect"));
 
-        assertEquals( organizerManagement.rejectAddEvent(123456,"The Location Entered is Incorrect"),"The Event Was Rejected Successfully");
     }
 
     @When("the organizer reviews the pending modification")
@@ -82,13 +82,13 @@ public class OrganizerApproval {
     @Then("the event should be updated with the new details")
     public void the_event_should_be_updated_with_the_new_details() {
 
-        assertEquals(organizerManagement.acceptModification(123456),"The Update Was Accepted Successfully");
+assertEquals("The Update Was Accepted Successfully", organizerManagement.acceptModification(123456));
     }
 
     @Then("the organizer should receive a notification of the approval")
     public void the_organizer_should_receive_a_notification_of_the_approval() {
 
-        assertEquals(organizerManagement.acceptModification(123456),"The Update Was Accepted Successfully");
+assertEquals("The Update Was Accepted Successfully", organizerManagement.acceptModification(123456));
     }
 
     @When("the organizer rejects the modification with reason")
@@ -100,7 +100,7 @@ public class OrganizerApproval {
     @Then("the event should remain unchanged")
     public void the_event_should_remain_unchanged() {
 
-        assertEquals(organizerManagement.rejectModification(123456,"The Theme Entered is Incorrect"),"Modification Was Rejected Successfully");
+assertEquals("Modification Was Rejected Successfully", organizerManagement.rejectModification(123456, "The Theme Entered is Incorrect"));
     }
 
     @When("the organizer reviews the pending deletion")
@@ -118,7 +118,7 @@ public class OrganizerApproval {
 
     @Then("the event should be deleted from the event list")
     public void the_event_should_be_deleted_from_the_event_list() {
-        assertEquals(organizerManagement.acceptDeletEvent(123456),"The Event Was Deleted Successfully");
+        assertEquals("The Event Was Deleted Successfully", organizerManagement.acceptDeletEvent(123456));
     }
 
     @Then("the organizer should receive a notification of the deletion")
