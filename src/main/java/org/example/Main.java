@@ -354,8 +354,9 @@ random.nextBytes(bytes);
                                         String amenities = scanner3.next();
                                        logger.info("Enter pricing of venue: ");
                                         double pricing = scanner3.nextDouble();
-                                           logger.info("{}",venueSystem.addVenue(name, location, capacity, amenities, pricing));
-                                        break;
+if (logger.isInfoEnabled()) {
+    logger.info("{}", venueSystem.addVenue(name, location, capacity, amenities, pricing));
+}                                        break;
 
                                     case 13:
                                          logger.info("Enter name of venue: ");
