@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserService {
- UserService() {}
+public UserService() {
+        // Constructor implementation
+    }
+
     public static List<User>users =new ArrayList<>();
 
 
