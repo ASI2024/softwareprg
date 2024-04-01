@@ -17,7 +17,7 @@ public class EventManagement {
     public static boolean addFlag;
     public static boolean editDateFlag = false;
     public static boolean editTimeFlag = false;
-    private static boolean editLocationFlag ;
+ public static boolean editLocationFlag = false;
     public static boolean editThemeFlag = false;
     public static boolean editDescriptionFlag = false;
     public static boolean deletFlag = false;
@@ -142,4 +142,5 @@ public void ShowCategory() {
             }
         }
     }
+ 
 }
