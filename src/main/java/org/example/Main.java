@@ -526,7 +526,8 @@ random.nextBytes(bytes);
                                         String de = scanner5.next();
                                         event = new Event(eventNumber, date, time, location, theme, de, null);
                                         eventManagement.AddEvent(event);
-                                        logger.info("Your event number: " + eventNumber);
+                                       logger.info("Your event number: {}", eventNumber);
+
                                       logger.info("The event has been added. Please wait for the organizer’s approval");
                                         break;
 
@@ -639,7 +640,10 @@ random.nextBytes(bytes);
                                             @Override
                                             public List<Hall> findHallsByCriteria(int budget, String eventType, java.util.Date date) {
 
-logger.info("Searching for halls with budget <= {} and date == {}", budget, new SimpleDateFormat(DATE_FORMAT_PATTERN).format(date));
+if (logger.isInfoEnabled()) {
+    String formattedDate = new SimpleDateFormat(DATE_FORMAT_PATTERN).format(date);
+    logger.info("Searching for halls with budget <= {} and date == {}", budget, formattedDate);
+}
 
                                                 List<Hall> matchingHalls = new ArrayList<>();
                                                 for (Hall hall : hallDatabase.values()) {
