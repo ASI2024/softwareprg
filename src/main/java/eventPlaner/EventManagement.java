@@ -75,19 +75,14 @@ public class EventManagement {
     }
 }
 
-public void EditLocation(int eventNumber, String location) {
-
-        for(Event existingEvent : eventsRequest){
-
-            if(existingEvent.getEventNumber() == eventNumber) {
-
-                Event E = new Event(eventNumber,null,null,location,null,null,null);
+  public static void EditLocation(int eventNumber, String location) {
+        for (Event existingEvent : eventsRequest) {
+            if (existingEvent.getEventNumber() == eventNumber) {
+                Event E = new Event(eventNumber, null, null, location, null, null, null);
                 eventsEdition.add(E);
                 editLocationFlag = true;
             }
-
         }
-
     }
 
   public static void EditTheme(int eventNumber, String theme) {
