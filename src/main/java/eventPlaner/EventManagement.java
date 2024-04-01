@@ -11,13 +11,13 @@ import java.util.Arrays;
 
 public class EventManagement {
  private static final Logger LOGGER = Logger.getLogger(EventManagement.class.getName());
-    public static List<Event> eventsRequest = new ArrayList<>();
-    public static List<Event> eventsEdition = new ArrayList<>();
+      private static List<Event> eventsRequest = new ArrayList<>();
+    private static List<Event> eventsEdition = new ArrayList<>();
     public static List<String> Category = new ArrayList<>(); 
     public static boolean addFlag;
     public static boolean editDateFlag = false;
     public static boolean editTimeFlag = false;
-    public static boolean editLocationFlag = false;
+    private static boolean editLocationFlag;
     public static boolean editThemeFlag = false;
     public static boolean editDescriptionFlag = false;
     public static boolean deletFlag = false;
