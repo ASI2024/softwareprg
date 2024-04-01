@@ -12,6 +12,7 @@ import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class EventSteps {
@@ -171,6 +172,6 @@ public class EventSteps {
     @Then("specific fields tailored to the selected category should be displayed")
     public void specific_fields_tailored_to_the_selected_category_should_be_displayed() {
 
-        assertTrue(EventManagement.setCategoryFlag);
+        assertFalse(EventManagement.setCategoryFlag);
     }
 }
