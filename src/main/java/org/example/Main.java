@@ -20,7 +20,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-
+import java.util.Random;
 public class Main {
     private static final String INVALID_INPUT_MESSAGE = "Invalid input please try again:";
     private static final String ENTER_PHONE_NUMBER = "Enter Your PhoneNumber:";
@@ -44,7 +44,9 @@ public class Main {
         Scanner scanner3 = new Scanner(System.in);
         Scanner scanner4 = new Scanner(System.in);
         Scanner scanner5 = new Scanner(System.in);
-        Random random = new Random();
+     SecureRandom random = new SecureRandom(); 
+byte bytes[] = new byte[20];
+random.nextBytes(bytes);
 
         int minValue = 100000;
         int maxValue = 999999;
