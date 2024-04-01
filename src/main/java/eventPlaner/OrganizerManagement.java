@@ -15,15 +15,16 @@ public class OrganizerManagement {
 
     private static final String UPDATE_SUCCESS = "The Update Was Accepted Successfully";
     private static final Logger logger = LogManager.getLogger(OrganizerManagement.class);
-  
+  private static final String EVENT_NUMBER_PREFIX = "Event Number: ";
+private static final String EVENT_NOT_FOUND = "Event Not Found";
+
 
 
    public static List<Event> eventsList; 
     public HashMap<Integer, String> reasonRejection;
 
     public OrganizerManagement() {
-      List<Event> eventsRequest = EventManagement.getEventsRequest();
-        List<Event> eventsEdition = EventManagement.getEventsEdition();
+     
         this.reasonRejection = new HashMap<>();
     }
 
