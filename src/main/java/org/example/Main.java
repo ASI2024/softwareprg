@@ -688,7 +688,7 @@ logger.info("Hall: {}, Rent: {}, Date: {}", hall.getName(), hall.getRent(), hall
                     logger.info(INVALID_INPUT_MESSAGE);
                     break;
             }
-
+break;
         }
 
     }
