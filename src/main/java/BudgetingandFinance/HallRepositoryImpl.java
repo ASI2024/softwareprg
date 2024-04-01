@@ -8,14 +8,14 @@ public abstract class HallRepositoryImpl implements HallRepository {
     private static final Logger logger = LoggerFactory.getLogger(HallRepositoryImpl.class);
     private Map<Integer, Hall> hallDatabase = new HashMap<>();
 
-    protected HallRepositoryImpl() { // Constructor visibility changed to 'protected'
+    protected HallRepositoryImpl() { 
         hallDatabase.put(1, new Hall(1, "Grand Ballroom", 3000, 200, new Date()));
         hallDatabase.put(2, new Hall(2, "Conference Center", 1500, 100, new Date()));
     }
 
     @Override
     public List<Hall> findHallsByCriteria(int budget, Date date) {
-        // Replacing System.out.println with logger.info
+       
         logger.info("Searching for halls with budget <= {} and date == {}", budget, date);
         
         List<Hall> matchingHalls = new ArrayList<>();
