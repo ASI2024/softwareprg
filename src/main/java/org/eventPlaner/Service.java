@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Service {
-
+ private Service() {}
     public static List<ServiceProvider>ServiceProviders = new ArrayList<>();
 
 
